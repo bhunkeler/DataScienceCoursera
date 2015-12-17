@@ -1,0 +1,18 @@
+{
+    "contents" : "# for Loops\n\nx <- c(\"a\", \"b\", \"c\", \"d\")\n\nHcnt <- 0\nTcnt <- 0\n\nfor(i in 1:1000){\n  coin <- rbinom(1, 1, 0.5)\n  \n  if(coin == 1){\n    print(\"Head\")\n    Hcnt <- Hcnt + 1\n  } else {\n    print(\"Tail\")\n    Tcnt <- Tcnt + 1\n  }\n  \n}\n\nprint(Hcnt)\nprint(Tcnt)\n\nHcnt <- 0\nTcnt <- 0\n\nfor(i in 1:100){\n  \n  if (i <= 20){\n    next\n  }\n  \n  coin <- rbinom(1, 1, 0.5)\n  \n  if(coin == 1){\n    print(\"Head\")\n    Hcnt <- Hcnt + 1\n  } else {\n    print(\"Tail\")\n    Tcnt <- Tcnt + 1\n  }\n  \n}\nprint(Hcnt)\nprint(Tcnt)\n\n\n\nfor(i in 1:4){\n  \n  print(x[i])\n  \n}\n\nseq_along(x)\nfor(i in seq_along(x)){\n  \n  print(x[i])\n  \n}\n\nfor(letter in x){\n  \n  print(letter)\n  \n}\n\n\n\n\n\n",
+    "created" : 1446889558597.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "3176966038",
+    "id" : "1A0C2066",
+    "lastKnownWriteTime" : 7011605692497750387,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

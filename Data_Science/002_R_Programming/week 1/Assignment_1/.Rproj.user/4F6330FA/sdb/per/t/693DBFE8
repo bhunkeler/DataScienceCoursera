@@ -1,0 +1,18 @@
+{
+    "contents" : "\nboring_function <- function(x) {\n  x\n}\n\nmy_mean <- function(my_vector) {\n  # Write your code here!\n  # Remember: the last expression evaluated will be returned! \n  mean(my_vector)\n  \n}\n\nremainder <- function(num, divisor = 2) {\n  \n  value <- (num %% divisor) \n  value\n  # Write your code here!\n  # Remember: the last expression evaluated will be returned! \n}\n\nevaluate <- function(func, dat){\n  \n  func(dat)\n  # Write your code here!\n  # Remember: the last expression evaluated will be returned! \n}\n\n\ntelegram <- function(arg1, arg2){\n  paste(\"START\", arg1, arg2, \"STOP\", sep = \" \", collapse = NULL )\n}\n\nmad_libs <- function(...){\n  # Do your argument unpacking here!\n  args <- list(...)\n  place <- args[[\"place\"]]\n  adjective <- args[[\"adjective\"]]\n  noun <- args[[\"noun\"]]\n  \n  # Don't modify any code below this comment.\n  # Notice the variables you'll need to create in order for the code below to\n  # be functional!\n  paste(\"News from\", place, \"today where\", adjective, \"students took to the streets in protest of the new\", noun, \"being installed on campus.\")\n}\n\n\"%p%\" <- function(left, right){ # Remember to add arguments!\n  paste(left, right)\n}",
+    "created" : 1446747019517.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "333261639",
+    "id" : "693DBFE8",
+    "lastKnownWriteTime" : 1446741229,
+    "path" : "C:/Users/bhunkeler/OneDrive/Dokumente/Coursera_Courses/Data Science/002_R Programming/week 1/Swirl/Functions.R",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

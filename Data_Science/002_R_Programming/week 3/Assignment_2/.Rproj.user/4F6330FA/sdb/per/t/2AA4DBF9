@@ -1,0 +1,18 @@
+{
+    "contents" : "# ===============================================================================================\n# Description: Assignment 2 \n#              These functions are used to create a special object that stores a matrix \n#               and cache's its inverse.# \n#\n#\n# Authhor:     Bruno Hunkeler \n# Date:        08.11.2015\n# ===============================================================================================\n\n\n# references to functions\n#source(\"cachematrix.R\")\nsource(\"cm.R\")\n# source(\"temp.R\")\n\n# library references \n\nlibrary(\"MASS\")\n\nx <- matrix(1:9, nrow= 3, ncol = 3)\ny <- matrix(1:16, nrow= 4, ncol = 4)\nx1 <- matrix(1:6, nrow= 2, ncol = 3)\ny1 <- matrix(1:10, nrow= 2, ncol = 5)\n\nxInv <- ginv(x) \n\n# case with cashed \nmat <- makeCacheMatrix(x)\nmatSetInv <- mat$setInv(xInv)\ncmat <- cacheSolve(mat)\n\n\n# case without cached matrix\nmatSet <- mat$set(x1)\ncmat <- cacheSolve(mat)\n\nmatSet <- mat$set(x)\nmatGet <- mat$get()\nmatSetInv <- mat$setinverse(x)\nmatGetInv <- mat$getinverse()\n\nfinished <- \"finished\"\n\n\n",
+    "created" : 1447000406568.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2946545773",
+    "id" : "2AA4DBF9",
+    "lastKnownWriteTime" : 1447001749,
+    "path" : "C:/Users/bhunkeler/OneDrive/Dokumente/Coursera_Courses/Data Science/002_R Programming/week 3/Assignment_2/mainCacheMatrix.R",
+    "project_path" : "mainCacheMatrix.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
