@@ -1,0 +1,18 @@
+{
+    "contents" : "# ===============================================================================================\n# Description: Assignment 3 \n#              \n#\n#\n# Authhor:     Bruno Hunkeler \n# Date:        08.11.2015\n# ===============================================================================================\n\n# references to functions\nsource(\"best.R\")\nsource(\"best1.R\")\n\n# library references \n#library(\"MASS\")\n\n# ===============================================================================================\n# Assignment 3/1 - Plot the 30-day mortality rates for heart attack\n# ===============================================================================================\n\noutcome <- read.csv(\"outcome-of-care-measures.csv\", colClasses = \"character\")\n# head(outcome)\n\noutcome[, 11] <- as.numeric(outcome[, 11])\n\n## You may get a warning about NAs being introduced; that is okay\nhist(outcome[, 11], 50)\n\n# ===============================================================================================\n# Assignment 3/1 - Finding the best hospital in a state\n# ===============================================================================================\n\n\n# Test Case 1\nhospital <- best(\"TX\", \"heart attack\")   # \"CYPRESS FAIRBANKS MEDICAL CENTER\"\n\n# Test Case 2\n# hospital <- best1(\"TX\", \"heart failure\")  # \"FORT DUNCAN MEDICAL CENTER\"\nhospital <- best(\"TX\", \"heart failure\")  # \"FORT DUNCAN MEDICAL CENTER\"\n\n\n# Test Case 3\nhospital <- best(\"MD\", \"heart attack\")   # \"JOHNS HOPKINS HOSPITAL, THE\"\n\n# Test Case 4\nhospital <- best(\"MD\", \"pneumonia\")      # \"GREATER BALTIMORE MEDICAL CENTER\"\n\n# Test Case 5\nhospital <- best(\"BB\", \"heart attack\")   # Error in best(\"BB\", \"heart attack\") : invalid state\n\n# Test Case 6\nhospital <- best(\"NY\", \"hert attack\")   # Error in best(\"NY\", \"hert attack\") : invalid outcome\n\nfinished <- \"finished\"\n",
+    "created" : 1447019485578.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3621610173",
+    "id" : "FD52CB66",
+    "lastKnownWriteTime" : 1447182626,
+    "path" : "C:/Users/bhunkeler/OneDrive/Dokumente/Coursera_Courses/Data Science/002_R Programming/Week 4/Assignment_3/main.R",
+    "project_path" : "main.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

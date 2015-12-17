@@ -1,0 +1,18 @@
+{
+    "contents" : "# =================================================================================================\n# Description: Assignment 3 - rankall.R \n#              The function called rankall takes two arguments: an outcome name (outcome) and a \n#              hospital ranking (num). The function reads the outcome-of-care-measures.csv file \n#              and returns a 2-column data frame containing the hospital in each state that has the \n#              ranking specified in num.\n# \n# Parameter:   outcome - (e.g. \"heart attack\")\n#              num     - ranking of Hospital\n#                         \n# return:      a 2-column data frame containing the hospital in each state that has the \n#              ranking specified in num.\n#\n#\n# Authhor:     Bruno Hunkeler \n# Date:        13.11.2015\n# =================================================================================================\n\n# references to functions\n# source(\"best.R\")\n\n# library references \n# library(miscTools)\n\nrankall <- function(outcome, num = \"best\") {\n\n  # used for test purposes\n  # outcome <- \"heart failure\"\n  # num = 5\n  \n  # Map all valid outcomes to relevant mortality rate colname in data file\n  validOutcomes = list(\"heart attack\" = \"Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack\",\n                       \"heart failure\" = \"Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure\",\n                       \"pneumonia\" = \"Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia\")\n  \n  # Load data \n  data <- read.csv(\"outcome-of-care-measures.csv\", colClasses = \"character\")\n  hospital <- data[, c(\"Hospital.Name\", \"State\", validOutcomes[[outcome]])]\n  \n  # assign new names to columns\n  names(hospital) <- c(\"Hospital.Name\", \"State\", \"Rate\")\n  hospital[, 3] <- as.numeric(hospital[, 3])\n  \n  # find rows with AN's and remove them  \n  good <- complete.cases(hospital)\n  hospital <- hospital[complete.cases(hospital), ]  \n  \n  splitted <- split(hospital, hospital$State)\n  hospitals <- data.frame()\n  \n  for (dat in splitted) {\n\n     # order the Names prior to the Rates increasingly \n     datName <- dat[order(dat$Hospital.Name, decreasing = FALSE), ]\n     dat <- datName[order(datName$Rate, decreasing = FALSE), ]\n     \n    if (num == \"best\") {\n      \n      hospitals <- rbind(hospitals, dat[1, ])\n    } else if (num == \"worst\") {\n      \n      hospitals <- rbind(hospitals,dat[nrow(dat), ])\n    } else {\n      \n      if ( !is.na(dat[as.numeric(num), ]$Hospital.Name) ){\n        \n        hospitals <- rbind(hospitals,dat[as.numeric(num), ])  \n      } else{\n        \n        hospitals <- rbind(hospitals, data.frame(Hospital.Name = NA, State = dat[1, \"State\"], Rate = NA))\n      }\n      \n      \n    }\n  }\n  \n  # Return a data frame with the hospital names and the abrreviated state name\n  hospitals <- hospitals[, c(\"Hospital.Name\", \"State\")]\n}\n",
+    "created" : 1447509524279.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1204954233",
+    "id" : "A68937DF",
+    "lastKnownWriteTime" : 1447508837,
+    "path" : "C:/Users/bhunkeler/OneDrive/Dokumente/Coursera_Courses/Data Science/002_R Programming/Week 4/Assignment_3/rankall_V01.R",
+    "project_path" : "rankall_V01.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
