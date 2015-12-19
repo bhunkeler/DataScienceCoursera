@@ -9,11 +9,23 @@ You should create one R script called run_analysis.R that does the following.
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 ### Project data
-Data collected from the accelerometers from the Samsung Galaxy S smartphone
+The Data has been collected from the accelerometers of a Samsung Galaxy S smartphone
 
 ### Data source
 * Original data: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 * Original description of the dataset: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+## Implementation steps following the project instructions:
+**Source Script:** `run_analysis.R` 
+
+* Load libraries `reshapre2` and `data.table`.
+* Verify if source data file exists, otherwise download 
+* Load test set and training set data
+* Merge training-, test- and subject data
+* Load features and extract measurements (features) related to mean and standard deviations
+* Load and apply activity labels
+* Merge (bind) all data to a single data set
+* Clean up data set
 
 ### How to operate this project
 1. Download the script `run_analysis.R` and place it in your working directory.
