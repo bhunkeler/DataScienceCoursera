@@ -33,5 +33,5 @@ The Data has been collected from the accelerometers of a Samsung Galaxy S smartp
 3. The script will automatically download the `UCI HAR Dataset`(if it hasn't been downloaded previously). The script will create a new file `tiny_data.txt` in your 
    working directory.
 
-Please refer to the `CodeBook.md` if any further information are required about variables, data and transformations, which have been performed while ceaning the 
+Please refer to the `CodeBook.md`, if further information is required about variables, data and transformations, which have been performed while ceaning the 
 the data.
