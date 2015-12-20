@@ -1,5 +1,5 @@
-## Getting and Cleaning Data 
-### Course Project Instructions
+#Getting and Cleaning Data 
+##Course Project Instructions:
 You should create one R script called run_analysis.R that does the following. 
 
 1. Merges the training and the test sets to create one data set.
@@ -8,14 +8,18 @@ You should create one R script called run_analysis.R that does the following.
 4. Appropriately labels the data set with descriptive variable names. 
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-### Project data
-The Data has been collected from the accelerometers of a Samsung Galaxy S smartphone
+##The data for the project:
+[Data collected from the accelerometers from the Samsung Galaxy S smartphone](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 
-### Data source
+[[Download link]](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)(```UCI HAR Dataset```)
+
+## Data source
 * Original data: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 * Original description of the dataset: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-## Implementation steps following the project instructions:
+
+
+## Implementation steps following the previous steps:
 **Source Script:** `run_analysis.R` 
 
 * Load libraries `reshapre2` and `data.table`.
@@ -27,11 +31,16 @@ The Data has been collected from the accelerometers of a Samsung Galaxy S smartp
 * Merge (bind) all data to a single data set
 * Clean up data set
 
-### How to operate this project
-1. Download the script `run_analysis.R` and place it in your working directory.
-2. Run the `run_analysis.R` script by calling the command `source(run_analysis.R)` in `R`.
-3. The script will automatically download the `UCI HAR Dataset`(if it hasn't been downloaded previously). The script will create a new file `tiny_data.txt` in your 
-   working directory.
 
-Please refer to the `CodeBook.md`, if further information is required about variables, data and transformations, which have been performed while cleaning the 
-the data.
+
+
+
+
+
+
+##How to work on this project
+1. Download ```run_analysis.R```, put it into your working directory.
+2. Run ```run_analysis.R``` using ```source(run_analysis.R)``` command in ```R``` or ```RStudio```.
+3. Then it will automatically download the ```UCI HAR Dataset```(if you didn't downloaded it before), work on the data, and generate a new file ```tiny_data.txt``` in your working directory.
+
+Please refer to the ```CodeBook.md```if you need more information about the variables, the data, and any transformations performed to clean up the data.
