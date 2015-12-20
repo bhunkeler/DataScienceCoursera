@@ -58,7 +58,7 @@ The following files are available for the train and test data. Descriptions are 
 
 ## Tidy data description
 The description of the applied columns is as follows, all other columns "measurements" are described in the features_info.txt file 
-in the original raw data set.$
+in the original raw data set.
 
 Notes:   
 - Features are normalized and bound within [-1,1].  
