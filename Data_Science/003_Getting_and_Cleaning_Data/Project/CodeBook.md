@@ -1,6 +1,6 @@
 # CodeBook
-This is a code book for `tidy_data.txt` which gives you an initial overview of the experiment, describes the variables as well as the 
-transformations performed to clean up the given dataset. Further, it describes the results of the tidy data.
+This is a code book for `tidy_data.txt`, which gives you an initial overview of the experiment, describes the variables as well as the 
+transformation steps performed to clean up the given dataset. Further, it describes the results of the tidy data.
 
 Author: Bruno Hunkeler 
 Date:   24.12.2015
@@ -34,6 +34,11 @@ The following files are available for the train and test data. Descriptions are 
 - `train/Inertial Signals/body_acc_x_train.txt`: The body acceleration signal obtained by subtracting the gravity from the total acceleration.
 - `train/Inertial Signals/body_gyro_x_train.txt`: The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second.
 
+Notes: 
+======
+- Features are normalized and bounded within [-1,1].
+- Each feature vector is a row on the text file.
+
 ## Transformation details
 1. Merges the training and the test sets to create one data set.
 2. Extracts only the measurements on the mean and standard deviation for each measurement.
@@ -46,18 +51,69 @@ The following files are available for the train and test data. Descriptions are 
 
 * Load libraries `reshapre2` and `data.table`.
 * Verify if source data file exists, otherwise download 
-* Load test set and training set data
-* Merge training-, test- and subject data
-* Load features and extract measurements (features) related to mean and standard deviations
+* Load X, y and subject data for train- test- and subject datasets
+* Merge X, y and subject data for train-, test- and subject datasets
+* Load and apply features names to columns
+* Extract measurements (features) related to mean and standard deviations
 * Load and apply activity labels
 * Merge (bind) all data to a single data set
 * Clean up data set
+* write data to a txt file
+
 
 ## Tidy data description
+The description of the applied columns is as follows, all other columns "measurements" are described in the features_info.txt file 
+in the original raw data set.
 
+### tidy.data$ActivityLabel:
 
+Description:  - Activity performed while measurements were taken  
+Class:        - Factor w/ 6 levels 
 
+ActivityID  | Activity label
+------------|------------------------------
+1           | WALKING
+2           | WALKING_UPSTAIRS
+3           | WALKING_DOWNSTAIRS
+4           | SITTING
+5           | STANDING
+6           | LAYING
 
+### tidy.data$Subject: 
+Description:   - Person (subject) who performed the specified activity while measurements were taken   
+Class:         - integer 
 
+SubjectID   | Subject label
+------------|------------------------------
+1           | '1'
+2           | '2'
+3           | '3'
+4           | '4'
+5           | '5'
+6           | '6'
+7           | '7'  
+8           | '8'   
+9           | '9' 
+10          | '10' 
+11          | '11'  
+12          | '12'
+13          | '13' 
+14          | '14' 
+15          | '15' 
+16          | '16' 
+17          | '17' 
+18          | '18' 
+19          | '19' 
+20          | '20' 
+21          | '21'  
+22          | '22'  
+23          | '23' 
+24          | '24' 
+25          | '25' 
+26          | '26' 
+27          | '27' 
+28          | '28' 
+29          | '29'
+30          | '30'
 
 
