@@ -34,11 +34,6 @@ The following files are available for the train and test data. Descriptions are 
 - `train/Inertial Signals/body_acc_x_train.txt`: The body acceleration signal obtained by subtracting the gravity from the total acceleration.
 - `train/Inertial Signals/body_gyro_x_train.txt`: The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second.
 
-Notes: 
-======
-- Features are normalized and bounded within [-1,1].
-- Each feature vector is a row on the text file.
-
 ## Transformation details
 1. Merges the training and the test sets to create one data set.
 2. Extracts only the measurements on the mean and standard deviation for each measurement.
@@ -63,7 +58,10 @@ Notes:
 
 ## Tidy data description
 The description of the applied columns is as follows, all other columns "measurements" are described in the features_info.txt file 
-in the original raw data set.
+in the original raw data set.$
+
+Notes:   
+- Features are normalized and bound within [-1,1].  
 
 ### tidy.data$ActivityLabel:
 
