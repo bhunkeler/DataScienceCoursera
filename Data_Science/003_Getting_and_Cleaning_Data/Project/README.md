@@ -30,7 +30,7 @@ The Data has been collected from the accelerometers of a Samsung Galaxy S smartp
 ### How to operate this project
 1. Download the script `run_analysis.R` and place it in your working directory.
 2. Run the `run_analysis.R` script by calling the command `source(run_analysis.R)` in `R` or in `RStudio`.
-3. The script will automatically download the `UCI HAR Dataset`(if it hasn't been downloaded previously). The script will create a new file `tiny_data.txt` in your 
+3. The script will automatically download the `UCI HAR Dataset`(if it hasn't been downloaded previously). The script will create a new file `tidy_data.txt` in your 
    working directory.
 
 Please refer to the `CodeBook.md`, if further information is required about variables, data and transformations, which have been performed while cleaning the 
