@@ -31,7 +31,6 @@ zipFile <- "exdata%2Fdata%2Fhousehold_power_consumption.zip"
 
 if(!file.exists("Data/household_power_consumption.txt")){ 
   dataURL <- "https://archive.ics.uci.edu/ml/machine-learning-databases/00235/household_power_consumption.zip"
-  # dataURL <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
   download.file(dataURL, zipFile, mode ="wb")  
   unzip(zipFile, files = NULL, list = FALSE, overwrite = TRUE, junkpaths = FALSE, exdir = "Data", unzip = "internal", setTimes = FALSE)
   file.remove(zipFile)
