@@ -7,7 +7,7 @@ Includes 9 courses and the capstone project
 -  [The Data Scientist's Toolbox](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Data_Science/001_The_Data_Scientists_Toolbox) (4 weeks)
 -  [R Programming](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Data_Science/002_R_Programming) (4 weeks)
 -  [Getting and Cleaning Data](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Data_Science/003_Getting_and_Cleaning_Data) (4 weeks)
--  [Exploratory Data Analysis](link) (4 weeks)
+-  [Exploratory Data Analysis](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Data_Science/004_Exploratory_Data_Analysis) (4 weeks)
 -  [Reproducible Research](link) (4 weeks)
 -  [Statistical Inference](link) (4 weeks)
 -  [Regression Models](link) (4 weeks)
