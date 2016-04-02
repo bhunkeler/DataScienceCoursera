@@ -41,7 +41,7 @@ The following descriptions of the 9 variables in the dataset are taken from the
 The dataset contains 2,075,259 rows and 9 columns, therefore the download will take a while. The given code below downloads the dataset and extracts the zip container. 
 The unused zip container will be removed afterwards. A download will be omitted, if the file already exists on the local file system.
 
-```
+```r
 zipFile <- "exdata%2Fdata%2Fhousehold_power_consumption.zip"
 
 if(!file.exists("Data/household_power_consumption.txt")){ 
@@ -53,7 +53,7 @@ if(!file.exists("Data/household_power_consumption.txt")){
 ```
 
 To read the dataset the <b>read.table</b> file reader  has been used.
-```
+```r
 # Define Directory where File is located
 dirName <- 'Data'
 
@@ -69,7 +69,7 @@ Only a subset of the dataset from the dates 2007-02-01 and 2007-02-02, will be u
 plots. Certain features required to be converted to numeric values while the date and time columns were converted and agregated in one column. 
 Unused columns will be used to didy up the data set.
 
-```
+```r
 # subset data set
 data <- subset(data, Date == '1/2/2007' | Date == '2/2/2007')
 
@@ -102,7 +102,7 @@ Find below the code and the resective plot.
 
 <h4>Plot1</h4>
 
-```
+```r
 # Plot graph
 png(filename = "plot1.png", width = 480, height = 480, units = "px", bg = "transparent")
 hist(data$Global_active_power, col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
@@ -114,7 +114,7 @@ dev.off()
 
 <h4>Plot2</h4>
 
-```
+```r
 # Plot graph
 png(filename = "plot2.png", width = 480, height = 480, units = "px", bg = "transparent")
 plot(data$Date, data$Global_active_power, type = "l", xlab = "", ylab = "Global Active Power (kilowatts)")
@@ -126,7 +126,7 @@ dev.off()
 
 <h4>Plot3</h4>
 
-```
+```r
 # Plot graph
 png(filename = "plot3.png", width = 480, height = 480, units = "px", bg = "transparent")
 plot(data$DateTime, data$Sub_metering_1, type = "l", col = "black", xlab = "", ylab = "Global Active Power (kilowatts)")
@@ -140,7 +140,7 @@ dev.off()
 
 <h4>Plot4</h4>
 
-```
+```r
 # Plot graph
 png(filename = "plot4.png", width = 480, height = 480, units = "px", bg = "transparent")
 
