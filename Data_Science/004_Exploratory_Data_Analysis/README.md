@@ -38,7 +38,7 @@ The following descriptions of the 9 variables in the dataset are taken from the
 
 <h3>Download and read data</h3>
 
-The dataset contains 2,075,259 rows and 9 columns, therefore the download will take a while. The given code below downloads the dataset and extracts the zip container. 
+The dataset contains 2,075,259 observations and 9 columns, therefore the download will take a while. The given code below downloads the dataset and extracts the zip container. 
 The unused zip container will be removed afterwards. A download will be omitted, if the file already exists on the local file system.
 
 ```r
@@ -167,3 +167,362 @@ dev.off()
 
 
 <h3><a name = "Project2">Project 2</a></h3>
+
+Fine particulate matter (PM2.5) is an ambient air pollutant for which there is strong evidence that it is harmful to human health. In the United States, 
+the Environmental Protection Agency (EPA) is tasked with setting national ambient air quality standards for fine PM and for tracking the emissions of 
+this pollutant into the atmosphere. Approximatly every 3 years, the EPA releases its database on emissions of PM2.5. This database is known as the 
+National Emissions Inventory (NEI). You can read more information about the NEI at the [EPA National Emissions Inventory](http://www.epa.gov/ttn/chief/eiinformation.html) web site.
+
+The data for this assignment are available from the course web site as a single zip file:<br>
+<ul>
+  <li><b>Dataset:</b> [PM Emission Data](https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2FNEI_data.zip) [29Mb]</li><br>
+  <li><b>Description</b></li>
+  PM2.5 Emissions Data <b>(summarySCC_PM25.rds)</b>: This file contains a data frame with all of the PM2.5 emissions data for 1999, 2002, 2005, and 2008. 
+  For each year, the table contains number of tons of PM2.5 emitted from a specific type of source for the entire year. Here are the first few rows.<br>
+
+  Source Classification Code Table <b>(Source_Classification_Code.rds)</b>: This table provides a mapping from the SCC digit strings in the Emissions table to 
+  the actual name of the PM2.5 source. The sources are categorized in a few different ways from more general to more specific and you may choose to explore whatever 
+  categories you think are most useful. For example, source “10100101” is known as “Ext Comb /Electric Gen /Anthracite Coal /Pulverized Coal”.
+
+</ul>
+
+Parameter description summarySCC_pm25:
+<ul>
+<li><b>fips:</b> A five-digit number (represented as a string) indicating the U.S. county
+<li><b>SCC:</b> The name of the source as indicated by a digit string (see source code classification table)
+<li><b>Pollutant:</b> A string indicating the pollutant
+<li><b>Emissions:</b> Amount of PM2.5 emitted, in tons
+<li><b>type:</b> The type of source (point, non-point, on-road, or non-road)
+<li><b>year:</b> The year of emissions recorded
+</ul>
+
+The following questions will be answered
+<ol>
+<li>Have total emissions from PM2.5 decreased in the United States from 1999 to 2008? Using the base plotting system, make a plot showing the total PM2.5 emission from all sources for each of the years 1999, 2002, 2005, and 2008.</li>
+<li>Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips == "24510") from 1999 to 2008? Use the base plotting system to make a plot answering this question.</li>
+<li>Of the four types of sources indicated by the type (point, nonpoint, onroad, nonroad) variable, which of these four sources have seen decreases in emissions from 1999–2008 for Baltimore City? Which have seen increases in emissions from 1999–2008? Use the ggplot2 plotting system to make a plot answer this question.</li>
+<li>Across the United States, how have emissions from coal combustion-related sources changed from 1999–2008?</li>
+<li>How have emissions from motor vehicle sources changed from 1999–2008 in Baltimore City?</li>
+<li>Compare emissions from motor vehicle sources in Baltimore City with emissions from motor vehicle sources in Los Angeles County, California (fips == "06037"). Which city has seen greater changes over time in motor vehicle emissions?</li>
+</ol>
+
+
+<h3>Download and read data</h3>
+The dataset contains 6,497,651 observations and 6 columns, therefore the download will take a while. The given code below downloads the dataset and extracts the zip container. 
+The unused zip container will be removed afterwards. A download will be omitted, if the file already exists on the local file system.
+
+```r
+zipFile <- "exdata%2Fdata%2FNEI_data.zip"
+
+if (!file.exists("Data/Source_Classification_Code.rds") && !file.exists("Data/summarySCC_PM25.rds")) {
+    dataURL <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2FNEI_data.zip"
+    download.file(dataURL, zipFile, mode = "wb")
+    unzip(zipFile, files = NULL, list = FALSE, overwrite = TRUE, junkpaths = FALSE, exdir = "Data", unzip = "internal", setTimes = FALSE)
+    file.remove(zipFile)
+}
+
+# Define Directory where File is located
+dirName <- 'Data'
+
+# load classification code data
+fileNameClass = "Source_Classification_Code.rds"
+fileNameClass <- file.path(dirName, fileNameClass)
+
+# load Summary CSS PM25 data
+fileNameSummary = "summarySCC_PM25.rds"
+fileNameSummary <- file.path(dirName, fileNameSummary)
+
+# data <- read.table(file = fileNamePower, header = TRUE, sep = ';')
+NEI <- readRDS(file = fileNameClass)
+SCC <- readRDS(file = fileNameSummary)
+}
+```
+
+<h3>Plot1</h3>
+Have total emissions from PM2.5 decreased in the United States from 1999 to 2008? Using the base plotting system, make a plot showing the total PM2.5 emission from 
+all sources for each of the years 1999, 2002, 2005, and 2008.<br>
+<h4>Data preparation (munging) </h4>
+```r
+# calculate total amount of emissions per year
+data <- ddply(SCC, .(year), summarise, Emissions = sum(Emissions))
+
+# devide total amount of emissions by 1'000'000 (million tons)
+data$Emissions <- lapply(data$Emissions, function(x) round(x / 1e6, 2))
+
+```
+
+<h4>Create Plot</h4>
+```r
+png(filename = "plot1.png", width = 600, height = 600, units = "px", bg = "white")
+# define margins
+par(mfrow = c(1, 1), mar = c(5, 5, 3, 1))
+
+with(data, plot(year, Emissions, pch = 20, col = "red", ylim = c(3, 8), xlim=c(1998, 2009), xaxt = "n", cex = 2.5, panel.first = grid(), main = expression("US Annual PM"[2.5] * " Emissions"),
+     xlab = "Year", ylab = expression("PM"[2.5] * " Emissions (million tonnes)")))
+
+# add a line between points
+lines(data$year, data$Emissions, type = "l", lwd = 2)
+axis(1, c(1999, 2002, 2005, 2008))
+
+# print values for each point in graph
+text(data$year, data$Emissions, data$Emissions, cex = 1.0, pos = 4, col = "black")
+
+dev.off()
+
+```
+
+![plot 1](Project2/plot1.png)
+
+
+<h3>Plot2</h3>
+Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips == "24510") from 1999 to 2008? Use the base plotting system to make a plot 
+answering this question.<br>
+
+<h4>Data preparation (munging) </h4>
+```r
+# calculate total amount of emissions per year
+data <- ddply(SCC, .(year), summarise, Emissions = sum(Emissions[fips == "24510"]))
+
+# devide total amount of emissions by 1'000 (thousend tons)
+data$Emissions <- lapply(data$Emissions, function(x) round(x / 1e3, 2))
+
+```
+
+<h4>Create Plot</h4>
+```r
+png(filename = "plot2.png", width = 600, height = 600, units = "px", bg = "white")
+
+# define margins
+par(mfrow = c(1, 1), mar = c(5, 5, 3, 1))
+
+with(data, plot(year, Emissions, pch = 20, col = "red", ylim = c(1.5, 3.5), xlim = c(1998, 2009), xaxt = "n", cex = 2.5, panel.first = grid(),
+    main = expression("Baltimore City Annual PM"[2.5] * " Emissions"), xlab = "Year", ylab = expression("PM"[2.5] * " Emissions (thousend tonnes)")))
+
+# add a line between points
+lines(data$year, data$Emissions, type = "l", lwd = 2)
+axis(1, c(1999, 2002, 2005, 2008))
+
+# print values for each point in graph
+text(data$year, data$Emissions, data$Emissions, cex = 1.0, pos = 4, col = "black")
+
+dev.off()
+
+```
+
+![plot 2](Project2/plot2.png)
+
+<h3>Plot3</h3>
+Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips == "24510") from 1999 to 2008? Use the base plotting system to make a plot 
+answering this question.<br>
+
+<h4>Data preparation (munging) </h4>
+```r
+# subset and retrieve only Baltimore City data
+pm25_Baltimore <- subset(SCC, fips == '24510')
+
+# calculate total amount of emissions per year and type - 
+# rounding of emission values to 2 digits
+data <- ddply(pm25_Baltimore, .(year, type), summarise, Emissions = round(sum(Emissions), 2))
+
+```
+
+<h4>Create Plot</h4>
+```r
+png(filename = "plot3.png", width = 800, height = 800, units = "px", bg = "white")
+
+g <- ggplot(data, aes(year, Emissions))
+g + facet_grid(type ~ ., scale = 'free') +
+geom_line(col = 'black', lwd = 0.5) +
+geom_point(col = 'black', size = 4) +
+
+# adjust the size of the facet_grid variable 
+theme(strip.text.y = element_text(size = 14), plot.margin = unit(c(2, 3, 2, 3), 'cm')) +
+
+# change the size of the title 
+theme(plot.title = element_text(lineheight = 3, face = "bold", color = "black", size = 20)) +
+
+# add and change the size of the x and y label
+xlab("Year") + ylab("Emissions [tonnes]") +
+theme(axis.title.y = element_text(size = rel(1.5), angle = 90)) +
+theme(axis.title.x = element_text(size = rel(1.5), angle = 00)) +
+
+# add a title to the graph
+ggtitle(expression(paste('Baltimore City\'s annual ', pm[2.5], ' emissions based on type'))) +
+scale_x_continuous(breaks = c(1999, 2002, 2005, 2008))
+
+dev.off()
+
+```
+
+![plot 3](Project2/plot3.png)
+
+<h3>Plot4</h3>
+Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips == "24510") from 1999 to 2008? Use the base plotting system to make a plot 
+answering this question.<br>
+
+<h4>Data preparation (munging) </h4>
+```r
+# calculate total amount of emissions per year and SCC  
+dataSCC <- ddply(SCC, .(year, SCC), summarise, Emissions = sum(Emissions))
+
+# remove not required columns 
+NEI <- NEI[, c('SCC', 'EI.Sector')]
+
+# convert all fields to lower case 
+NEI$EI.Sector <- lapply(NEI$EI.Sector, function(x) tolower(as.character(x)))
+
+# define regex pattern
+pattern <- 'fuel comb - [a-z ,/]* - coal'  
+
+# subset and retrieve only comb / coal data based on regex pattern
+comb_coal <- subset(NEI, grepl(pattern, NEI$EI.Sector))
+
+# evaluate which code exists in both data sets
+exist_in_both <- ifelse(dataSCC$SCC %in% comb_coal$SCC, TRUE, FALSE)
+dataSCC_ <- subset(dataSCC, exist_in_both)
+
+# calculate total amount of emissions per year and SCC 
+dataSCC_ <- ddply(dataSCC_, .(year), summarise, Emissions = sum(Emissions))
+
+# devide total amount of emissions by 1'000 (thousend tons)
+dataSCC_$Emissions <- lapply(dataSCC_$Emissions, function(x) round(x / 1e3, 2))
+
+```
+
+<h4>Create Plot</h4>
+```r
+png(filename = "plot4.png", width = 600, height = 600, units = "px", bg = "white")
+# define margins
+par(mfrow = c(1, 1), mar = c(5, 5, 3, 1))
+
+with(dataSCC_, plot(year, Emissions, pch = 20, col = "red", xlim = c(1998, 2009), xaxt = "n", cex = 2.5, panel.first = grid(), main = expression("US Annual PM"[2.5] * " Emissions from coal combustion-related sources"),
+     xlab = "Year", ylab = expression("PM"[2.5] * " Emissions (thousend tonnes)")))
+
+# add a line between points
+lines(dataSCC_$year, dataSCC_$Emissions, type = "l", lwd = 2)
+axis(1, c(1999, 2002, 2005, 2008))
+
+# print values for each point in graph
+text(dataSCC_$year, dataSCC_$Emissions, dataSCC_$Emissions, cex = 1.0, pos = 4, col = "black")
+
+dev.off()
+
+```
+
+![plot 4](Project2/plot4.png)
+
+<h3>Plot5</h3>
+Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips == "24510") from 1999 to 2008? Use the base plotting system to make a plot 
+answering this question.<br>
+
+<h4>Data preparation (munging) </h4>
+```r
+    # subset and retrieve only Baltimore City data
+    pm25_Baltimore <- subset(SCC, fips == '24510' & type == 'ON-ROAD')
+
+    # calculate total amount of emissions per year and type - 
+    # rounding of emission values to 2 digits
+    dataSCC <- ddply(pm25_Baltimore, .(year), summarise, Emissions = round(sum(Emissions), 2))
+
+```
+
+<h4>Create Plot</h4>
+```r
+    png(filename = "plot4.png", width = 600, height = 600, units = "px", bg = "white")
+
+    par(mfrow = c(1, 1), mar = c(5, 5, 3, 1))
+
+    with(dataSCC, plot(year, Emissions, pch = 20, col = "red", xlim = c(1998, 2009), xaxt = "n", cex = 2.5, panel.first = grid(), main = expression("Motor vehicle - related PM"[2.5] * " emissions in Baltimore County "),
+     xlab = "Year", ylab = expression("PM"[2.5] * " Emissions (tonnes)")))
+
+    # add a line between points
+    lines(dataSCC$year, dataSCC$Emissions, type = "l", lwd = 2)
+    axis(1, c(1999, 2002, 2005, 2008))
+
+    # print values for each point in graph
+    text(dataSCC$year, dataSCC$Emissions, dataSCC$Emissions, cex = 1.0, pos = 4, col = "black")
+
+    dev.off()
+
+```
+
+![plot 5](Project2/plot5.png)
+
+<h3>Plot6<</h3>
+Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips == "24510") from 1999 to 2008? Use the base plotting system to make a plot 
+answering this question.<br>
+
+<h4>Data preparation (munging) </h4>
+```r
+# subset and retrieve only Baltimore City data
+pm25_Baltimore <- subset(SCC, fips == '24510' & type == 'ON-ROAD')
+pm25_LosAngeles <- subset(SCC, fips == '06037' & type == 'ON-ROAD')
+pm25_Baltimore_LA <- subset(SCC, (fips == '06037' & type == 'ON-ROAD') | (fips == '24510' & type == 'ON-ROAD'))
+
+# calculate total amount of emissions per year and type - rounding of emission values to 2 digits
+dataSCC_Baltimore <- ddply(pm25_Baltimore, .(year), summarise, Emissions = round(sum(Emissions), 2))
+dataSCC_LA <- ddply(pm25_LosAngeles, .(year), summarise, Emissions = round(sum(Emissions), 2))
+dataSCC_Baltimore_LA <- ddply(pm25_Baltimore_LA, .(year, fips), summarise, Emissions = round(sum(Emissions), 2))
+
+```
+
+<h4>Create Plot</h4>
+```r
+png(filename = "plot6.png", width = 800, height = 800, units = "px", bg = "white")
+g <- ggplot(dataSCC_Baltimore_LA, aes(year, Emissions))
+g + geom_point(color = dataSCC_Baltimore_LA$fips, pch = 19, size = 5) +
+geom_line(data = dataSCC_Baltimore, col = 'blue', lwd = 1) +
+geom_line(data = dataSCC_LA, col = 'green', lwd = 1) +
+
+# adjust the size of the facet_grid variable 
+theme(strip.text.y = element_text(size = 14, face = "bold"), plot.margin = unit(c(2, 3, 2, 3), 'cm')) +
+
+# change the size of the title 
+theme(plot.title = element_text(lineheight = 3, face = "bold", color = "black", size = 20)) +
+
+# add and change the size of the x and y label
+xlab("Year") + ylab("Emissions [tonnes]") +
+
+# add a title to the graph
+ggtitle(expression(paste('Motor vehicle related emissions ', pm[2.5], ' Baltimore City vs Los Angeles'))) +
+scale_x_continuous(breaks = c(1999, 2002, 2005, 2008))
+dev.off()
+```
+![plot 6](Project2/plot6.png)
+
+Here the same data in facet_grid plot
+
+```r
+    png(filename = "plot6_.png", width = 800, height = 800, units = "px", bg = "white")
+
+    g <- ggplot(dataSCC_Baltimore_LA, aes(year, Emissions))
+    g + facet_grid(fips ~ ., scale = 'free') +
+    geom_line(col = 'blue', lwd = 1) +
+    geom_point(col = 'red', pch = 19, size = 5) +
+
+    # adjust the size of the facet_grid variable 
+    theme(strip.text.y = element_text(size = 14, face = "bold"), plot.margin = unit(c(2, 3, 2, 3), 'cm')) +
+
+    # change the size of the title 
+    theme(plot.title = element_text(lineheight = 3, face = "bold", color = "black", size = 20)) +
+
+    # add and change the size of the x and y label
+    xlab("Year") + ylab("Emissions [tonnes]") +
+
+    # add a title to the graph
+    ggtitle(expression(paste('Motor vehicle related emissions ', pm[2.5], ' Baltimore City vs Los Angeles'))) +
+    scale_x_continuous(breaks = c(1999, 2002, 2005, 2008))
+    dev.off()
+```
+![plot 6](Project2/plot6_.png)
+
+
+
+
+
+
+
+
+
+
+
