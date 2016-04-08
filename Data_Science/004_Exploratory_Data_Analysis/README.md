@@ -4,7 +4,7 @@
 
 
 ### Introduction
-Part of the module <b>Exploratory Data Analysis</b> are 2 Project assignements: 
+Part of the module <b>Exploratory Data Analysis</b> are 2 Project assignments: 
 
 <li><b><a href="#Project1">Project 1</a></b>: Individual household electric power consumption
 <li><b><a href="#Project2">Project 2</a></b>: Fine particulate matter (PM2.5)
@@ -455,13 +455,9 @@ answering this question.<br>
 <h4>Data preparation (munging) </h4>
 ```r
 # subset and retrieve only Baltimore City data
-pm25_Baltimore <- subset(SCC, fips == '24510' & type == 'ON-ROAD')
-pm25_LosAngeles <- subset(SCC, fips == '06037' & type == 'ON-ROAD')
 pm25_Baltimore_LA <- subset(SCC, (fips == '06037' & type == 'ON-ROAD') | (fips == '24510' & type == 'ON-ROAD'))
 
-# calculate total amount of emissions per year and type - rounding of emission values to 2 digits
-dataSCC_Baltimore <- ddply(pm25_Baltimore, .(year), summarise, Emissions = round(sum(Emissions), 2))
-dataSCC_LA <- ddply(pm25_LosAngeles, .(year), summarise, Emissions = round(sum(Emissions), 2))
+# calculate total amount of emissions per year and fips - rounding of emission values to 2 digits
 dataSCC_Baltimore_LA <- ddply(pm25_Baltimore_LA, .(year, fips), summarise, Emissions = round(sum(Emissions), 2))
 
 ```
