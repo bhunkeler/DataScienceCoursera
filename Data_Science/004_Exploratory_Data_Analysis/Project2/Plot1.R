@@ -30,7 +30,8 @@
 #                4) Across the United States, how have emissions from coal combustion - related sources changed from 1999 –2008?
 #                5) How have emissions from motor vehicle sources changed from 1999 –2008 in Baltimore City ?
 #                6) Compare emissions from motor vehicle sources in Baltimore City with emissions from motor vehicle sources in 
-#                   Los Angeles County, California(fips == "06037") . Which city has seen greater changes over time in motor vehicle emissions?
+#                   Los Angeles County, California(fips == "06037") . Which city has seen greater changes over time in motor vehicle 
+#                   emissions?
 #
 #                fips:      A five - digit number(represented as a string) indicating the U.S. county
 #                SCC:       The name of the source as indicated by a digit string(see source code classification table)
@@ -46,8 +47,8 @@
 #
 #                Source Classification Code Table(Source_Classification_Code.rds):
 #                This table provides a mapping from the SCC digit strings in the Emissions table to the actual name of the PM2.5 source. 
-#                The sources are categorized in a few different ways from more general to more specific and you may choose to explore whatever 
-#                categories you think are most useful. For example, source “10100101” is known as 
+#                The sources are categorized in a few different ways from more general to more specific and you may choose to explore 
+#                whatever categories you think are most useful. For example, source “10100101” is known as 
 #                “Ext Comb / Electric Gen / Anthracite Coal / Pulverized Coal ”.
 #
 # Dataset:       Pollutant Emissions [29Mb] 
@@ -113,8 +114,8 @@ png(filename = "plot1.png", width = 600, height = 600, units = "px", bg = "white
 # define margins
 par(mfrow = c(1, 1), mar = c(5, 5, 3, 1))
 
-with(data, plot(year, Emissions, pch = 20, col = "red", ylim = c(3, 8), xlim=c(1998, 2009), xaxt = "n", cex = 2.5, panel.first = grid(), main = expression("US Annual PM"[2.5] * " Emissions"),
-     xlab = "Year", ylab = expression("PM"[2.5] * " Emissions (million tonnes)")))
+with(data, plot(year, Emissions, pch = 20, col = "red", ylim = c(3, 8), xlim=c(1998, 2009), xaxt = "n", cex = 2.5, panel.first = grid(), 
+     main = expression("US Annual PM"[2.5] * " Emissions"), xlab = "Year", ylab = expression("PM"[2.5] * " Emissions (million tonnes)")))
 
 # add a line between points
 lines(data$year, data$Emissions, type = "l", lwd = 2)

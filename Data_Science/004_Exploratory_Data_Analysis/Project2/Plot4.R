@@ -133,7 +133,8 @@ png(filename = "plot4.png", width = 600, height = 600, units = "px", bg = "white
 # define margins
 par(mfrow = c(1, 1), mar = c(5, 5, 3, 1))
 
-with(dataSCC_, plot(year, Emissions, pch = 20, col = "red", xlim = c(1998, 2009), xaxt = "n", cex = 2.5, panel.first = grid(), main = expression("US Annual PM"[2.5] * " Emissions from coal combustion-related sources"),
+with(dataSCC_, plot(year, Emissions, pch = 20, col = "red", xlim = c(1998, 2009), xaxt = "n", cex = 2.5, panel.first = grid(), 
+     main = expression("US Annual PM"[2.5] * " Emissions from coal combustion-related sources"),
      xlab = "Year", ylab = expression("PM"[2.5] * " Emissions (thousend tonnes)")))
 
 # add a line between points

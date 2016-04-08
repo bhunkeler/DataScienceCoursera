@@ -124,7 +124,8 @@ if (SCC.On.Road) {
 
     par(mfrow = c(1, 1), mar = c(5, 5, 3, 1))
 
-    with(dataSCC, plot(year, Emissions, pch = 20, col = "red", xlim = c(1998, 2009), xaxt = "n", cex = 2.5, panel.first = grid(), main = expression("Motor vehicle - related PM"[2.5] * " emissions in Baltimore County "),
+    with(dataSCC, plot(year, Emissions, pch = 20, col = "red", xlim = c(1998, 2009), xaxt = "n", cex = 2.5, panel.first = grid(), 
+	 main = expression("Motor vehicle - related PM"[2.5] * " emissions in Baltimore County "),
      xlab = "Year", ylab = expression("PM"[2.5] * " Emissions (tonnes)")))
 
     # add a line between points
@@ -177,7 +178,8 @@ if (SCC.Level.2) {
 
     par(mfrow = c(1, 1), mar = c(5, 5, 3, 1))
 
-    with(pm25_Baltimore_, plot(year, Emissions, pch = 20, col = "red", xlim = c(1998, 2009), xaxt = "n", cex = 2.5, panel.first = grid(), main = expression("Motor vehicle - related PM"[2.5] * " emissions in Baltimore County "),
+    with(pm25_Baltimore_, plot(year, Emissions, pch = 20, col = "red", xlim = c(1998, 2009), xaxt = "n", cex = 2.5, panel.first = grid(), 
+	     main = expression("Motor vehicle - related PM"[2.5] * " emissions in Baltimore County "),
          xlab = "Year", ylab = expression("PM"[2.5] * " Emissions (tonnes)")))
 
     # add a line between points

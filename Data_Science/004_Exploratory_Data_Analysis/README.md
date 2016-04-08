@@ -7,7 +7,7 @@
 Part of the module <b>Exploratory Data Analysis</b> are 2 Project assignements: 
 
 <li><b><a href="#Project1">Project 1</a></b>: Individual household electric power consumption
-<li><b><a href="#Project2">Project 2</a></b>: unknown yet
+<li><b><a href="#Project2">Project 2</a></b>: Fine particulate matter (PM2.5)
 
 
 <h3><a name = "Project1">Project 1</a></h3>
@@ -448,7 +448,7 @@ answering this question.<br>
 
 ![plot 5](Project2/plot5.png)
 
-<h3>Plot6<</h3>
+<h3>Plot6</h3>
 Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips == "24510") from 1999 to 2008? Use the base plotting system to make a plot 
 answering this question.<br>
 
