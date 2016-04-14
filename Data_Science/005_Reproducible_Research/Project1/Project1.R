@@ -3,7 +3,7 @@
 #                Coursera Data Science at Johns Hopkins University
 #
 #                It is now possible to collect a large amount of data about personal movement using activity monitoring devices such as 
-#                a Fitbit, Nike Fuelband, or Jawbone Up. These type of devices are part of the ?quantified self ? movement ? a group of 
+#                a Fitbit, Nike Fuelband, or Jawbone Up. These type of devices are part of the “quantified self ” movement – a group of 
 #                enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, 
 #                or because they are tech geeks. But these data remain under - utilized both because the raw data are hard to obtain and 
 #                there is a lack of statistical methods and software for processing and interpreting the data.
@@ -79,22 +79,21 @@ data.NoNA <- data[complete.cases(data),]
 # Step 1.3 - Calculate the total number of steps taken per day
 
 # Calculate total number of steps per day  
-sum.steps.day <- ddply(data.NoNA, .(date), summarise, steps = sum(steps, na.rm = TRUE))
-
+sum.steps.day <- ddply(data.NoNA, .(date), summarise, steps = sum(steps))
 
 # Step 1.4 - Histogram of the total number of steps taken each day
 
 plot(sum.steps.day$date, sum.steps.day$steps, type = "h", main = "Histogram of daily steps", xlab = "Date", ylab = "Steps per day", col = "blue", lwd = 8)
-abline(h = mean(sum.steps.day$steps, na.rm = TRUE), col = "red", lwd = 2)
+abline(h = mean(sum.steps.day$steps), col = "red", lwd = 2)
 
 
 # Step 1.5 - Calculate and report the mean and median of the total number of steps taken per day
 
 # Mean steps per Day
-paste("Mean steps per Day =", round(mean(sum.steps.day$steps, na.rm = TRUE), 0))
+paste("Mean steps per Day =", round(mean(sum.steps.day$steps), 0))
 
 # Median steps per Day
-paste("Median steps per Day =", round(median(sum.steps.day$steps, na.rm = TRUE), 0))
+paste("Median steps per Day =", round(median(sum.steps.day$steps), 0))
 
 # ========================================================================================================================================
 # Part 2 - Average daily activity pattern
@@ -102,7 +101,7 @@ paste("Median steps per Day =", round(median(sum.steps.day$steps, na.rm = TRUE),
 
 # Step 2.1 - Calculate total number of steps per year and interval
 
-# Calculate total number of steps per year interval
+# Calculate total number of steps per day interval
 mean.steps.interval <- ddply(data.WithNA, .(interval), summarise, steps = mean(steps, na.rm = TRUE))
 
 
@@ -160,6 +159,18 @@ steps.day <- ddply(data.Complete, .(date), summarise, steps = round(sum(steps, n
 plot(steps.day$date, steps.day$steps, type = "h", main = "Histogram of daily steps (added NA Values)", xlab = "Date", ylab = "Steps per day", col = "blue", lwd = 8)
 abline(h = mean(steps.day$steps, na.rm = TRUE), col = "red", lwd = 2)
 
+# Step 3.4 - Calculate the mean and median based on new dataset
+
+# Calculate total number of steps per day  
+sum.steps.day <- ddply(data.Complete, .(date), summarise, steps = sum(steps))
+
+# Mean steps per Day
+paste("Mean steps per Day =", round(mean(sum.steps.day$steps), 0))
+
+# Median steps per Day
+paste("Median steps per Day =", round(median(sum.steps.day$steps), 0))
+
+
 # ========================================================================================================================================
 # Part 4 - Differences in activity patterns between weekdays and weekends?
 # ========================================================================================================================================
@@ -187,3 +198,4 @@ ggplot(day.interval.Steps, aes(x = interval, y = steps)) +
     ylab('Number of steps') + xlab("Interval") +
     ggtitle("Number of Steps per Interval (weekend/weekend") +
     facet_grid(daytype ~ .)
+

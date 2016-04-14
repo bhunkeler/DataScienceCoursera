@@ -276,6 +276,42 @@ abline(h = mean(steps.day$steps, na.rm = TRUE), col = "red", lwd = 2)
 
 ![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png)
 
+Step 3.4 - Calculate the mean and median based on new dataset
+
+
+```r
+# Calculate total number of steps per day  
+sum.steps.day <- ddply(data.Complete, .(date), summarise, steps = sum(steps))
+
+# Mean steps per Day
+paste("Mean steps per Day =", round(mean(sum.steps.day$steps), 0))
+```
+
+```
+## [1] "Mean steps per Day = 10890"
+```
+
+
+```r
+# Median steps per Day
+paste("Median steps per Day =", round(median(sum.steps.day$steps), 0))
+```
+
+```
+## [1] "Median steps per Day = 11015"
+```
+<br>
+<b>Remarks:</b> 
+
+The following table shows the difference in 'Steps per day' for mean and median values. It also indicates the difference 
+caused by adding mean values per interval for missing values (NA's)
+
+Function   | original dataset (with NA values)  | new dataset (added mean value per interval for NA) | Difference
+-----------|------------------------------------|----------------------------------------------------|-------------|
+mean       | 10,766                             | 10,890                                             |   ~1.2%     |
+median     | 10,765                             | 11,015                                             |   ~2.3%     |
+
+<br>
 <h4>Part 3 - Differences in activity patterns between weekdays and weekends</h4>
 
 Step 4.1 - Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day. 
@@ -338,6 +374,6 @@ ggplot(day.interval.Steps, aes(x = interval, y = steps)) +
     facet_grid(daytype ~ .)
 ```
 
-![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14-1.png)
+![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16-1.png)
 
 
