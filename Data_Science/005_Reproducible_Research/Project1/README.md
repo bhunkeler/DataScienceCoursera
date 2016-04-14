@@ -129,7 +129,7 @@ Step 1.4 - Histogram of the total number of steps taken each day
 
 
 ```r
-plot(sum.steps.day$date, sum.steps.day$steps, type = "h", main = "Histogram of daily steps", xlab = "Date", ylab = "Steps per day", col = "blue", lwd = 8)
+plot(sum.steps.day$date, sum.steps.day$steps, type = "h", main = "Histogram of daily steps", xlab = "Date", ylab = "Steps per day", col = "blue", lwd = 6)
 abline(h = mean(sum.steps.day$steps, na.rm = TRUE), col = "red", lwd = 2)
 ```
 
@@ -149,7 +149,7 @@ paste("Mean steps per Day =", round(mean(sum.steps.day$steps, na.rm = TRUE), 0))
 ```
 
 ```r
-# Median steps per Day
+# Median steps per Day (rounded)
 paste("Median steps per Day =", round(median(sum.steps.day$steps, na.rm = TRUE), 0))
 ```
 
@@ -184,7 +184,7 @@ Step 2.2 - Time series plot of the 5-minute interval and the average number of s
 
 ```r
 plot(mean.steps.interval$interval, mean.steps.interval$steps, type = "l", main = "Average daily activity by interval", xlab = "Interval",
-     ylab = "Steps per interval", col = "blue", lwd = 2)
+     ylab = "Steps per interval", col = "blue", lwd = 1)
 abline(h = mean(mean.steps.interval$steps, na.rm = TRUE), col = "red", lwd = 2)
 ```
 
@@ -270,7 +270,7 @@ Step 3.3 - Create a new dataset that is equal to the original dataset but with t
 
 
 ```r
-plot(steps.day$date, steps.day$steps, type = "h", main = "Histogram of daily steps (added NA Values)", xlab = "Date", ylab = "Steps per day", col = "blue", lwd = 8)
+plot(steps.day$date, steps.day$steps, type = "h", main = "Histogram of daily steps (added NA Values)", xlab = "Date", ylab = "Steps per day", col = "blue", lwd = 6)
 abline(h = mean(steps.day$steps, na.rm = TRUE), col = "red", lwd = 2)
 ```
 
