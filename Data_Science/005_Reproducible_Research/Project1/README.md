@@ -311,7 +311,7 @@ Function   | original dataset (with NA values)  | new dataset (added mean value 
 mean       | 10,766                             | 10,890                                             |   ~1.2%     |
 median     | 10,765                             | 11,015                                             |   ~2.3%     |
 
-<br>
+<br>  
 <h4>Part 3 - Differences in activity patterns between weekdays and weekends</h4>
 
 Step 4.1 - Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day. 
