@@ -219,23 +219,23 @@ between 1950 and 2011.</p>
 <h3>Hypothesis</h3>
 
 <p>The hypothesis is that a prevention for unregularly weather events like floods is hard to establish. Tornados on the other hand<br/>
-are highly destructive and destroy large areas in a matter of hours. Therefore I assume that those events cause the most economic<br/>
-damages, while extreme heat is assumed to be the most harmful to peopleâ€™s health. This assumptions are based on the fact that<br/>
-measures taken to prevent people being harmed by tornados should be in place by now, since they occur on a regular basis. This<br/>
-does not apply to extreme heat, which occurs occasionally.</p>
+are highly destructive and destroy large areas in a matter of hours. Therefore I assume that those events cause the most<br/>
+economic damages, while extreme heat is assumed to be the most harmful to peopleâ€™s health. This assumptions are based on the<br/>
+fact that measures taken to prevent people being harmed by tornados should be in place by now, since they occur on a regular<br/>
+basis. This does not apply to extreme heat, which occurs occasionally.</p>
 
 <h3>Results</h3>
 
-<p>We obtained storm data from the National Oceanic and Atmosphere Administration from 1950 - 2011 to verify the hypothesis. Fact<br/>
-is that floods (on property) and droughts (on crop) caused the most economic damages, while the most harmful events to the<br/>
-populationâ€™s health was caused by tornados (injuries as well as fatalities). The main cost driver in the area of property<br/>
-damage was caused by a series ofstorms end of 2005, which produced significant runoff over much of northern California (NAPA).<br/>
-Floods can spread across large areas and are somewhat uncontrollable. They occur on a unregularly basis. Tacking measures to<br/>
-prevention floods as such costs billions. On the contrary, the harm on the population is relatively small. Tornadoes, on the<br/>
-other hand, are also able to destroy large areas, but occur relatively frequently in the US. Therefore the prevention on<br/>
-peopleâ€™s health should be manageable, but the figures show a different picture. The measures taken to prevent people being<br/>
-harmed seems inadequate, or storm warnings are being activated far too late. Another possible cause might be that not enough<br/>
-shelters in homes and public places might be available.        </p>
+<p>We obtained storm data from the National Oceanic and Atmosphere Administration from 1950 - 2011 to verify the hypothesis.<br/>
+Factis that floods (on property) and droughts (on crop) caused the most economic damages, while the most harmful events<br/>
+to thepopulationâ€™s health was caused by tornados (injuries as well as fatalities). The main cost driver in the area of<br/>
+property damage was caused by a series ofstorms end of 2005, which produced significant runoff over much of northern<br/>
+California (NAPA). Floods can spread across large areas and are somewhat uncontrollable. They occur on a unregularly<br/>
+basis. Tacking measures to prevention floods as such costs billions. On the contrary, the harm on the population is<br/>
+relatively small. Tornadoes, on the other hand, are also able to destroy large areas, but occur relatively frequently<br/>
+in the US. Therefore the prevention on peopleâ€™s health should be manageable, but the figures show a different picture.<br/>
+The measures taken to prevent people being harmed seems inadequate, or storm warnings are being activated far too late.<br/>
+Another possible cause might be that not enough shelters in homes and public places might be available.        </p>
 
 <h3>Data Processing</h3>
 
@@ -306,15 +306,16 @@ rm(storm.data)
 
 <h5>Property and crop damage</h5>
 
-<p>The storm data document provided by the National Weather Service, contains information regarding the financial aspects of<br/>
-the damage caused by severe weather conditions. The column PROPDMGEXP contains various characters and numbers, which<br/>
-indicate the magnitude of the damage. Characters as &#39;H&#39;,&#39;K&#39;, &#39;M&#39; and &#39;B&#39; stand for the magnitude hundred, thousand,<br/>
-million and billion, but there are other characters defined, which indicate unknown values such as &#39;&#39;, &#39;+&#39;, &#39;-&#39;, &#39;?&#39;.<br/>
-Characters with &#39;H&#39;,&#39;K&#39;, &#39;M&#39; and &#39;B&#39; will be transformed into the respective magnitude (e.g. 1e+2, 1e+3, 1e+6 etc.),<br/>
-where the unknown values will be transformed to &#39;0&#39;. The data set also shows that various weather events have been named<br/>
-in different ways (uppercase, upper-lowercase or lowercase) for the same event. Only partial measures were taken to<br/>
-eliminate the &#39;potential&#39; error caused by different naming, by converting all letters to upper case. Finally I applied<br/>
-a descending ordered for economic damage and filtered for the top 10 events.<br/>
+<p>The storm data document provided by the National Weather Service, contains information regarding the financial<br/>
+aspects of the damage caused by severe weather conditions. The column PROPDMGEXP contains various characters and<br/>
+numbers, which indicate the magnitude of the damage. Characters as &#39;H&#39;,&#39;K&#39;, &#39;M&#39; and &#39;B&#39; stand for the magnitude<br/>
+hundred, thousand,million and billion, but there are other characters defined, which indicate unknown values such<br/>
+as &#39;&#39;, &#39;+&#39;, &#39;-&#39;, &#39;?&#39;. Characters with &#39;H&#39;,&#39;K&#39;, &#39;M&#39; and &#39;B&#39; will be transformed into the respective magnitude<br/>
+(e.g. 1e+2, 1e+3, 1e+6 etc.), where the unknown values will be transformed to &#39;0&#39;. The data set also shows that<br/>
+various weather events have been named in different ways (uppercase, upper-lowercase or lowercase) for the same<br/>
+event. Only partial measures were taken to eliminate the &#39;potential&#39; error caused by different naming, by<br/>
+converting all letters to upper case. Finally I applied a descending ordered for economic damage and filtered<br/>
+for the top 10 events.<br/>
 <br>
 Below you see the assigned magnitudes for property and crop.</p>
 
