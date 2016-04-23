@@ -13,11 +13,11 @@ This report compares servere weather events, in respect to economic costs and po
 between 1950 and 2011.
 
 <h3>Hypothesis</h3>
-The hypothesis is that a prevention for unregularly weather events like floods is hard to establish. Tornados on the other hand  
-are highly destructive and destroy large areas in a matter of hours. Therefore I assume that those events cause the most   
-economic damages, while extreme heat is assumed to be the most harmful to people’s health. This assumptions are based on the  
-fact that measures taken to prevent people being harmed by tornados should be in place by now, since they occur on a regular  
-basis. This does not apply to extreme heat, which occurs occasionally.
+The hypothesis is that a prevention for unregularly weather events like floods is hard to establish. Tornados on the   
+other hand are highly destructive and destroy large areas in a matter of hours. Therefore I assume that those events   
+cause the most economic damages, while extreme heat is assumed to be the most harmful to people’s health. This   
+assumptions are based on thefact that measures taken to prevent people being harmed by tornados should be in  
+place by now, since they occur on a regular basis. This does not apply to extreme heat, which occurs occasionally.
 
 <h3>Results</h3>
 We obtained storm data from the National Oceanic and Atmosphere Administration from 1950 - 2011 to verify the hypothesis.  
@@ -35,10 +35,10 @@ Another possible cause might be that not enough shelters in homes and public pla
 
 <h4>Load Data</h4>
 The data and furter information were obtain from the following sources:  
-<ul>
-<li><b>Dataset</b> [Storm Data](https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2) [47Mb]<br> 
-<li><b>National Weather Service</b> [Storm Data Documentation](https://d396qusza40orc.cloudfront.net/repdata%2Fpeer2_doc%2Fpd01016005curr.pdf)
-<li><b>National Climatic Data Center Storm Events</b> [FAQ](https://d396qusza40orc.cloudfront.net/repdata%2Fpeer2_doc%2FNCDC%20Storm%20Events-FAQ%20Page.pdf)
+<ul>  
+<li><b>Dataset</b> <a href="https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2">Storm Data</a> [47Mb]<br> 
+<li><b>National Weather Service</b> <a href="https://d396qusza40orc.cloudfront.net/repdata%2Fpeer2_doc%2Fpd01016005curr.pdf">Storm Data Documentation</a>
+<li><b>National Climatic Data Center Storm Events</b> <a href="https://d396qusza40orc.cloudfront.net/repdata%2Fpeer2_doc%2FNCDC%20Storm%20Events-FAQ%20Page.pdf">FAQ</a>
 </ul>
 
 The following 3rd party packages have been used, to tidy up the data.  
