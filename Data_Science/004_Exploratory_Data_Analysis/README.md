@@ -1,16 +1,19 @@
 
-##   Coursera Exploratory Data Analysis<br>
+<h2>Coursera Exploratory Data Analysis</h2>
 <b>at Johns Hopkins University</b>
 
+Author: Bruno Hunkeler 
+Date:   08.04.2016
+<hr>
 
-### Introduction
+<h3>Introduction</h3>
 Part of the module <b>Exploratory Data Analysis</b> are 2 Project assignments: 
 
-<li><b><a href="#Project1">Project 1</a></b>: Individual household electric power consumption
-<li><b><a href="#Project2">Project 2</a></b>: Fine particulate matter (PM2.5)
+<li><b><a href="#Project1">Project 1</a></b>: Analysis of individual household electric power consumption
+<li><b><a href="#Project2">Project 2</a></b>: Analysis of fine particulate matter (PM2.5)
 
 
-<h3><a name = "Project1">Project 1</a></h3>
+<h3><a name = "Project1">Project 1 - Analysis of individual household electric power consumption</a></h3>
 
 This assignment uses data from the <a href="http://archive.ics.uci.edu/ml/">UC Irvine Machine Learning Repository</a>, a popular repository for machine learning
 datasets. In particular, we used the "Individual household electric power consumption Data Set" which is available on the course web site:
@@ -166,7 +169,7 @@ dev.off()
 ![plot 1](Project1/plot4.png) 
 
 
-<h3><a name = "Project2">Project 2</a></h3>
+<h3><a name = "Project2">Project 2 - Analysis of fine particulate matter (PM2.5)</a></h3>
 
 Fine particulate matter (PM2.5) is an ambient air pollutant for which there is strong evidence that it is harmful to human health. In the United States, 
 the Environmental Protection Agency (EPA) is tasked with setting national ambient air quality standards for fine PM and for tracking the emissions of 

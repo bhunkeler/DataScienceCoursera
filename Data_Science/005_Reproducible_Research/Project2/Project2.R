@@ -2,23 +2,17 @@
 # Description:   Course Project 2 
 #                Coursera Data Science at Johns Hopkins University
 #
-#                It is now possible to collect a large amount of data about personal movement using activity monitoring devices such as 
-#                a Fitbit, Nike Fuelband, or Jawbone Up. These type of devices are part of the “quantified self ” movement – a group of 
-#                enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, 
-#                or because they are tech geeks. But these data remain under - utilized both because the raw data are hard to obtain and 
-#                there is a lack of statistical methods and software for processing and interpreting the data.
+#                Storms and other severe weather events can cause both public health and economic problems for communities and 
+#                municipalities. Many severe events can result in fatalities, injuries, and property damage, and preventing such 
+#                outcomes to the extent possible is a key concern.
+#                This project involves exploring the U.S. National Oceanic and Atmospheric Administration's (NOAA) storm database. 
+#                This database tracks characteristics of major storms and weather events in the United States, including when and 
+#                where they occur, as well as estimates of any fatalities, injuries, and property damage.
 #
-#                This assignment makes use of data from a personal activity monitoring device. This device collects data at 5 minute 
-#                intervals through out the day. The data consists of two months of data from an anonymous individual collected during 
-#                the months of October and November, 2012 and include the number of steps taken in 5 minute intervals each day.
 #
-# Dataset:       Activity Monitoring Data [52kB] 
-#                Download link: [https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip]
-#
-#                The variables included in this dataset are:
-#                steps:       Number of steps taking in a 5 - minute interval(missing values are coded as NA)
-#                date:        The date on which the measurement was taken in YYYY - MM - DD format
-#                interval:    Identifier for the 5 - minute interval in which measurement was taken
+# Dataset:                                    [Storm Data](https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2) [52kB] 
+# National Weather Service:                   [Storm Data Documentation](https://d396qusza40orc.cloudfront.net/repdata%2Fpeer2_doc%2Fpd01016005curr.pdf)
+# National Climatic Data Center Storm Events: [FAQ](https://d396qusza40orc.cloudfront.net/repdata%2Fpeer2_doc%2FNCDC%20Storm%20Events-FAQ%20Page.pdf)
 #
 # Author:        Bruno Hunkeler
 # Date:          20.04.2016
