@@ -1,4 +1,4 @@
-## Data Science Coursera
+## Data Science - Coursera
 
 **Data Science Specialization** provided by Johns Hopkins University
 
@@ -16,7 +16,7 @@ Includes 9 courses and the capstone project
 -  [Data Science Capstone](link) (8 weeks)
 
 
-## Machine Learning Coursera
+## Machine Learning - Coursera
 **Specialization** provided by Stanford University
 
 -  [Linear Regression with one variable](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning/Lectures/002_Linear_Regression_with_One_Variable) 
@@ -38,12 +38,13 @@ Includes 9 courses and the capstone project
 -  [Application Example OCR](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning/Lectures/018_Application_Example_OCR)
 
 
+## Master Statistics with R - Coursera
+**Specialization** provided by Duke University
 
+Includes 4 courses and the capstone project  
 
-
-
-
-
-
-
-
+- [Introduction to Probability and Data](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics/001_Introduction_to_Probability_and_Data)
+- [Inferential Statistics]()
+- [Linear Regression and Modeling]()
+- [Bayesian Statistics]()
+- [Statistics Capstone Project]()

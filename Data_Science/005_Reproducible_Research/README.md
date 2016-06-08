@@ -46,7 +46,7 @@ National Weather Service:                   [Storm Data Documentation](https://d
 National Climatic Data Center Storm Events: [FAQ](https://d396qusza40orc.cloudfront.net/repdata%2Fpeer2_doc%2FNCDC%20Storm%20Events-FAQ%20Page.pdf)  
 
 <h4>Data analysis</h4>
-Please find the complete analysis <[here](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Data_Science/005_Reproducible_Research/Project2)>
+Please find the complete analysis <[here](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Data_Science/005_Reproducible_Research/Project2)>  
 Also available on RPubs: <[here](http://rpubs.com/bhunkeler/173422)>
 
 
