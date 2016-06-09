@@ -5,17 +5,6 @@ Author: Bruno Hunkeler<br>
 Date:   24.05.2016
 <hr>
 
-
----
-output: 
-  md_document:
-    variant: markdown_github
-    fig_height: 4
-    highlight: pygments
-    theme: spacelab
-    css: style.css
----
-
 <h2> Behavioral Risk Factor Surveillance System </h2>
 
 The Behavioral Risk Factor Surveillance System (BRFSS) is a collaborative project between all of the states in
@@ -81,18 +70,18 @@ a range of 95.3% in New Mexico to 98.6% in Connecticut. The data collection is b
 The population is divided into groups (States) called strata. Then a <b>random sampling</B> (telephone), has been employed within <br>
 each stratum.
 
-<h4>Genaralizability</h4>
+<h4>Generalizability</h4>
 Having an estimated 97.3% coverage of US households and a <b>stratified sampling strategy</b> with a <b>random sampling</b> via <br>
-telefon numbers applied, leads to the fact that the survey is indeed genaralizable to all of the US population. There is still a <br>
+telephone numbers applied, leads to the fact that the survey is indeed generalizable to all of the US population. There is still a <br>
 small probability that two individuals living in the same household could participate in the survey, if they are using individual <br>
-cell phones. I such cases we can assume that certain behavioral pattern might be equal (nutrition, excercise etc.). But still the chance<br>
+cell phones. I such cases we can assume that certain behavioral pattern might be equal (nutrition, exercise etc.). But still the chance<br>
 is rather small.
 
 <h4>Causality</h4>
 The study, by gathering survey data, has the character of an observational study. Taking causal conclusions is almost never<br> 
 recommended based on observational data. In observational studies as this one it is generally only sufficient to show <br>
-associations.Even if random sampling, as mentionaed above, has been applied the questionnaire leaves a lot of open questions. <br>
-There are environmetal, stress, social etc. aspects to be considered if we want to consider the health of a person.  
+associations. Even if random sampling, as mentioned above, has been applied the questionnaire leaves a lot of open questions. <br>
+There are environmental, stress, social etc. aspects to be considered if we want to consider the health of a person.  
 
 <h2><b>Setup</b></h2>
 
@@ -158,9 +147,10 @@ summary(brfss2013)
 
 I reduced the dataset for convenience reasons. I went through the dataset to separate the wheat from the chaff. I verified the number of 'NA' in each 
 variable. Check if it is required to apply an algorithm to fill in the missing data or if I just can delete the incomplete rows. I also verified IRQ's etc. 
-Visualization has been used to verify the distribution and to find potential outliners. I used histogramms, boxplots and Q-Q Plot's to visually analyse the data.
+Visualization has been used to verify the distribution and to find potential outliners. I used histograms, boxplots and Q-Q Plot's to visually analyze the data.
 The steps taken, gave me a quite clear picture of the dataset at hand. 
 <br>
+
 
 ```r
 # Create a subset of the analysed data, which might be interesting for the rresearch questions
@@ -368,7 +358,7 @@ The mosaic plots below show on one hand the relation between the general health 
 other hand the relation between general health and the physical exercise.<br>
 <br>
 The 'health care plan' is still relatively new for lots of the US population , therefore it is interesting to see if, having a <br>
-health care plan already has an impact on the general health of the population. The graphic indicates that there is no explicite <br>
+health care plan already has an impact on the general health of the population. The graphic indicates that there is no explicit <br>
 trend (change) to be found, but if we assume that having a health care plan also sensitizes people with regard to physical exercise<br> 
 or nutrition, we see a clear trend that people, performing physical exercise more often tend to lead a healthier life.<br>
 Even if it seems that we might have a causal relation, I wouldn't go that far, since a lot of other factors might be influencing <br>
@@ -538,15 +528,16 @@ Selecting by percent
 <img src="figure/unnamed-chunk-8-2.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" style="display: block; margin: auto;" />
 
 <h4><b>Research question 3:</b></h4>
-In this part I'll answer the question, if there is a relation between BMI and an 'age group' and can we infere <br>
-a relation (association) between the BMI of age groups and their nutrition behavior as well as pysical activity pattern.<br>  
+In this part I'll answer the question, if there is a relation between BMI and an 'age group' and can we infer <br>
+a relation (association) between the BMI of age groups and their nutrition behavior as well as physical activity patterns.<br>  
 To answer this question we again have to perform some data preprocessing steps as removing NA values, calculating <br>
-the average value of the BMI for each age goup and put them in relation.  
+the average value of the BMI for each age group and put them in relation.  
 <br>
 The fact that the BMI has a steep upwards curve from age 18 up to 40 and than levels out until the age 60, is no real surprise.<br>
-But the fact that after 60 the average BMI drops again, 'nota bene' not only slightly, rather in a steep curve is quite suprising<br>
+But the fact that after 60 the average BMI drops again, 'nota bene' not only slightly, rather in a steep curve is quite surprising<br>
 to me. My hypothesis was that with higher age the BMI levels out on a high rate and stays there for the last quarter of the life time.  
 <br>
+
 
 ```r
     # ====================================================================================================
@@ -593,10 +584,11 @@ to me. My hypothesis was that with higher age the BMI levels out on a high rate 
 
 <img src="figure/unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" style="display: block; margin: auto;" />
 
-The following plot show the average BMI per age as well as the average Nutition per age. Can we infere a causal relation between <br>
+The following plot show the average BMI per age as well as the average Nutrition per age. Can we infer a causal relation between <br>
 the two curves? As mentioned earlier, a causal relation might be implied, but there are lots of other factors who can <br>
 influence such a situation. But we can imply an association of the different factors.
 <br>
+
 
 ```r
     # ====================================================================================================
@@ -640,12 +632,13 @@ influence such a situation. But we can imply an association of the different fac
 
 The following plot uses a function, which allows to overlay two individual plots to better identify a relation.  
 We see that people around ~40 up to 60 consume less fruits and vegis, which corresponds with a high BMI. The fruit and 
-vegi consumtion again rises from 60 up to 80. This as well can be seen in the dropping BMI curve. I can assume that there is 
-causaal relation between fruit and vegi consumption and BMI, but we also would need to consider other consumption pattern.
-The fact that people often consume fruits and vegis is ofthen related to their general attitude in regards to helth. 
-People being aware of health and nurtition often also lead a more active life in regards to physical excercise. That part 
+vegi consumption again rises from 60 up to 80. This as well can be seen in the dropping BMI curve. I can assume that there is 
+causal relation between fruit and vegi consumption and BMI, but we also would need to consider other consumption pattern.
+The fact that people often consume fruits and vegis is often related to their general attitude in regards to health. 
+People being aware of health and nutrition often also lead a more active life in regards to physical exercise. That part 
 will be next to discover.
 <br>
+
 
 ```r
     # ====================================================================================================
@@ -698,7 +691,7 @@ overlay(p1, p2)
 
 
 We consider again the same data displayed previously with the average BMI per age, but this time we will put those data in relation <br>
-to physical exercise. We see again two plots one we have seen before. The other displays the average excercise performed by the <br>
+to physical exercise. We see again two plots one we have seen before. The other displays the average exercise performed by the <br>
 population of a certain age. 
 <br>
 
@@ -729,12 +722,13 @@ population of a certain age.
 <img src="figure/unnamed-chunk-12-1.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" style="display: block; margin: auto;" />
 
 
-This two plots again will be overlayed to better see a relation. 
+This two plots again will be overlaid to better see a relation. 
 The final plot shows that up to the age of 40 not much physical activity has been performed. From there on it seems that a lot of people <br>
-seem to feel uncomfortable with their weight and start to excercise. This itself only partially supports the weight reduction. But if we <br>
-consider the previous curve with the 'fruit and vegi consumption' and also consider the 'physical exercise' data and put them in relaion <br>
+seem to feel uncomfortable with their weight and start to exercise. This itself only partially supports the weight reduction. But if we <br>
+consider the previous curve with the 'fruit and vegi consumption' and also consider the 'physical exercise' data and put them in relation <br>
 (about age 60 to 80), we see a different picture. There seems to be a relation between nutrition, physical activity and BMI. 
 <br>
+
 
 ```r
     grid.newpage()
