@@ -1,15 +1,3 @@
----
-# title: "Statistical inference with GSS data"
-output: 
-  html_document: 
-    fig_height: 4
-    highlight: pygments
-    theme: spacelab
-    css: style.css
-  md_document:
-  toc: true
----
-
 
 <h2><b>Statistical inference with General Social Survey (GSS) data </b></h2>
 <br>

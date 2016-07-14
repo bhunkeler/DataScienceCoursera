@@ -44,7 +44,7 @@ Includes 9 courses and the capstone project
 Includes 4 courses and the capstone project  
 
 - [Introduction to Probability and Data](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics/001_Introduction_to_Probability_and_Data)
-- [Inferential Statistics]()
+- [Inferential Statistics](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics/002_Inferential_Statistics)
 - [Linear Regression and Modeling]()
 - [Bayesian Statistics]()
 - [Statistics Capstone Project]()
