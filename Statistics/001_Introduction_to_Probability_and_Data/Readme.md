@@ -1,4 +1,14 @@
-
+---
+# title: "Exploring the BRFSS data"
+output: 
+  html_document: 
+    fig_height: 4
+    highlight: pygments
+    theme: spacelab
+    css: style.css
+  md_document:
+    
+---
 <h2> Behavioral Risk Factor Surveillance System </h2>
 <br>
 Author: Bruno Hunkeler   
@@ -39,21 +49,21 @@ Dataset: [Behavioral Risk Factor Surveillance System Data](https://d3c33hcgiwev3
 
 General Information: [2013 Survey Data Information](http://www.cdc.gov/brfss/annual_data/annual_2013.html) 
 
-<ul>
-<li>[2013 BRFSS Overview](http://www.cdc.gov/brfss/annual_data/2013/pdf/overview_2013.pdf) [PDF - 84 KB]<br> 
+
+* [2013 BRFSS Overview](http://www.cdc.gov/brfss/annual_data/2013/pdf/overview_2013.pdf) [PDF - 84 KB]<br> 
        Provides information on the background, design, data collection and processing, statistical, and <br>
        analytical issues for the combined landline and cell phone data set.<br><br>
-<li>[2013 BRFSS Codebook](http://www.cdc.gov/brfss/annual_data/2013/pdf/codebook13_llcp.pdf) [PDF - 2.7 MB]<br>
+* [2013 BRFSS Codebook](http://www.cdc.gov/brfss/annual_data/2013/pdf/codebook13_llcp.pdf) [PDF - 2.7 MB]<br>
        Codebook for the file showing variable name, location, and frequency of values for all reporting <br>
        areas combined for the combined landline and cell phone data set.<br><br>
-<li>[Calculated Variables in Data Files](http://www.cdc.gov/brfss/annual_data/2013/pdf/2013_calculated_variables_version15.pdf) [PDF - 421 KB] <br>
-<li>[Comparability of Data](http://www.cdc.gov/brfss/annual_data/2013/pdf/compare_2013.pdf) [PDF - 96 KB]</b> <br>
+* [Calculated Variables in Data Files](http://www.cdc.gov/brfss/annual_data/2013/pdf/2013_calculated_variables_version15.pdf) [PDF - 421 KB] <br>
+* [Comparability of Data](http://www.cdc.gov/brfss/annual_data/2013/pdf/compare_2013.pdf) [PDF - 96 KB]</b> <br>
        Comparability of data across reporting areas for the combined landline and cell phone data set.  <br>
        The BRFSS 2012 data is not directly comparable to years of BRFSS data before 2011 because of the <br>
        changes in weighting methodology and the addition of the cell phone sampling frame.<br><br>
-<li>[2013 Weighting Formula](http://www.cdc.gov/brfss/annual_data/2013/pdf/weighting_data.pdf) [PDF - 98 KB]<br>
-<li>[Summary Matrix of Calculated Variables (CV) in the 2013 Data File](http://www.cdc.gov/brfss/annual_data/2013/summary_matrix_2013_version5.html)
-</ul>
+* [2013 Weighting Formula](http://www.cdc.gov/brfss/annual_data/2013/pdf/weighting_data.pdf) [PDF - 98 KB]<br>
+* [Summary Matrix of Calculated Variables (CV) in the 2013 Data File](http://www.cdc.gov/brfss/annual_data/2013/summary_matrix_2013_version5.html)
+
 
 <h3>Generalizability / Causality</h3>
 
