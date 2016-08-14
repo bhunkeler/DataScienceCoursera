@@ -1,14 +1,3 @@
----
-# title: "Exploring the BRFSS data"
-output: 
-  html_document: 
-    fig_height: 4
-    highlight: pygments
-    theme: spacelab
-    css: style.css
-  md_document:
-    
----
 <h2> Behavioral Risk Factor Surveillance System </h2>
 <br>
 Author: Bruno Hunkeler   
