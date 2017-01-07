@@ -1,0 +1,296 @@
+---
+title: "Bayesian credible intervals"
+runtime: shiny
+output: statsr:::statswithr_lab
+---
+
+```{r echo=FALSE}
+suppressMessages(library(magrittr))
+```
+
+<div id="instructions">
+Complete all **Exercises**, and submit answers to **Questions** on the Coursera platform.
+</div>
+
+## Getting Started
+
+### Load packages
+
+In this lab we will explore some basic Bayesian inference using conjugate priors and credible intervals
+to examine some categorical and count data from the [CDC's Behavioral Risk Factor Surveillance System](http://www.cdc.gov/brfss/) (BRFSS). A subset of these data from 2013 have been made available in the `statsr` package, as usual we will first load the package and then the data set. 
+
+Let's load the package,
+
+```{r load-packages, message=FALSE}
+library(statsr)
+data(brfss)
+```
+
+This data set contains 5000 observations of 6 variables:
+
+variable         | description
+---------------- | ---------------------------------------------
+`weight`         |  Respondent's weight in pounds.
+`height`         |  Respondent's height in inches.
+`sex`            |  Respondent's sex
+`exercise`       |  Has the respondent exercised in the last 30 days
+`fruit_per_day`  |  How many servings of fruit does the respondent consume per day
+`vege_per_day`   |  How many servings of dark green vegetables does the respondent consume per day
+
+
+## Credible Interval Calculator
+
+Below is an interactive tool for visualizing a posterior distribution and credible interval for specific values of the posterior distribution's parameters. We will be using this to explore how both our choice of prior as well as our data affect the distribution of the posterior and the credible interval for our parameter of interest.
+
+Note that this app assumes that you know the posterior distribution as well as the parameters of this distribution. In the remainder of the lab we will walk you through calculating the posterior distribution for the Beta-Binomial and the Gamma-Poisson cases based on real data from the BRFSS, and then you will be asked to come back to this app to finally calculate the credible interval for the parameter of interest. But first, some exercises to get you used to using this app.
+
+```{r}
+credible_interval_app()
+```
+
+1. Suppose the posterior distribution of $\mu$ follows a Normal distribution with mean 10 and variance 5. Which of the following are the bounds of a 95% credible interval for $\mu$? Answer this question using the app.
+<ol>
+<li> (-1.96, 1.96) </li>
+<li> (0.419, 0.872) </li>
+<li> (0.959, 3.417) </li>
+<li> (5.618, 14.382) </li>
+</ol>
+
+<div id="exercise">
+**Exercise**: Confirm your answer by running the code given below the distribution plot in the app.
+</div>
+```{r normal-ci}
+# type your code for the Exercise here, and Knit
+
+```
+
+
+2. Suppose the posterior distribution of $p$ follows a Beta distribution with $\alpha = 2$ and $\beta = 5$. Which of the following are the bounds of a 90% credible interval for $p$? Answer this question using the app.
+<ol>
+<li> (-1.678, 5.678) </li>
+<li> (0.043, 0.641) </li>
+<li> (0.063, 0.582) </li>
+<li> (0.071, 0.949) </li>
+</ol>
+
+<div id="exercise">
+**Exercise**: Confirm your answer by running the code given below the distribution plot in the app.
+</div>
+```{r beta-ci}
+# type your code for the Exercise here, and Knit
+
+```
+
+
+3. Suppose the posterior distribution of $\lambda$ follows a Gamma distribution with $\alpha = 4$ and $\beta = 8$. Which of the following are the bounds of a 99% credible interval for $\lambda$? Answer this question using the app.
+<ol>
+<li> (-3.284, 11.284) </li>
+<li> (0.069, 0.693) </li>
+<li> (0.084, 1.372) </li>
+<li> (0.171, 0.969) </li>
+</ol>
+
+<div id="exercise">
+**Exercise**: Confirm your answer by running the code given below the distribution plot in the app.
+</div>
+```{r gamma-ci}
+# type your code for the Exercise here, and Knit
+
+```
+
+
+## Beta-Binomial
+
+As we discussed in the videos, the Beta distribution is conjugate to the Binomial distribution - meaning that if we use a Beta prior for the parameter $p$ of the Binomial distribution then the posterior distribution of $p$ after observing data will be another Beta distribution. 
+
+$$ \pi(p) ~\sim~ \text{Beta}(a,b) $$
+$$ x\,|\,n,p ~\sim~ \text{Binom}(n,p) $$
+$$ p \,|\, x,n ~\sim~ \text{Beta}(\alpha,\beta).$$
+
+Our goal with inference in general is to take specific observations (data) and use them to make useful statements about unknown population parameters of interest. The Beta-Binomial is a Bayesian approach for inference about a single population proportion $p$. Whereas with the frequentist approach we used $\hat{p} = x / n$ we will now just use $x$ and $n$ directly with $x$ being the number of successes obtained from $n$ identical Bernoulli trials. As such, we can view $x$ as a Binomial random variable with $n$ trials and $p$ probability of success.
+ 
+To complete our Bayesian specification, all that is left is to define our prior beliefs for the value of $p$ by defining a prior distribution. Our choice of the prior hyperparameters ($a$ and $b$) should reflect our prior beliefs about our parameter of interest. Note that the term hyperparameter defines parameters of prior distributions, and we use the term parameter for defining the unknown parameters of the likelihood. For most conjugate distributions there is usually a straight forward interpretation of these hyperparameters as previously observed data -- in the case of the Beta-Binomial we can think of our hyperparameters as representing $a-1$ previous successes and $b-1$ previous failures.
+
+### Data and the updating rule
+
+We will start by performing inference on the sex ratio of respondents to the BRFSS, we can define success as being `Female` and we would like to make some statement about the overall sex ratio of American adults based on our sample from the BRFSS. We will do this by estimating $p$, the true proportion of females in the American population, using credible intervals. For each credible interval you compute always check back in with your intuition, which hopefully says that $p$ should be around 0.5 since we would expect the roughly 50% females and 50% males in the population.
+
+Here is the observed sex distribution in the data:
+```{r}
+table(brfss$sex)
+```
+
+Let's store the relevant, total sample size and number of females, for use in later calculations:
+```{r}
+n <- length(brfss$sex)
+x <- sum(brfss$sex == "Female")
+```
+
+For each observed data point from a Binomial ($n$ and $x$) we can calculate the values of the posterior parameters using the following updating rule:
+
+$$ \alpha = a + x $$
+$$ \beta = b + n - x $$
+
+From the data we now have $x = `r x`$ (the number of females), and $n - x = `r n - x`$ (the number of males). We'll start with a Beta prior where $a = 1$ and $b = 1$. Remember that this is equivalent to a Uniform distribution. By combining the data with the prior, we arrive at a posterior where 
+
+$$ p \,|\, x,n ~\sim~ \text{Beta}(\alpha = 1 + `r x`,~ \beta = 1 + `r n - x`) $$
+
+4. What is the 95% credible interval for $p$, the proportion of females in the population, based on the posterior distribution obtained with the updating rule shown above. Use the credible interval app to answer this question.
+<ol>
+<li> (0.500, 0.536) </li>
+<li> (0.503, 0.531) </li> 
+<li> (0.507, 0.530) </li>
+<li> (0.468, 0.496) </li>
+</ol>
+
+
+5. Which of the following is the correct Bayesian interpretation of this interval?
+<ol>
+<li> The probability that the true proportion of females lies in this interval is either 0 or 1. </li>
+<li> The probability that the true proportion of females lies in this interval is 0.95.</li>
+<li> 95\% of the time the true proportion of females is in this interval.  </li>
+<li> 95\% of true proportions of females are in this interval.  </li>
+</ol>
+
+Let's now use a more informative prior that reflects a stronger belief that the sex ratio should be 50-50. For this, we will use a Beta prior with hyperparameters $a = 500$ and $b = 500$.
+
+<div id="exercise">
+**Exercise**: Confirm by plotting the following two Beta distributions that we have used as priors so far using the app that the $Beta(a = 500, b = 500)$ distribution is centered around 0.5 and much narrowed than the uniform, i.e. $Beta(a = 1, b = 1)$, distribution.
+</div>
+
+
+6. What is the 95% credible interval for $p$, the proportion of females in the population, based on a prior distribution of $Beta(a = 500, b = 500)$. **Hint:** You need to determine the posterior distribution first, and then you can use the app to construct the credible interval.
+<ol>
+<li> (0.498, 0.531) </li>
+<li> (0.500, 0.528) </li>
+<li> (0.504, 0.532) </li>
+<li> (0.502, 0.527) </li> 
+</ol>
+
+Let's consider one other prior distribution: $Beta(a = 5, b = 200)$. 
+
+
+7. Which is of the following is the center of the $Beta(a = 5, b = 200)$ distribution?
+<ol>
+<li> approximately 0.03 </li>
+<li> approximately 0.15 </li>
+<li> approximately 0.50 </li>
+<li> approximately 0.97 </li>
+</ol>
+
+
+8. What is the 95% credible interval for $p$, the proportion of females in the population, based on a prior distribution of $Beta(a = 5, b = 200)$. **Hint:** You need to determine the posterior distribution first, and then you can use the app to construct the credible interval.
+<ol>
+<li> (0.503, 0.531) </li>
+<li> (0.499, 0.535) </li>
+<li> (0.486, 0.509) </li>
+<li> (0.484, 0.511) </li>
+</ol>
+
+In summary, when we used a prior distribution that was centered around a realistic value for $p$ (0.5), the credible interval we obtained was also realistic. However when we used a strong prior distribution that was centered around a clearly unrealistic value for $p$, the credible interval we obtained did not match the distribution of the data. Hence, a good prior helps, however a bad prior can hurt your results. 
+
+Next, let's turn our attention to the `exercise` variable, which indicates whether the respondent exercised in the last 30 days. While for the `sex` variable we had some intuition about the true proportion of females (we would expect it to be around 0.5), many of us likely do not have a strong prior belief about the proportion of Americans who exercise. In this case we would be more inclined to use non-informative prior, e.g. a uniform, which says that $p$ is equally likely to be anywhere between 0 and 1.
+
+Here is the observed exercise distribution in the data:
+```{r}
+table(brfss$exercise)
+```
+
+
+9. What is the 90% credible interval for $p$, the proportion of Americans who exercise, based on a uniform prior distribution?
+<ol>
+<li> (0.762, 0.785) </li>
+<li> (0.764, 0.783) </li> 
+<li> (0.718, 0.737) </li>
+<li> (0.758, 0.789) </li>
+</ol>
+
+## Gamma-Poisson
+
+Since the Poisson distribution describes counts in a given interval, we will use this distribution as a model for the `fruit_per_day` variable which records the servings of fruit the respondents consume per day. The Poisson distribution has a single parameter, $\lambda$, which is the expected number of counts per time period. 
+The Gamma-Poisson is another example of a conjugate family where using the Gamma distribution as a prior for the rate parameter $\lambda$ from the Poisson distribution results in a Gamma posterior for $\lambda$.
+
+$$ \pi(\lambda) ~\sim~ \text{Gamma}(a,b) $$
+$$ x\,|\,\lambda ~\sim~ \text{Pois}(\lambda) $$
+$$ \lambda \,|\, x ~\sim~ \text{Gamma}(\alpha,\beta).$$
+
+Once again, our choice of the prior parameters ($a$ and $b$) should reflect our prior beliefs about our parameter of interest ($\lambda$), and in the case of the Gamma-Poisson we can view $a$ as the number of total counts and $b$ as the number of time periods observed. For example, setting $a = 12$ and $b = 3$ reflects a belief that respondents on average consume 12 fruits in 3 days. At a first glance, this might sound equivalent to setting $a = 4$ and $b = 1$ or $a = 120$ and $b = 30$, however these three distributions, $Gamma(a = 4, b = 1)$, $Gamma(a = 12, b = 3)$, and $Gamma(a = 120, b = 30)$, while they all have the same expected value (4), differ in their spreads which indicates a different degree of belief about the parameter $\lambda$.
+
+<div id="exercise">
+**Exercise**: Plot the following three prior Gamma distributions, $Gamma(a = 4, b = 1)$, $Gamma(a = 12, b = 3)$, and $Gamma(a = 120, b = 30)$ using the app. Confirm that they all have the same center but different spreads. Order them in ascending order of spreads, from least to most variable.
+</div>
+
+### Data and the updating rule
+
+For each observed data point from the Poisson ($x$) we can calculate the values of the posterior parameters using the following updating rule:
+
+$$ \alpha = a + x $$
+$$ \beta = b + 1 $$
+
+However in this case we have 5000 observations and we would like to avoid updates at the individual level. As we saw last week, we can use our updated posterior as a new prior for subsequent updates. As such, a more general multi-observation updating rule is
+
+$$ \alpha = a + \sum_{i = 1}^n x_i $$
+$$ \beta = b + n $$
+
+10. Using the multi-observation updating rule, what should the posterior distribution be when the hyperparameters of a Gamma prior are $a = 4$ and $b = 1$ and we observe $x = \{2, 3, 4, 5, 4\}$.
+<ol>
+<li> Gamma($a = 22$, $b = 6$) </li> 
+<li> Gamma($a = 18$, $b = 5$) </li>
+<li> Gamma($a = 18$, $b = 6$) </li>
+<li> Gamma($a = 19$, $b = 8$) </li>
+</ol>
+```{r q10}
+# type your code for Question 10 here, and Knit
+
+```
+
+11. The government recooments that Americans consume approximately 5 servings of fruits per day. Which of the following represents a weak prior that Americans on average follow this recommendation.
+<ol>
+<li> $Gamma(a = 1, b = 5)$ </li>
+<li> $Gamma(a = 5, b = 1)$ </li>
+<li> $Gamma(a = 100, b = 500)$ </li>
+<li> $Gamma(a = 500, b = 100)$ </li>
+</ol>
+
+12. Using the correct prior distribution from the previous question, calculate the parameters of the posterior distribution.
+<ol>
+<li> Gamma($a = 8114$, $b = 5000$) </li>
+<li> Gamma($a = 8118$, $b = 5001$) </li>
+<li> Gamma($a = 8119$, $b = 5001$) </li>
+<li> Gamma($a = 8115$, $b = 5005$) </li>
+</ol>
+
+```{r q12}
+# type your code for Question 12 here, and Knit
+
+```
+
+
+13. Using the correct posterior distribution from the previous question, calculate the 90% credible interval for $\lambda$, the expected number of servings of fruit Americans consume per day.
+<ol>
+<li> (1.594, 1.653) </li> 
+<li> (1.588, 1.659) </li> 
+<li> (1.592, 1.651) </li> 
+<li> (1.575, 1.668) </li> 
+</ol>
+
+14. Based on this result, do Americans appear to follow the government guidelines which recommend consuming 5 servings of fruits per day?
+<ol>
+<li> Yes </li>
+<li> No </li>
+</ol>
+
+
+<div id="exercise">
+**Exercise**: Repeat the preceding analysis for number of servings of vegetables per day (`vege_per_day`), and evaluate whether Americans follow the government guidelines which recommend consuming 5 servings of vegetables per day.
+</div>
+
+```{r veg_day}
+# type your code for the Exercise here, and Knit
+
+```
+
+
+
+
+
