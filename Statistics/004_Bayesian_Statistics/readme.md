@@ -1,9 +1,3 @@
----
-title: 
-output: statsr:::statswithr_lab
----  
-
-
 <h2><b>Bayesian modeling and prediction for movies</b></h2>
 <br>
 Author: Bruno Hunkeler   
