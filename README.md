@@ -49,6 +49,7 @@ Includes 4 courses and the capstone project
 - [Bayesian Statistics](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics/004_Bayesian_Statistics)
 - [Statistics Capstone Project]()
 
+
 ## Machine Learning - Coursera
 **Specialization** provided by Washington University
 
