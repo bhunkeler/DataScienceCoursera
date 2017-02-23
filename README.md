@@ -48,3 +48,15 @@ Includes 4 courses and the capstone project
 - [Linear Regression and Modeling](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics/003_Linear_Regression_and_Modeling)
 - [Bayesian Statistics](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics/004_Bayesian_Statistics)
 - [Statistics Capstone Project]()
+
+## Machine Learning - Coursera
+**Specialization** provided by Washington University
+
+Includes 4 courses  
+
+- [Machine Learning Foundations]()
+- [Machine Learning: Regression]()
+- [Machine Learning: Classification]()
+- [Machine Learning: Clustering & Retrieval]()
+
+
