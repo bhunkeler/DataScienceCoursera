@@ -56,8 +56,8 @@ Includes 4 courses and the capstone project
 Includes 4 courses  
 
 - [Machine Learning Foundations](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine%20Learning%20-%20Washingtion%20University/001_Machine_Learning_Foundations)
-- [Machine Learning: Regression]()
-- [Machine Learning: Classification]()
-- [Machine Learning: Clustering & Retrieval]()
+- [Machine Learning Regression](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine%20Learning%20-%20Washingtion%20University/002_Machine_Learning_Regression)
+- [Machine Learning Classification]()
+- [Machine Learning Clustering & Retrieval]()
 
 
