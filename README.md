@@ -9,11 +9,11 @@ Includes 9 courses and the capstone project
 -  [Getting and Cleaning Data](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Data_Science/003_Getting_and_Cleaning_Data) (4 weeks)
 -  [Exploratory Data Analysis](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Data_Science/004_Exploratory_Data_Analysis) (4 weeks)
 -  [Reproducible Research](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Data_Science/005_Reproducible_Research) (4 weeks)
--  [Statistical Inference](link) (4 weeks)
--  [Regression Models](link) (4 weeks)
--  [Practical Machine Learning](link) (4 weeks)
--  [Developing Data Products](link) (4 weeks)
--  [Data Science Capstone](link) (8 weeks)
+-  [Statistical Inference](link) (4 weeks) `pending`
+-  [Regression Models](link) (4 weeks) `pending`
+-  [Practical Machine Learning](link) (4 weeks) `pending`
+-  [Developing Data Products](link) (4 weeks) `pending`
+-  [Data Science Capstone](link) (8 weeks) `pending`
 
 
 ## Machine Learning - Coursera
@@ -47,7 +47,7 @@ Includes 4 courses and the capstone project
 - [Inferential Statistics](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics/002_Inferential_Statistics)
 - [Linear Regression and Modeling](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics/003_Linear_Regression_and_Modeling)
 - [Bayesian Statistics](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics/004_Bayesian_Statistics)
-- [Statistics Capstone Project]()
+- [Statistics Capstone Project]() `pending`
 
 
 ## Machine Learning - Coursera
@@ -57,7 +57,7 @@ Includes 4 courses
 
 - [Machine Learning Foundations](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine%20Learning%20-%20Washingtion%20University/001_Machine_Learning_Foundations)
 - [Machine Learning Regression](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine%20Learning%20-%20Washingtion%20University/002_Machine_Learning_Regression)
-- [Machine Learning Classification]()
-- [Machine Learning Clustering & Retrieval]()
+- [Machine Learning Classification]() `pending`
+- [Machine Learning Clustering & Retrieval]() `pending`
 
 
