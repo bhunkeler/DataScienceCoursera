@@ -1,4 +1,9 @@
-.Rproj.user
-.Rhistory
-.RData
-.Ruserdata
+/R/win-library
+/Phyton
+/.matplotlib
+/.anaconda
+/.conda
+/.continuum
+/.graphlab
+/.ipython
+/.jupyter
