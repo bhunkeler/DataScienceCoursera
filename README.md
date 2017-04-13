@@ -19,23 +19,23 @@ Includes 9 courses and the capstone project
 ## Machine Learning - Coursera
 **Specialization** provided by Stanford University
 
--  [Linear Regression with one variable](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning/Lectures/002_Linear_Regression_with_One_Variable) 
--  [Linear Algebra review](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning/Lectures/003_Linear_Algebra_Review) 
--  [Linear Regression with multiple variables](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning/Lectures/004_Linear_Regression_with_Multiple_Variables) 
--  [Octave] 
--  [Logistic Regression](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning/Lectures/006_Logistic_Regression) 
--  [Regularization](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning/Lectures/007_Regularization) 
--  [Neural Networks Representation](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning/Lectures/008_Neural_Networks_Representation) 
--  [Neural Networks Learning](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning/Lectures/009_Neural_Networks_Learning) 
--  [Advice for Applying Machine Learning](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning/Lectures/010_Advice_for_Applying_Machine_Learning) 
--  [Machine Learning System Design](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning/Lectures/011_Machine_Learning_System_Design) 
--  [Support Vector Machines](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning/Lectures/012_Support_Vector_Machines) 
--  [Clustering](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning/Lectures/013_Clustering) 
--  [Dimensionality Reduction (PCA)](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning/Lectures/014_Dimensionality_Reduction_(PCA)) 
--  [Anomaly Detection](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning/Lectures/015_Anomaly_Detection) 
--  [Recommender System](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning/Lectures/016_Recommender_System) 
--  [Large Scale Machine Learning](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning/Lectures/017_Large_Scale_Machine_Learning) 
--  [Application Example OCR](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning/Lectures/018_Application_Example_OCR)
+-  [Linear Regression with one variable](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning%20-%20Stanford%20University/Lectures/002_Linear_Regression_with_One_Variable) 
+-  [Linear Algebra review](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning%20-%20Stanford%20University/Lectures/003_Linear_Algebra_Review) 
+-  [Linear Regression with multiple variables](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning%20-%20Stanford%20University/Lectures/004_Linear_Regression_with_Multiple_Variables) 
+-  [Octave] `no information`
+-  [Logistic Regression](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning%20-%20Stanford%20University/Lectures/006_Logistic_Regression) 
+-  [Regularization](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning%20-%20Stanford%20University/Lectures/007_Regularization) 
+-  [Neural Networks Representation](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning%20-%20Stanford%20University/Lectures/008_Neural_Networks_Representation) 
+-  [Neural Networks Learning](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning%20-%20Stanford%20University/Lectures/009_Neural_Networks_Learning) 
+-  [Advice for Applying Machine Learning](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning%20-%20Stanford%20University/Lectures/010_Advice_for_Applying_Machine_Learning) 
+-  [Machine Learning System Design](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning%20-%20Stanford%20University/Lectures/011_Machine_Learning_System_Design) 
+-  [Support Vector Machines](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning%20-%20Stanford%20University/Lectures/012_Support_Vector_Machines) 
+-  [Clustering](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning%20-%20Stanford%20University/Lectures/013_Clustering) 
+-  [Dimensionality Reduction (PCA)](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning%20-%20Stanford%20University/Lectures/014_Dimensionality_Reduction_(PCA)) 
+-  [Anomaly Detection](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning%20-%20Stanford%20University/Lectures/015_Anomaly_Detection) 
+-  [Recommender System](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning%20-%20Stanford%20University/Lectures/016_Recommender_System) 
+-  [Large Scale Machine Learning](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning%20-%20Stanford%20University/Lectures/017_Large_Scale_Machine_Learning) 
+-  [Application Example OCR](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine_Learning%20-%20Stanford%20University/Lectures/018_Application_Example_OCR)
 
 
 ## Master Statistics with R - Coursera
