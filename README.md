@@ -4,11 +4,11 @@
 
 Includes 9 courses and the capstone project  
 
--  [The Data Scientist's Toolbox](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Data_Science/001_The_Data_Scientists_Toolbox) (4 weeks)
--  [R Programming](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Data_Science/002_R_Programming) (4 weeks)
--  [Getting and Cleaning Data](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Data_Science/003_Getting_and_Cleaning_Data) (4 weeks)
--  [Exploratory Data Analysis](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Data_Science/004_Exploratory_Data_Analysis) (4 weeks)
--  [Reproducible Research](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Data_Science/005_Reproducible_Research) (4 weeks)
+-  [The Data Scientist's Toolbox](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Data_Science%20-%20Johns%20Hopkins%20University/001_The_Data_Scientists_Toolbox) (4 weeks)
+-  [R Programming](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Data_Science%20-%20Johns%20Hopkins%20University/002_R_Programming) (4 weeks)
+-  [Getting and Cleaning Data](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Data_Science%20-%20Johns%20Hopkins%20University/003_Getting_and_Cleaning_Data) (4 weeks)
+-  [Exploratory Data Analysis](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Data_Science%20-%20Johns%20Hopkins%20University/004_Exploratory_Data_Analysis) (4 weeks)
+-  [Reproducible Research](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Data_Science%20-%20Johns%20Hopkins%20University/005_Reproducible_Research) (4 weeks)
 -  [Statistical Inference](link) (4 weeks) `pending`
 -  [Regression Models](link) (4 weeks) `pending`
 -  [Practical Machine Learning](link) (4 weeks) `pending`
@@ -43,10 +43,10 @@ Includes 9 courses and the capstone project
 
 Includes 4 courses and the capstone project  
 
-- [Introduction to Probability and Data](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics/001_Introduction_to_Probability_and_Data)
-- [Inferential Statistics](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics/002_Inferential_Statistics)
-- [Linear Regression and Modeling](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics/003_Linear_Regression_and_Modeling)
-- [Bayesian Statistics](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics/004_Bayesian_Statistics)
+- [Introduction to Probability and Data](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics%20-%20Duke%20University/001_Introduction_to_Probability_and_Data)
+- [Inferential Statistics](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics%20-%20Duke%20University/002_Inferential_Statistics)
+- [Linear Regression and Modeling](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics%20-%20Duke%20University/003_Linear_Regression_and_Modeling)
+- [Bayesian Statistics](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics%20-%20Duke%20University/004_Bayesian_Statistics)
 - [Statistics Capstone Project]() `pending`
 
 
