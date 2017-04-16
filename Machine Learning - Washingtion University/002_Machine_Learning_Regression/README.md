@@ -46,7 +46,7 @@
   - OPTIONAL ADVANCED MATERIAL: Deriving the lasso coordinate descent update
   - Tying up loose ends
   - Programming assignment 1: [Feature Selection and LASSO - interpretation](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Machine%20Learning%20-%20Washingtion%20University/002_Machine_Learning_Regression/week5/Programming%20Assignment/week-5-lasso-assignment-1-blank.ipynb)
-  - Programming assignment 2: [RLASSO - coordinate descent](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Machine%20Learning%20-%20Washingtion%20University/002_Machine_Learning_Regression/week5/Programming%20Assignment/week-5-lasso-assignment-2-blank.ipynb)
+  - Programming assignment 2: [LASSO - coordinate descent](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Machine%20Learning%20-%20Washingtion%20University/002_Machine_Learning_Regression/week5/Programming%20Assignment/week-5-lasso-assignment-2-blank.ipynb)
 
 - Week 6 - Nearest Neighbors & Kernel Regression
   - Motivating local fits
