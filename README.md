@@ -47,7 +47,7 @@ Includes 4 courses and the capstone project
 - [Inferential Statistics](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics%20-%20Duke%20University/002_Inferential_Statistics)
 - [Linear Regression and Modeling](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics%20-%20Duke%20University/003_Linear_Regression_and_Modeling)
 - [Bayesian Statistics](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics%20-%20Duke%20University/004_Bayesian_Statistics)
-- [Statistics Capstone Project]() `pending`
+- [Statistics Capstone Project](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Statistics%20-%20Duke%20University/005_Bayesian_Capstone) 
 
 
 ## Machine Learning - Coursera
