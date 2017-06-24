@@ -1,13 +1,8 @@
----
-title: "Peer Assessment II"
-author: "Bruno Hunkeler"
-date:   "15.06.2017"
-output:
-  html_document: 
-    pandoc_args: [
-      "--number-sections",
-    ]
----
+<h2><b>Peer Assessment II</b></h2>
+<br>
+Author: Bruno Hunkeler</br>   
+Date:   15.06.2017
+<hr>
 
 <h3><b>Background</b></h3>
 
@@ -452,7 +447,7 @@ print(boruta.model)
 ```
 
 ```
-Boruta performed 10 iterations in 3.59938 secs.
+Boruta performed 10 iterations in 3.840129 secs.
  10 attributes confirmed important: area, Bsmt.Qual, Exter.Qual,
 Fireplace.Qu, Garage.Area and 5 more;
  No attributes deemed unimportant.
@@ -800,7 +795,7 @@ print(boruta.model)
 ```
 
 ```
-Boruta performed 99 iterations in 1.651095 mins.
+Boruta performed 99 iterations in 2.023715 mins.
  49 attributes confirmed important: area, Bedroom.AbvGr,
 Bldg.Type, Bsmt.Exposure, Bsmt.Full.Bath and 44 more;
  23 attributes confirmed unimportant: Bsmt.Half.Bath,
@@ -953,8 +948,21 @@ plot.bas(model.ZS)
 
 ```r
 predicted.BIC <- predict.bas(model.BIC, df.test)
-predicted.BIC.red <- predict.bas(model.BIC.red, df.test)
+```
 
+```
+Error: cannot allocate vector of size 3.2 Gb
+```
+
+```r
+predicted.BIC.red <- predict.bas(model.BIC.red, df.test)
+```
+
+```
+Error: cannot allocate vector of size 3.2 Gb
+```
+
+```r
 predicted.ZS <- predict.bas(model.ZS, df.test)
 predicted.ZS.red <- predict.bas(model.ZS.red, df.test)
 
