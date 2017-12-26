@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "\nlibrary(statsr)\nlibrary(dplyr)\nlibrary(ggplot2)\n\ndata(nycflights)\n\nnycflights <- nycflights %>%\n  mutate(arr_type = ifelse(arr_delay < 5, \"on time\", \"delayed\"))",
+    "created" : 1462778476177.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1513614870",
+    "id" : "AABB48F6",
+    "lastKnownWriteTime" : 1462804854,
+    "last_content_update" : 1462804854607,
+    "path" : "C:/Users/bruno.hunkeler/OneDrive/Dokumente/Coursera_Courses/Statistics - Duke University/001_Introduction_to_Probability_and_Data/Week 2/Lab/LabQuiz2_R/Q10.R",
+    "project_path" : "Q10.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

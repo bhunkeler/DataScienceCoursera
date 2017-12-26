@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1465230027304.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "A6C7CBBE",
+    "lastKnownWriteTime" : 3688782563036587634,
+    "last_content_update" : 1465230027304,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "3t0a0mh7lq",
+        "caption" : "brfss2013",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=brfss2013&cache_key=3t0a0mh7lq",
+        "displayedObservations" : 491775,
+        "environment" : "",
+        "object" : "brfss2013",
+        "totalObservations" : 491775,
+        "variables" : 330
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

@@ -1,0 +1,33 @@
+---
+title: "Comparing two independent means"
+author: Dr Merlise Clyde, Duke University
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+myblue = rgb(86,155,189, name="myblue", max=256)
+```
+
+Define the data using summary statistics
+```{r data}
+y = c(52.1, 27.1)
+grp=c(1,2)
+sd=c(45.1, 26.4) 
+n=c(22,22)
+```
+
+Source functions for slides
+```{r source}
+source("behren-fisher.R")
+```
+
+```{r}
+set.seed(42)
+out = BFt.test(y = c(52.1, 27.1), sd=c(45.1, 26.4), n=c(22,22), 
+               method="independent.Jeffreys", colHPD=myblue, nsim=100000,
+               suff=T, main="", xlab=expression(mu[A] - mu[B]), lwd=3, plot=T)
+out$ci
+```
+
+This is based on simulating from the posterior distribution so the credible interval may change slighly if different random seeds are used or if more simulations are used.

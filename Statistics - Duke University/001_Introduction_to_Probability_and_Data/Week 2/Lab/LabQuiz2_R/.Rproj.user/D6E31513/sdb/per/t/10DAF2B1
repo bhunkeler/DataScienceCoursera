@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1462773835801.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "10DAF2B1",
+    "lastKnownWriteTime" : 13229813538291820,
+    "last_content_update" : 1462773835801,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "zlls19ovvy",
+        "caption" : "nycflights",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=nycflights&cache_key=zlls19ovvy",
+        "displayedObservations" : "32735",
+        "environment" : "",
+        "object" : "nycflights",
+        "totalObservations" : "32735",
+        "variables" : "17"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
