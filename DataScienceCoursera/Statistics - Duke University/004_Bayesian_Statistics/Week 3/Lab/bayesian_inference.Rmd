@@ -1,0 +1,281 @@
+---
+title: "Inference for numerical data"
+output: statsr:::statswithr_lab
+---
+
+<div id="instructions">
+Complete all **Exercises**, and submit answers to **Questions** on the Coursera 
+platform.
+</div>
+
+## Getting Started
+
+### Load packages
+
+Let's load the necessary packages for this week's lab:
+
+```{r load-packages, message=FALSE}
+library(statsr)
+library(dplyr)
+library(ggplot2)
+```
+
+As usual, the data set and analysis functions will be provided by the `statsr` package and we will be using `dplyr` and `ggplot2` for manipulating and visualizing the data.
+
+
+### The data
+
+In 2004, the state of North Carolina released a large data set containing 
+information on births recorded in this state. These data contain information 
+on both the expectant mothers and their children. We will be working with a
+random sample of the complete data set. For those of you who took the Inferential
+Statistics course as part of the Statistics with R specialization should recognize 
+this as the same data set used in the Inference for numerical data lab where we used 
+frequentist inference methods to explore these data.
+
+You can load the `nc` data set into our workspace using the `data` function once the `statsr` package is loaded.
+
+```{r load-data}
+data(nc)
+```
+
+This data set consists of 1000 observations on 13 different variables, some categorical and some 
+numerical. The definition of each variable is as follows:
+
+variable         | description
+---------------- | ---------------------------------------------
+`fage`           | father's age in years.
+`mage`           | mother's age in years.
+`mature`         | maturity status of mother.
+`weeks`          | length of pregnancy in weeks.
+`premie`         | whether the birth was classified as premature (premie) or full-term.
+`visits`         | number of hospital visits during pregnancy.
+`marital`        | whether mother is `married` or `not married` at birth.
+`gained`         | weight gained by mother during pregnancy in pounds.
+`weight`         | weight of the baby at birth in pounds.
+`lowbirthweight` | whether baby was classified as low birthweight (`low`) or not (`not low`).
+`gender`         | gender of the baby, `female` or `male`.
+`habit`          | status of the mother as a `nonsmoker` or a `smoker`.
+`whitemom`       | whether mom is `white` or `not white`.
+
+<br/>
+
+
+
+## EDA and Bayesian Inference - `weight`
+
+As a first step in the analysis, we should take a look at the variables in the dataset
+and how R has encoded them. The most straight forward way of doing this is using the `str` command:
+
+```{r str}
+str(nc)
+# Answer 1: 7
+```
+
+As you review the variable summaries, consider which variables are categorical and which 
+are numerical. For numerical variables, are there outliers? If you aren't sure or want to 
+take a closer look at the data, make a graph.
+
+1. How many of the 13 variables are categorical?
+<ol>
+<li> 5 </li>
+<li> 6 </li>
+<li> 7 </li>
+<li> 8 </li>
+</ol>
+
+
+We will start with analyzing the weight of the babies at birth, which are contained in the variable `weight`.
+
+<div id="exercise">
+**Exercise**: Using visualization and summary statistics, describe the distribution of weight of the babies at birth.
+</div>
+```{r}
+hist(nc$weight)
+# Answer 2: Left skewed
+```
+
+2. Which of the following best describes the distribution of `weight`?
+<ol>
+<li> Left skewed </li>
+<li> Right skewed </li>
+<li> Uniformly distributed </li>
+<li> Normally distributed </li>
+</ol>
+
+As with the frequentist approach we use these data to perform basic inference on $\mu$ the average weight of all babies born in North Carolina. To do this we will use the `bayes_inference` function which will allow us construct credible intervals and calculate Bayes factors for a variety of different circumstances.
+
+In order to construct a credible interval we must first provide the data, `weight` in this case, and then indicate that we want a credible interval (`type="ci"`) for a mean (`statistic="mean"`).
+
+```{r}
+bayes_inference(y = weight, data = nc, statistic = "mean", type = "ci")
+ 
+```
+
+The credible level for the interval can be specified using the `cred_level` argument.
+
+3. Which of the following corresponds to the 99% credible interval for the average birth weight of all children born in North Carolina?
+<ol>
+<li> (7.00 , 7.19) </li>
+<li> (6.98 , 7.22) </li>
+<li> (6.94 , 7.26) </li>
+<li> (6.94 , 7.27) </li>
+</ol>
+```{r}
+bayes_inference(y = weight, data = nc, cred_level = 0.99, statistic = "mean", type = "ci")
+# Answer 3: (6.98 , 7.22)
+```
+
+
+
+We can also conduct a Bayesian hypothesis test by calculating a Bayes factor, let's test to see if the average birth weight in North Carolina is significantly different from 7 pounds. 
+
+$$ H_1: \mu = 7 $$
+$$ H_2: \mu \ne 7 $$
+
+To conduct this hypothesis test we will again use the `bayes_inference` function but this time specify `type="ht"`, will then also need to provide the `null` and `alternative` arguments which define the null value (7) and the type of alternative hypothesis (`"twosided"`).
+
+```{r}
+bayes_inference(y = weight, data = nc, statistic = "mean", type = "ht", null = 7, alternative = "twosided")
+# Answer 4: Positive
+```
+
+4. Based of Jeffrey's scale for interpretation of a Bayes factors how should be describe the evidence in favor of $H_1$ from the results above?
+<ol>
+<li> Not worth a bare mention </li>
+<li> Positive </li>
+<li> Strong </li>
+<li> Very Strong </li>
+</ol>
+
+
+
+The graphical results show the magnitude of $P(H_1 ~|~ data)$ with the blue line and the posterior of $\mu$ given $H_2$ (scaled by $P(H_2 ~|~ data)$) via the black curve. The 95% credible interval for $\mu|data,H_2$ is given in grey.
+
+
+<div id="exercise">
+**Exercise**: In the US low birth is defined as being less than 2500 grams ($\approx 5.5$ lbs). Use the `bayes_inference` function to assess if the average birth weight in North Carolina is significantly different from this value. (The answer here should be obvious, but make sure that the Bayes factor result conforms with your intuition.)
+</div>
+```{r}
+# type your code for the Exercise here, and Knit
+
+```
+
+
+## Inference for two means
+
+Next, let's consider if the mother's smoking habit has any clear effect on the child's birth weight. Here we will use the variable `habit` to distinguish between smoking and non-smoking mothers. As with any analysis, a visualization is a good place to start, and will give us a better understanding of the data.
+
+<div id="exercise">
+**Exercise**: Construct a side-by-side boxplot of `habit` and `weight` and compare the two distributions.
+</div>
+```{r normal-ci}
+boxplot(weight~habit,data=nc, main="title", xlab="smoker / non smoker", ylab="weight")
+
+```
+
+5. Which of the following is *false* about the relationship between habit and weight?
+<ol>
+<li> Median birth weight of babies born to non-smoker mothers is slightly higher than that of babies born to smoker mothers. </li>
+<li> Range of birth weights of babies born to non-smoker mothers is greater than that of babies born to smoker mothers. </li>
+<li> Both distributions are extremely right skewed. </li>
+<li> The IQRs of the distributions are roughly equal. </li>
+</ol>
+```{r habit-weight-box}
+# Answer 5: Both distributions are extremely right skewed. 
+
+```
+
+As before we can use the `bayes_inference` function to either construct a credible interval and or calculate a Bayes factor. The calls will be identical to the single mean case except now we will provide `habit` as a predictor variable (argument `x`). Note we also change `null=0`, since we are interested in comparing if the means of the two groups are equal or not.
+
+```{r}
+bayes_inference(y = weight, x = habit, data = nc, statistic = "mean", type = "ci")
+```
+
+6. Based on the credible interval is there evidence that smoking reduces birth weight? 
+<ol>
+<li> Yes </li>
+<li> No </li>
+</ol>
+
+
+```{r}
+bayes_inference(y = weight, x = habit, data = nc, statistic = "mean", type = "ht", null = 0, alternative = "twosided")
+# Answer 6: Yes - Jeffreys Not worth a bare to mention
+# Answer 7: Not worth a bare mention 
+
+```
+
+7. Based on the Bayes factor calculated above, how strong is evidence against $H_1$?
+<ol>
+<li> Not worth a bare mention </li>
+<li> Positive </li>
+<li> Strong </li>
+<li> Very Strong </li>
+</ol>
+
+
+## Inference for proportions
+
+Finally, we can also conduct Bayesian inference when our outcome variable of interest is categorical. As with the frequentist inference function the only change is to specify a $y$ argument that is categorical (with only two levels) and then specify which of its levels is the "success" using the `success` argument and finally change the `statistic` of interest to `"proportion"`.
+
+For example if we want to test if only 7.5% of births in North Carolina are considered low birth weight we can calculate the Bayes factor using the following code:
+
+```{r}
+bayes_inference(y = lowbirthweight, data = nc, success = "low", statistic = "proportion", type = "ht", null = 0.075, alternative = "twosided")
+bayes_inference(y = lowbirthweight, data = nc, success = "low", statistic = "proportion", type = "ht", beta_prior=c(0.5, 1), null = 0.075, alternative = "twosided")
+# Answer 8: Stays the same
+
+bayes_inference(y = lowbirthweight, data = nc, success = "low", statistic = "proportion", type = "ht", beta_prior=c(75,925), null = 0.075, alternative = "twosided")
+# Answer 9: Get smaller
+
+
+
+```
+
+8. How would the Bayes factor above change if we were to increase the prior probability of $H_2$?
+<ol>
+<li> Get bigger </li>
+<li> Get smaller </li>
+<li> Stay the same </li>
+</ol>
+
+9. How would the Bayes factor above change if we were to change the prior of p to be $Beta(75,925)$?
+<ol>
+<li> Get bigger </li>
+<li> Get smaller </li>
+<li> Stay the same </li>
+</ol>
+
+
+Using what you have learned so far, conduct a Bayesian inference procedure to evaluate whether these data provide evidence for or against smoking being associated with low birth weight and smoking being associated with premature birth.
+
+```{r}
+bayes_inference(y = lowbirthweight, data = nc, success = "low", statistic = "proportion", type = "ht", null = 0.075, alternative = "twosided")
+# Answer 10: weak; against
+```
+
+
+10. These data provide ___________ evidence ___________ smoking affecting the chance of low birth weight.
+<ol>
+<li> weak; for </li>
+<li> strong; for </li>
+<li> weak; against </li> 
+<li> strong; against </li> 
+</ol>
+
+
+```{r}
+bayes_inference(y = weight, x = premie, data = nc, statistic = "mean", type = "ht", null = 0, alternative = "twosided")
+boxplot(weight~premie,data=nc, main="title", xlab="smoker / non smoker", ylab="weight")
+# Answer 11: weak; against
+```
+
+11. These data provide ___________ evidence ___________ smoking affecting the chance of premature birth.
+<ol>
+<li> weak; for </li>
+<li> strong; for </li>
+<li> weak; against </li> 
+<li> strong; against </li> 
+</ol>
+

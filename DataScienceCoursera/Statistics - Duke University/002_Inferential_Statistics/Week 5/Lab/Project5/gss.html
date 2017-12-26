@@ -1,0 +1,5860 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Note: All missing values have been recoded to missing (NA)</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<p>#General Social Survey Cumulative File, 1972-2012 Coursera Extract
+###Modified for Coursera Data and Statistical Inference Course Spring 2014</p>
+
+<h3>Note: All missing values have been recoded to missing (NA)</h3>
+
+<p>##Background##</p>
+
+<p>This extract of the General Social Survey (GSS) Cumulative File 1972-2012  provides a sample of selected indicators in the GSS with the goal of providing a convenient data resource for students learning statistical reasoning using the R language.  Unlike the full General Social Survey Cumulative File, we have removed missing values from the responses and created factor variables when appropriate to facilitate analysis using R.  Our hope is that this will allow students to focus on statistical concepts without having to (initially) be concerned about some of the data management and interpretation issues associated with missing data and factor variables in R.  Other than the two modifications mentioned above, all data and coding come from the original dataset.  Students and researchers seeking to conduct research or explore the full codebook behind the full General Social Survey Cumulative File are urged to consult the original dataset at the citation that follows:</p>
+
+<p>###Data Citation</p>
+
+<p>Smith, Tom W., Michael Hout, and Peter V. Marsden. General Social Survey, 1972-2012 [Cumulative File]. ICPSR34802-v1. Storrs, CT: Roper Center for Public Opinion Research, University of Connecticut /Ann Arbor, MI: Inter-university Consortium for Political and Social Research [distributors], 2013-09-11. doi:10.3886/ICPSR34802.v1</p>
+
+<p>Persistent URL: <a href="http://doi.org/10.3886/ICPSR34802.v1">http://doi.org/10.3886/ICPSR34802.v1</a></p>
+
+<h2>Abstract for the General Social Survey Cumulative File, 1972-2012</h2>
+
+<p>[Excerpted from the <a href="http://www.norc.org/Research/Projects/Pages/general-social-survey.aspx">GSS project description</a>]</p>
+
+<p>Since 1972, the General Social Survey (GSS) has been monitoring societal change and studying the growing complexity of American society. The GSS aims to gather data on contemporary American society in order to monitor and explain trends and constants in attitudes, behaviors, and attributes; to examine the structure and functioning of society in general as well as the role played by relevant subgroups; to compare the United States to other societies in order to place American society in comparative perspective and develop cross-national models of human society; and to make high-quality data easily accessible to scholars, students, policy makers, and others, with minimal cost and waiting.</p>
+
+<p>GSS questions cover a diverse range of issues including national spending priorities, marijuana use, crime and punishment, race relations, quality of life, confidence in institutions, and sexual behavior. </p>
+
+<hr width="80%">
+
+<h2>Subset Variable List</h2>
+
+<p>Note: respondent is abbreviated &#39;R&#39;.  Respondent&#39;s is abbreviated &#39;RS&#39;.</p>
+
+<h3>Case Identification and Year</h3>
+
+<ul>
+<li><a id="caseid_toc"></a><a href="#caseid">caseid</a>: case identification number</li>
+<li><a id="year_toc"></a><a href="#year">year</a>: GSS year for this respondent</li>
+</ul>
+
+<h3>Respondent Background Variables</h3>
+
+<ul>
+<li><a id="age_toc"></a><a href="#age">age</a>:  Age of respondent</li>
+<li><a id="sex_toc"></a><a href="#sex">sex</a>:  Respondent&#39;s sex</li>
+<li><a id="race_toc"></a><a href="#race">race</a>:  Race of respondent</li>
+<li><a id="hispanic_toc"></a><a href="#hispanic">hispanic</a>:  Hispanic specified</li>
+<li><a id="uscitzn_toc"></a><a href="#uscitzn">uscitzn</a>:  Is R US citizen</li>
+<li><a id="educ_toc"></a><a href="#educ">educ</a>:  Highest year of school completed</li>
+<li><a id="paeduc_toc"></a><a href="#paeduc">paeduc</a>:  Highest year of school completed, father</li>
+<li><a id="maeduc_toc"></a><a href="#maeduc">maeduc</a>:  Highest year of school completed, mother</li>
+<li><a id="speduc_toc"></a><a href="#speduc">speduc</a>:  Highest year of school completed, spouse</li>
+<li><a id="degree_toc"></a><a href="#degree">degree</a>:  RS highest degree</li>
+<li><a id="vetyears_toc"></a><a href="#vetyears">vetyears</a>:  Years in armed forces</li>
+<li><a id="sei_toc"></a><a href="#sei">sei</a>:  Socioeconomic index</li>
+</ul>
+
+<h3>Personal and Family Information</h3>
+
+<ul>
+<li><a id="wrkstat_toc"></a><a href="#wrkstat">wrkstat</a>:  Labor force status</li>
+<li><a id="wrkslf_toc"></a><a href="#wrkslf">wrkslf</a>:  R self-emplyed or works for somebody</li>
+<li><a id="marital_toc"></a><a href="#marital">marital</a>:  Marital status</li>
+<li><a id="spwrksta_toc"></a><a href="#spwrksta">spwrksta</a>:  Spouse labor force status</li>
+<li><a id="sibs_toc"></a><a href="#sibs">sibs</a>:  Number of brothers and sisters</li>
+<li><a id="child_toc"></a><a href="#child">child</a>:  Number of children</li>
+<li><a id="agekdbrn_toc"></a><a href="#agekdbrn">agekdbrn</a>:  RS age when 1st child born</li>
+<li><a id="incom16_toc"></a><a href="#incom16">incom16</a>:  Rs family income when 16 years old</li>
+<li><a id="born_toc"></a><a href="#born">born</a>:  Was R born in this country</li>
+<li><a id="parborn_toc"></a><a href="#parborn">parborn</a>:  Were RS parents born in this country</li>
+<li><a id="granborn_toc"></a><a href="#granborn">granborn</a>:  How many grandparents born outside US</li>
+<li><a id="income06_toc"></a><a href="#income06">income06</a>:  Total family income</li>
+<li><a id="coninc_toc"></a><a href="#coninc">coninc</a>:  Total family income in constant dollars</li>
+<li><a id="region_toc"></a><a href="#region">region</a>:  Region of interview</li>
+<li><a id="partyid_toc"></a><a href="#partyid">partyid</a>:  Political party affiliation</li>
+<li><a id="polviews_toc"></a><a href="#polviews">polviews</a>:  Think of self as liberal or conservative</li>
+</ul>
+
+<h3>Attitudinal Measures - National Problems</h3>
+
+<h4>Social Problem Spending</h4>
+
+<ul>
+<li><a id="natspac_toc"></a><a href="#natspac">natspac</a>:  Space exploration program</li>
+<li><a id="natenvir_toc"></a><a href="#natenvir">natenvir</a>:  Improving and protecting environment</li>
+<li><a id="natheal_toc"></a><a href="#natheal">natheal</a>:  Improving and protecting nation&#39;s health</li>
+<li><a id="natcity_toc"></a><a href="#natcity">natcity</a>:  Solving problems of big cities</li>
+<li><a id="natcrime_toc"></a><a href="#natcrime">natcrime</a>:  Halting rising crime rate</li>
+<li><a id="natdrug_toc"></a><a href="#natdrug">natdrug</a>:  dealing with drug addiction</li>
+<li><a id="nateduc_toc"></a><a href="#nateduc">nateduc</a>:  Improving nation&#39;s education system</li>
+<li><a id="natrace_toc"></a><a href="#natrace">natrace</a>:  Improving the conditions of blacks</li>
+<li><a id="natarms_toc"></a><a href="#natarms">natarms</a>:  Military, armaments, and defense</li>
+<li><a id="nataid_toc"></a><a href="#nataid">nataid</a>:  Foreign aid</li>
+<li><a id="natfare_toc"></a><a href="#natfare">natfare</a>:  Welfare</li>
+<li><a id="natroad_toc"></a><a href="#natroad">natroad</a>:  Highways and bridges</li>
+<li><a id="natsoc_toc"></a><a href="#natsoc">natsoc</a>:  Social security</li>
+<li><a id="natmass_toc"></a><a href="#natmass">natmass</a>:  Mass transportation</li>
+<li><a id="natpark_toc"></a><a href="#natpark">natpark</a>:  Parks and recreation</li>
+</ul>
+
+<h3>Personal Concerns</h3>
+
+<ul>
+<li><a id="relig_toc"></a><a href="#relig">relig</a>:  RS religious preference</li>
+<li><a id="attend_toc"></a><a href="#attend">attend</a>:  How often R attends religious services</li>
+</ul>
+
+<h3>Societal Concerns</h3>
+
+<h4>Confidence in Institutions</h4>
+
+<ul>
+<li><a id="confinan_toc"></a><a href="#confinan">confinan</a>:  confidence in banks and financial institutions</li>
+<li><a id="conbus_toc"></a><a href="#conbus">conbus</a>:  confidence in major companies</li>
+<li><a id="conclerg_toc"></a><a href="#conclerg">conclerg</a>:  confidence in organized religion</li>
+<li><a id="coneduc_toc"></a><a href="#coneduc">coneduc</a>:  confidence in education</li>
+<li><a id="confed_toc"></a><a href="#confed">confed</a>:  confidence in executive branch of federal government</li>
+<li><a id="conlabor_toc"></a><a href="#conlabor">conlabor</a>:  confidence in organized labor</li>
+<li><a id="conpress_toc"></a><a href="#conpress">conpress</a>:  confidence in press</li>
+<li><a id="conmedic_toc"></a><a href="#conmedic">conmedic</a>:  confidence in medicine</li>
+<li><a id="contv_toc"></a><a href="#contv">contv</a>:  confidence in television</li>
+<li><a id="conjudge_toc"></a><a href="#conjudge">conjudge</a>:  confidence in United States Supreme Court</li>
+<li><a id="consci_toc"></a><a href="#consci">consci</a>:  confidence in scientific community</li>
+<li><a id="conlegis_toc"></a><a href="#conlegis">conlegis</a>:  confidence in Congress</li>
+<li><a id="conarmy_toc"></a><a href="#conarmy">conarmy</a>:  confidence in military</li>
+</ul>
+
+<h3>Workplace and Economic Concerns</h3>
+
+<h4>Job Security and Satisfaction</h4>
+
+<ul>
+<li><a id="joblose_toc"></a><a href="#joblose">joblose</a>:  Is R likely to lose job</li>
+<li><a id="jobfind_toc"></a><a href="#jobfind">jobfind</a>:  Could R find equally good job</li>
+<li><a id="satjob_toc"></a><a href="#satjob">satjob</a>:  Job or housework</li>
+<li><a id="richwork_toc"></a><a href="#richwork">richwork</a>:  If rich, continue or stop working</li>
+<li><a id="jobinc_toc"></a><a href="#jobinc">jobinc</a>:  High income</li>
+<li><a id="jobsec_toc"></a><a href="#jobsec">jobsec</a>:  No danger of being fired</li>
+<li><a id="jobhour_toc"></a><a href="#jobhour">jobhour</a>:  Short working hours</li>
+<li><a id="jobpromo_toc"></a><a href="#jobpromo">jobpromo</a>:  chance of advancement</li>
+<li><a id="jobmeans_toc"></a><a href="#jobmeans">jobmeans</a>:  Work important and feel accomplishment</li>
+</ul>
+
+<h4>Class and Financial Needs</h4>
+
+<ul>
+<li><a id="class_toc"></a><a href="#class">class</a>:  Subjective class identification</li>
+<li><a id="rank_toc"></a><a href="#rank">rank</a>:  RS self ranking of social position</li>
+<li><a id="satfin_toc"></a><a href="#satfin">satfin</a>:  Satifaction with financial situation</li>
+<li><a id="finalter_toc"></a><a href="#finalter">finalter</a>:  Change in financial situation</li>
+<li><a id="finrela_toc"></a><a href="#finrela">finrela</a>:  Opinion of family income</li>
+</ul>
+
+<h4>Standard of Living</h4>
+
+<ul>
+<li><a id="unemp_toc"></a><a href="#unemp">unemp</a>:  Ever unemployed in the last 10 years</li>
+<li><a id="govaid_toc"></a><a href="#govaid">govaid</a>:  Ever recieve welfare, unemployment insurance, etc.</li>
+<li><a id="getaid_toc"></a><a href="#getaid">getaid</a>:  Ever received welfare?</li>
+<li><a id="union_toc"></a><a href="#union">union</a>:  Dores R or spouse belong to union</li>
+<li><a id="getahead_toc"></a><a href="#getahead">getahead</a>:  Opinion of how people get ahead</li>
+<li><a id="parsol_toc"></a><a href="#parsol">parsol</a>:  RS living standard compared to parents</li>
+<li><a id="kidssol_toc"></a><a href="#kidssol">kidssol</a>:  RS kids living standard compared to R</li>
+</ul>
+
+<h3>Controversial Social Issues</h3>
+
+<h4>Abortion</h4>
+
+<ul>
+<li><a id="abdefect_toc"></a><a href="#abdefect">abdefect</a>:  Strong chance of serious defect</li>
+<li><a id="abnomore_toc"></a><a href="#abnomore">abnomore</a>:  Married - wants no more children</li>
+<li><a id="abhlth_toc"></a><a href="#abhlth">abhlth</a>:  Womans health seriously endangered</li>
+<li><a id="abpoor_toc"></a><a href="#abpoor">abpoor</a>:  Low income - cant afford more children</li>
+<li><a id="abrape_toc"></a><a href="#abrape">abrape</a>:  Pregnant as result of rape</li>
+<li><a id="absingle_toc"></a><a href="#absingle">absingle</a>:  Not married</li>
+<li><a id="abany_toc"></a><a href="#abany">abany</a>:  Abortion if woman wants for any reason</li>
+</ul>
+
+<h4>Family Planning, Sex, and Contraception</h4>
+
+<ul>
+<li><a id="pillok_toc"></a><a href="#pillok">pillok</a>:  Birth control to teenagers 14-16</li>
+<li><a id="sexeduc_toc"></a><a href="#sexeduc">sexeduc</a>:  Sex education in public schools</li>
+<li><a id="divlaw_toc"></a><a href="#divlaw">divlaw</a>:  Divorce laws</li>
+<li><a id="premarsx_toc"></a><a href="#premarsx">premarsx</a>:  Sex before marriage</li>
+<li><a id="teensex_toc"></a><a href="#teensex">teensex</a>:  Sex before marriage - Teens</li>
+<li><a id="xmarsex_toc"></a><a href="#xmarsex">xmarsex</a>:  Sex with person other than spouse</li>
+<li><a id="homosex_toc"></a><a href="#homosex">homosex</a>:  Homosexual sex relations</li>
+</ul>
+
+<h4>Suicide</h4>
+
+<ul>
+<li><a id="suicide1_toc"></a><a href="#suicide1">suicide1</a>:  Suicide if incurable disease</li>
+<li><a id="suicide2_toc"></a><a href="#suicide2">suicide2</a>:  Suicide if bankrupt</li>
+<li><a id="suicide3_toc"></a><a href="#suicide3">suicide3</a>:  Suicide if dishonored family</li>
+<li><a id="suicide4_toc"></a><a href="#suicide4">suicide4</a>:  Suicide if tired of living</li>
+</ul>
+
+<h4>Violent Experiences</h4>
+
+<ul>
+<li><a id="fear_toc"></a><a href="#fear">fear</a>:  Afraid to walk at night in neighborhood</li>
+<li><a id="owngun_toc"></a><a href="#owngun">owngun</a>:  Have gun in home</li>
+<li><a id="pistol_toc"></a><a href="#pistol">pistol</a>:  Pistol or revolver in home</li>
+<li><a id="shotgun_toc"></a><a href="#shotgun">shotgun</a>:  Shotgun in home</li>
+<li><a id="rifle_toc"></a><a href="#rifle">rifle</a>:  Rifle in home</li>
+</ul>
+
+<h4>Meida Exposure</h4>
+
+<ul>
+<li><a id="news_toc"></a><a href="#news">news</a>:  How often does R read newspaper</li>
+<li><a id="tvhours_toc"></a><a href="#tvhours">tvhours</a>:  Hours per day watching TV</li>
+</ul>
+
+<h4>Race Part Two</h4>
+
+<ul>
+<li><a id="racdif1_toc"></a><a href="#racdif1">racdif1</a>:  Differences due to discrimination</li>
+<li><a id="racdif2_toc"></a><a href="#racdif2">racdif2</a>:  Differences due to inborn disability</li>
+<li><a id="racdif3_toc"></a><a href="#racdif3">racdif3</a>:  Differences due to lack of education</li>
+<li><a id="racdif4_toc"></a><a href="#racdif4">racdif4</a>:  Differences due to lack of will</li>
+</ul>
+
+<h3>Obligations and Responsibilities</h3>
+
+<h4>Government Responsibility</h4>
+
+<ul>
+<li><a id="helppoor_toc"></a><a href="#helppoor">helppoor</a>:  Should govt improve standard of living</li>
+<li><a id="helpnot_toc"></a><a href="#helpnot">helpnot</a>:  Should govt do more or less?</li>
+<li><a id="helpsick_toc"></a><a href="#helpsick">helpsick</a>:  Should govt help pay for medical care</li>
+<li><a id="helpblk_toc"></a><a href="#helpblk">helpblk</a>:  Should govt aid blacks?</li>
+</ul>
+
+<hr>
+
+<h2>Codebook</h2>
+
+<p><a id="caseid"><strong>CASEID</strong></a></p>
+
+<p>CASE IDENTIFICATION NUMBER</p>
+
+<p>Data type: numeric
+Record/columns: 1/1-5</p>
+
+<p><a href="#caseid_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="year"><strong>YEAR</strong></a></p>
+
+<p>GSS YEAR FOR THIS RESPONDENT</p>
+
+<p>Data type: numeric
+Record/columns: 1/7-10</p>
+
+<p><a href="#year_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="age"><strong>AGE</strong></a></p>
+
+<p>AGE OF RESPONDENT</p>
+
+<p>Respondent&#39;s age</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">89</td>
+<td align="left">89 OR OLDER</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,98,99
+Record/columns: 1/12-13</p>
+
+<p><a href="#age_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="sex"><strong>SEX</strong></a></p>
+
+<p>RESPONDENTS SEX</p>
+
+<p>Code respondent&#39;s sex</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">1</td>
+<td align="left">MALE</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">FEMALE</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data code: 0
+Record/column: 1/15</p>
+
+<p><a href="#sex_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="race"><strong>RACE</strong></a></p>
+
+<p>RACE OF RESPONDENT</p>
+
+<p>What race do you consider yourself?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">WHITE</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">BLACK</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">OTHER</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data code: 0
+Record/column: 1/17</p>
+
+<p><a href="#race_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="hispanic"><strong>HISPANIC</strong></a></p>
+
+<p>HISPANIC SPECIFIED</p>
+
+<p>IF R IS FEMALE, READ LATINA; IF MALE, READ LATINO. Are you
+Spanish, Hispanic, or Latino/Latina? IF YES: Which group are you
+from?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">NOT HISPANIC</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">MEXICAN, MEXICAN AMERICAN, CHICANO/A</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">PUERTO RICAN</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">CUBAN</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">SALVADORIAN</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="left">GUATEMALAN</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="left">PANAMANIAN</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="left">NICARAGUAN</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="left">COSTA RICAN</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="left">CENTRAL AMERICAN</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td align="left">HONDURAN</td>
+</tr>
+<tr>
+<td align="center">15</td>
+<td align="left">DOMINICAN</td>
+</tr>
+<tr>
+<td align="center">16</td>
+<td align="left">WEST INDIAN</td>
+</tr>
+<tr>
+<td align="center">20</td>
+<td align="left">PERUVIAN</td>
+</tr>
+<tr>
+<td align="center">21</td>
+<td align="left">EQUADORIAN</td>
+</tr>
+<tr>
+<td align="center">22</td>
+<td align="left">COLUMBIAN</td>
+</tr>
+<tr>
+<td align="center">23</td>
+<td align="left">VENEZUELAN</td>
+</tr>
+<tr>
+<td align="center">24</td>
+<td align="left">Argentinian</td>
+</tr>
+<tr>
+<td align="center">25</td>
+<td align="left">Chilean</td>
+</tr>
+<tr>
+<td align="center">30</td>
+<td align="left">SPANISH</td>
+</tr>
+<tr>
+<td align="center">31</td>
+<td align="left">BASQUE</td>
+</tr>
+<tr>
+<td align="center">35</td>
+<td align="left">FILIPINO/A</td>
+</tr>
+<tr>
+<td align="center">40</td>
+<td align="left">LATIN AMERICAN</td>
+</tr>
+<tr>
+<td align="center">41</td>
+<td align="left">SOUTH AMERICAN</td>
+</tr>
+<tr>
+<td align="center">45</td>
+<td align="left">LATIN</td>
+</tr>
+<tr>
+<td align="center">46</td>
+<td align="left">LATINO/A</td>
+</tr>
+<tr>
+<td align="center">47</td>
+<td align="left">HISPANIC</td>
+</tr>
+<tr>
+<td align="center">50</td>
+<td align="left">OTHER, NOT SPECIFIED</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,98,99
+Record/columns: 1/19-20</p>
+
+<p><a href="#hispanic_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="uscitzn"><strong>USCITZN</strong></a></p>
+
+<p>IS R US CITIZEN</p>
+
+<p>Now we would like to ask you about U.S. citizenship. Are you&hellip;
+IF RESPONDENT SAYS S/HE IS &ldquo;NATURALIZED,&rdquo; CODE &ldquo;A U.S. CITIZEN.&rdquo;</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">A U.S. Citizen</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">Not a U.S. Citizen</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">A U.S. CITIZEN BORN IN PUERTO RICO, THE U.S. VIRGIN ISLANDS, OR THE NORTHERN MARIANAS ISLANDS</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">BORN OUTSIDE OF THE UNITED STATES TO PARENTS WHO WERE U.S CITIZENS AT THAT TIME (IF VOLUNTEERED)</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="left">DONT KNOW</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/22</p>
+
+<p><a href="#uscitzn_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="educ"><strong>EDUC</strong></a></p>
+
+<p>HIGHEST YEAR OF SCHOOL COMPLETED</p>
+
+<p>What is the highest grade in elementary school or high
+school that you finished and got credit for?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 97,98,99
+Record/columns: 1/24-25</p>
+
+<p><a href="#educ_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="paeduc"><strong>PAEDUC</strong></a></p>
+
+<p>HIGHEST YEAR SCHOOL COMPLETED, FATHER</p>
+
+<p>What is the highest grade in elementary school or high
+school that your father finished and got credit for?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 97,98,99
+Record/columns: 1/27-28</p>
+
+<p><a href="#paeduc_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="maeduc"><strong>MAEDUC</strong></a></p>
+
+<p>HIGHEST YEAR SCHOOL COMPLETED, MOTHER</p>
+
+<p>What is the highest grade in elementary school or high
+school that your mother finished and got credit for?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 97,98,99
+Record/columns: 1/30-31</p>
+
+<p><a href="#maeduc_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="speduc"><strong>SPEDUC</strong></a></p>
+
+<p>HIGHEST YEAR SCHOOL COMPLETED, SPOUSE</p>
+
+<p>What is the highest grade in elementary school or high
+school that your husband/wife finished and got credit for?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 97,98,99
+Record/columns: 1/33-34</p>
+
+<p><a href="#speduc_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="degree"><strong>DEGREE</strong></a></p>
+
+<p>RS HIGHEST DEGREE</p>
+
+<p>If finished 9th-12th grade: Did you ever get a high school
+diploma or a GED certificate?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">0</td>
+<td align="left">LT HIGH SCHOOL</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">HIGH SCHOOL</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">JUNIOR COLLEGE</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">BACHELOR</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">GRADUATE</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 7,8,9
+Record/column: 1/36</p>
+
+<p><a href="#degree_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="vetyears"><strong>VETYEARS</strong></a></p>
+
+<p>YEARS IN ARMED FORCES</p>
+
+<p>Have you ever been on active duty for military training or
+service for two consecutive months or more? IF YES: What was
+your total time on active duty?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="left">NONE</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">LESS THAN 2 YRS</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">2 TO 4</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">MORE THAN 4 YRS</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">SOME,DK HOW LONG</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: -1,9
+Record/column: 1/38</p>
+
+<p><a href="#vetyears_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="sei"><strong>SEI</strong></a></p>
+
+<p>RESPONDENT SOCIOECONOMIC INDEX</p>
+
+<p>Respondent socioeconomic index.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Decimals: 1
+Missing-data codes: -1.0,99.8,99.9
+Record/columns: 1/40-43</p>
+
+<p><a href="#sei_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="wrkstat"><strong>WRKSTAT</strong></a></p>
+
+<p>LABOR FORCE STATUS</p>
+
+<p>Last week were you working full time, part time, going to
+school, keeping house, or what?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">WORKING FULLTIME</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">WORKING PARTTIME</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">TEMP NOT WORKING</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">UNEMPL, LAID OFF</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">RETIRED</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="left">SCHOOL</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="left">KEEPING HOUSE</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="left">OTHER</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,9
+Record/column: 1/45</p>
+
+<p><a href="#wrkstat_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="wrkslf"><strong>WRKSLF</strong></a></p>
+
+<p>R SELF-EMP OR WORKS FOR SOMEBODY</p>
+
+<p>(Are/were) you self employed or (do/did) you work for
+someone else?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">SELF-EMPLOYED</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">SOMEONE ELSE</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/47</p>
+
+<p><a href="#wrkslf_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="marital"><strong>MARITAL</strong></a></p>
+
+<p>MARITAL STATUS</p>
+
+<p>Are you currently &ndash; married, widowed, divorced, separated,
+or have you never been married?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">1</td>
+<td align="left">MARRIED</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">WIDOWED</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">DIVORCED</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">SEPARATED</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">NEVER MARRIED</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data code: 9
+Record/column: 1/49</p>
+
+<p><a href="#marital_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="spwrksta"><strong>SPWRKSTA</strong></a></p>
+
+<p>SPOUSE LABOR FORCE STATUS</p>
+
+<p>Last week was your (wife/husband) working full time, part
+time, going to school, keeping house, or what?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">WORKING FULLTIME</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">WORKING PARTTIME</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">TEMP NOT WORKING</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">UNEMPL, LAID OFF</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">RETIRED</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="left">SCHOOL</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="left">KEEPING HOUSE</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="left">OTHER</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,9
+Record/column: 1/51</p>
+
+<p><a href="#spwrksta_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="sibs"><strong>SIBS</strong></a></p>
+
+<p>NUMBER OF BROTHERS AND SISTERS</p>
+
+<p>How many brothers and sisters did you have? Please count
+those born alive, but no longer living, as well as those alive
+now. Also include stepbrothers and stepsisters, and children
+adopted by your parents.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: -1,98,99
+Record/columns: 1/53-54</p>
+
+<p><a href="#sibs_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="childs"><strong>CHILDS</strong></a></p>
+
+<p>NUMBER OF CHILDREN</p>
+
+<p>How many children have you ever had? Please count all that
+were born alive at any time (including any you had from a
+previous marriage).</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">8</td>
+<td align="left">EIGHT OR MORE</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK or NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data code: 9
+Record/column: 1/56</p>
+
+<p><a href="#childs_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="agekdbrn"><strong>AGEKDBRN</strong></a></p>
+
+<p>R&#39;S AGE WHEN 1ST CHILD BORN</p>
+
+<p>How old were you when your first child was born?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,98,99
+Record/columns: 1/58-59</p>
+
+<p><a href="#agekdbrn_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="incom16"><strong>INCOM16</strong></a></p>
+
+<p>RS FAMILY INCOME WHEN 16 YRS OLD</p>
+
+<p>Thinking about the time when you were 16 years old, compared
+with American families in general then, would you say your
+family income was far below average, below average, average,
+above average, or far above average?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">FAR BELOW AVERAGE</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">BELOW AVERAGE</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">AVERAGE</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">ABOVE AVERAGE</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">FAR ABOVE AVERAGE</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="left">LIVED IN INSTITUTION</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: -1,7-*
+Record/column: 1/61</p>
+
+<p><a href="#incom16_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="born"><strong>BORN</strong></a></p>
+
+<p>WAS R BORN IN THIS COUNTRY</p>
+
+<p>Were you born in this country?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/63</p>
+
+<p><a href="#born_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="parborn"><strong>PARBORN</strong></a></p>
+
+<p>WERE RS PARENTS BORN IN THIS COUNTRY</p>
+
+<p>Were both your parents born in this country?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="left">BOTH IN U.S</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">MOTHER ONLY</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">FATHER ONLY</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">MOTHER; FA. DK</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">NOT MOTHER;FA.DK</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">FATHER; MO.DK</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="left">NOT FATHER;MO.DK</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="left">DK FOR BOTH</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="left">NEITHER IN U.S</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: -1,9
+Record/column: 1/65</p>
+
+<p><a href="#parborn_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="granborn"><strong>GRANBORN</strong></a></p>
+
+<p>HOW MANY GRANDPARENTS BORN OUTSIDE U.S.</p>
+
+<p>Were all of your four grandparents born in this country? a.How many were born outside the United States?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="left">ALL IN U.S</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: -1,8,9
+Record/column: 1/67</p>
+
+<p><a href="#granborn_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="income06"><strong>INCOME06</strong></a></p>
+
+<p>TOTAL FAMILY INCOME</p>
+
+<p>In which of these groups did your total family income, from
+all sources, fall last year before taxes, that is.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">UNDER $1 000</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">$1 000 TO 2 999</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">$3 000 TO 3 999</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">$4 000 TO 4 999</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">$5 000 TO 5 999</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="left">$6 000 TO 6 999</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="left">$7 000 TO 7 999</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="left">$8 000 TO 9 999</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="left">$10000 TO 12499</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="left">$12500 TO 14999</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td align="left">$15000 TO 17499</td>
+</tr>
+<tr>
+<td align="center">12</td>
+<td align="left">$17500 TO 19999</td>
+</tr>
+<tr>
+<td align="center">13</td>
+<td align="left">$20000 TO 22499</td>
+</tr>
+<tr>
+<td align="center">14</td>
+<td align="left">$22500 TO 24999</td>
+</tr>
+<tr>
+<td align="center">15</td>
+<td align="left">$25000 TO 29999</td>
+</tr>
+<tr>
+<td align="center">16</td>
+<td align="left">$30000 TO 34999</td>
+</tr>
+<tr>
+<td align="center">17</td>
+<td align="left">$35000 TO 39999</td>
+</tr>
+<tr>
+<td align="center">18</td>
+<td align="left">$40000 TO 49999</td>
+</tr>
+<tr>
+<td align="center">19</td>
+<td align="left">$50000 TO 59999</td>
+</tr>
+<tr>
+<td align="center">20</td>
+<td align="left">$60000 TO 74999</td>
+</tr>
+<tr>
+<td align="center">21</td>
+<td align="left">$75000 TO $89999</td>
+</tr>
+<tr>
+<td align="center">22</td>
+<td align="left">$90000 TO $109999</td>
+</tr>
+<tr>
+<td align="center">23</td>
+<td align="left">$110000 TO $129999</td>
+</tr>
+<tr>
+<td align="center">24</td>
+<td align="left">$130000 TO $149999</td>
+</tr>
+<tr>
+<td align="center">25</td>
+<td align="left">$150000 OR OVER</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">REFUSED</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,26-99
+Record/columns: 1/69-70</p>
+
+<p><a href="#income06_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="coninc"><strong>CONINC</strong></a></p>
+
+<p>FAMILY INCOME IN CONSTANT DOLLARS</p>
+
+<p>Inflation-adjusted family income.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DONT KNOW</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,999999,999998
+Record/columns: 1/72-77</p>
+
+<p><a href="#coninc_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="region"><strong>REGION</strong></a></p>
+
+<p>REGION OF INTERVIEW</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">NOT ASSIGNED</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">NEW ENGLAND</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">MIDDLE ATLANTIC</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">E. NOR. CENTRAL</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">W. NOR. CENTRAL</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">SOUTH ATLANTIC</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="left">E. SOU. CENTRAL</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="left">W. SOU. CENTRAL</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="left">MOUNTAIN</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="left">PACIFIC</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data code: 0
+Record/column: 1/79</p>
+
+<p><a href="#region_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="partyid"><strong>PARTYID</strong></a></p>
+
+<p>POLITICAL PARTY AFFILIATION</p>
+
+<p>Generally speaking, do you usually think of yourself as a
+Republican, Democrat, Independent, or what?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">0</td>
+<td align="left">STRONG DEMOCRAT</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">NOT STR DEMOCRAT</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">IND,NEAR DEM</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">INDEPENDENT</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">IND,NEAR REP</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">NOT STR REPUBLICAN</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="left">STRONG REPUBLICAN</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="left">OTHER PARTY</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 8,9
+Record/column: 1/81</p>
+
+<p><a href="#partyid_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="polviews"><strong>POLVIEWS</strong></a></p>
+
+<p>THINK OF SELF AS LIBERAL OR CONSERVATIVE</p>
+
+<p>We hear a lot of talk these days about liberals and
+conservatives. I&#39;m going to show you a seven-point scale on
+which the political views that people might hold are arranged
+from extremely liberal - point 1 - to extremely conservative -
+point.  Where would you place yourself on this scale?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">EXTREMELY LIBERAL</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">LIBERAL</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">SLIGHTLY LIBERAL</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">MODERATE</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">SLGHTLY CONSERVATIVE</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="left">CONSERVATIVE</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="left">EXTRMLY CONSERVATIVE</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/83</p>
+
+<p><a href="#polviews_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="relig"><strong>RELIG</strong></a></p>
+
+<p>RS RELIGIOUS PREFERENCE</p>
+
+<p>What is your religous preference? Is it Protestant,
+Catholic, Jewish, some other religion, or no religion?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">PROTESTANT</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">CATHOLIC</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">JEWISH</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">NONE</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">OTHER</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="left">BUDDHISM</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="left">HINDUISM</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="left">OTHER EASTERN</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="left">MOSLEM/ISLAM</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="left">ORTHODOX-CHRISTIAN</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td align="left">CHRISTIAN</td>
+</tr>
+<tr>
+<td align="center">12</td>
+<td align="left">NATIVE AMERICAN</td>
+</tr>
+<tr>
+<td align="center">13</td>
+<td align="left">INTER-NONDENOMINATIONAL</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,98,99
+Record/columns: 1/85-86</p>
+
+<p><a href="#relig_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="attend"><strong>ATTEND</strong></a></p>
+
+<p>HOW OFTEN R ATTENDS RELIGIOUS SERVICES</p>
+
+<p>How often do you attend religious services?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">0</td>
+<td align="left">NEVER</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">LT ONCE A YEAR</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ONCE A YEAR</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">SEVRL TIMES A YR</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">ONCE A MONTH</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">2-3X A MONTH</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="left">NRLY EVERY WEEK</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="left">EVERY WEEK</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="left">MORE THN ONCE WK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK,NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data code: 9
+Record/column: 1/88</p>
+
+<p><a href="#attend_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="natspac"><strong>NATSPAC</strong></a></p>
+
+<p>SPACE EXPLORATION PROGRAM</p>
+
+<p>We are faced with many problems in this country, none of
+which can be solved easily or inexpensively. I&#39;m going to name
+some of these problems, and for each one I&#39;d like you to tell me
+whether you think we&#39;re spending too much money on it, too
+little money, or about the right amount. a. Space exploration
+program.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">TOO LITTLE</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ABOUT RIGHT</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">TOO MUCH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/90</p>
+
+<p><a href="#natspac_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="natenvir"><strong>NATENVIR</strong></a></p>
+
+<p>IMPROVING &amp; PROTECTING ENVIRONMENT</p>
+
+<p>We are faced with many problems in this country, none of
+which can be solved easily or inexpensively. I&#39;m going to name
+some of these problems, and for each one I&#39;d like you to tell me
+whether you think we&#39;re spending too much money on it, too
+little money, or about the right amount. b. Improving and
+protecting the environment.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">TOO LITTLE</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ABOUT RIGHT</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">TOO MUCH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/92</p>
+
+<p><a href="#natenvir_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="natheal"><strong>NATHEAL</strong></a></p>
+
+<p>IMPROVING &amp; PROTECTING NATIONS HEALTH</p>
+
+<p>We are faced with many problems in this country, none of
+which can be solved easily or inexpensively. I&#39;m going to name
+some of these problems, and for each one I&#39;d like you to tell me
+whether you think we&#39;re spending too much money on it, too
+little money, or about the right amount. c. Improving and
+protecting the nation&#39;s health.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">TOO LITTLE</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ABOUT RIGHT</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">TOO MUCH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/94</p>
+
+<p><a href="#natheal_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="natcity"><strong>NATCITY</strong></a></p>
+
+<p>SOLVING PROBLEMS OF BIG CITIES</p>
+
+<p>We are faced with many problems in this country, none of
+which can be solved easily or inexpensively. I&#39;m going to name
+some of these problems, and for each one I&#39;d like you to tell me
+whether you think we&#39;re spending too much money on it, too
+little money, or about the right amount. d. Solving the problems
+of the big cities.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">TOO LITTLE</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ABOUT RIGHT</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">TOO MUCH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/96</p>
+
+<p><a href="#natcity_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="natcrime"><strong>NATCRIME</strong></a></p>
+
+<p>HALTING RISING CRIME RATE</p>
+
+<p>We are faced with many problems in this country, none of
+which can be solved easily or inexpensively. I&#39;m going to name
+some of these problems, and for each one I&#39;d like you to tell me
+whether you think we&#39;re spending too much money on it, too
+little money, or about the right amount. e. Halting the rising
+crime rate.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">TOO LITTLE</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ABOUT RIGHT</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">TOO MUCH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/98</p>
+
+<p><a href="#natcrime_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="natdrug"><strong>NATDRUG</strong></a></p>
+
+<p>DEALING WITH DRUG ADDICTION</p>
+
+<p>We are faced with many problems in this country, none of
+which can be solved easily or inexpensively. I&#39;m going to name
+some of these problems, and for each one I&#39;d like you to tell me
+whether you think we&#39;re spending too much money on it, too
+little money, or about the right amount. f. Dealing with drug
+addiction.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">TOO LITTLE</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ABOUT RIGHT</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">TOO MUCH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/100</p>
+
+<p><a href="#natdrug_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="nateduc"><strong>NATEDUC</strong></a></p>
+
+<p>IMPROVING NATIONS EDUCATION SYSTEM</p>
+
+<p>We are faced with many problems in this country, none of
+which can be solved easily or inexpensively. I&#39;m going to name
+some of these problems, and for each one I&#39;d like you to tell me
+whether you think we&#39;re spending too much money on it, too
+little money, or about the right amount. g. Improving the
+nation&#39;s education system.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">TOO LITTLE</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ABOUT RIGHT</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">TOO MUCH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/102</p>
+
+<p><a href="#nateduc_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="natrace"><strong>NATRACE</strong></a></p>
+
+<p>IMPROVING THE CONDITIONS OF BLACKS</p>
+
+<p>We are faced with many problems in this country, none of
+which can be solved easily or inexpensively. I&#39;m going to name
+some of these problems, and for each one I&#39;d like you to tell me
+whether you think we&#39;re spending too much money on it, too
+little money, or about the right amount. h. Improving the
+conditions of Blacks.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">TOO LITTLE</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ABOUT RIGHT</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">TOO MUCH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/104</p>
+
+<p><a href="#natrace_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="natarms"><strong>NATARMS</strong></a></p>
+
+<p>MILITARY, ARMAMENTS, AND DEFENSE</p>
+
+<p>We are faced with many problems in this country, none of
+which can be solved easily or inexpensively. I&#39;m going to name
+some of these problems, and for each one I&#39;d like you to tell me
+whether you think we&#39;re spending too much money on it, too
+little money, or about the right amount. i. The military,
+armaments and defense.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">TOO LITTLE</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ABOUT RIGHT</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">TOO MUCH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/106</p>
+
+<p><a href="#natarms_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="nataid"><strong>NATAID</strong></a></p>
+
+<p>FOREIGN AID</p>
+
+<p>We are faced with many problems in this country, none of
+which can be solved easily or inexpensively. I&#39;m going to name
+some of these problems, and for each one I&#39;d like you to tell me
+whether you think we&#39;re spending too much money on it, too
+little money, or about the right amount. j. Foreign aid.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">TOO LITTLE</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ABOUT RIGHT</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">TOO MUCH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/108</p>
+
+<p><a href="#nataid_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="natfare"><strong>NATFARE</strong></a></p>
+
+<p>WELFARE</p>
+
+<p>We are faced with many problems in this country, none of
+which can be solved easily or inexpensively. I&#39;m going to name
+some of these problems, and for each one I&#39;d like you to tell me
+whether you think we&#39;re spending too much money on it, too
+little money, or about the right amount. k. Welfare.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">TOO LITTLE</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ABOUT RIGHT</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">TOO MUCH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/110</p>
+
+<p><a href="#natfare_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="natroad"><strong>NATROAD</strong></a></p>
+
+<p>HIGHWAYS AND BRIDGES</p>
+
+<p>We are faced with many problems in this country, none of
+which can be solved easily or inexpensively. I&#39;m going to name
+some of these problems, and for each one I&#39;d like you to tell me
+whether you think we&#39;re spending too much money on it, too
+little money, or about the right amount. l. Highways and
+bridges.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">TOO LITTLE</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ABOUT RIGHT</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">TOO MUCH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/112</p>
+
+<p><a href="#natroad_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="natsoc"><strong>NATSOC</strong></a></p>
+
+<p>SOCIAL SECURITY</p>
+
+<p>We are faced with many problems in this country, none of
+which can be solved easily or inexpensively. I&#39;m going to name
+some of these problems, and for each one I&#39;d like you to tell me
+whether you think we&#39;re spending too much money on it, too
+little money, or about the right amount. m. Social Security.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">TOO LITTLE</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ABOUT RIGHT</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">TOO MUCH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/114</p>
+
+<p><a href="#natsoc_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="natmass"><strong>NATMASS</strong></a></p>
+
+<p>MASS TRANSPORTATION</p>
+
+<p>We are faced with many problems in this country, none of
+which can be solved easily or inexpensively. I&#39;m going to name
+some of these problems, and for each one I&#39;d like you to tell me
+whether you think we&#39;re spending too much money on it, too
+little money, or about the right amount. n. Mass Transportation.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">TOO LITTLE</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ABOUT RIGHT</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">TOO MUCH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/116</p>
+
+<p><a href="#natmass_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="natpark"><strong>NATPARK</strong></a></p>
+
+<p>PARKS AND RECREATION</p>
+
+<p>We are faced with many problems in this country, none of
+which can be solved easily or inexpensively. I&#39;m going to name
+some of these problems, and for each one I&#39;d like you to tell me
+whether you think we&#39;re spending too much money on it, too
+little money, or about the right amount. o. Parks and
+recreation.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">TOO LITTLE</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ABOUT RIGHT</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">TOO MUCH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/118</p>
+
+<p><a href="#natpark_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="confinan"><strong>CONFINAN</strong></a></p>
+
+<p>CONFID IN BANKS &amp; FINANCIAL INSTITUTIONS</p>
+
+<p>I am going to name some institutions in this country. As
+far as the people running these institutions are concerned,
+would you say you have a great deal of confidence, only some
+confidence, or hardly any confidence at all in them? a. Banks
+and financial institutions.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">A GREAT DEAL</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ONLY SOME</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">HARDLY ANY</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/120</p>
+
+<p><a href="#confinan_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="conbus"><strong>CONBUS</strong></a></p>
+
+<p>CONFIDENCE IN MAJOR COMPANIES</p>
+
+<p>I am going to name some institutions in this country. As
+far as the people running these institutions are concerned,
+would you say you have a great deal of confidence, only some
+confidence, or hardly any confidence at all in them? b. Major
+companies.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">A GREAT DEAL</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ONLY SOME</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">HARDLY ANY</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/122</p>
+
+<p><a href="#conbus_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="conclerg"><strong>CONCLERG</strong></a></p>
+
+<p>CONFIDENCE IN ORGANIZED RELIGION</p>
+
+<p>I am going to name some institutions in this country. As
+far as the people running these institutions are concerned,
+would you say you have a great deal of confidence, only some
+confidence, or hardly any confidence at all in them? c.
+Organized religion.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">A GREAT DEAL</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ONLY SOME</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">HARDLY ANY</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/124</p>
+
+<p><a href="#conclerg_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="coneduc"><strong>CONEDUC</strong></a></p>
+
+<p>CONFIDENCE IN EDUCATION</p>
+
+<p>I am going to name some institutions in this country. As
+far as the people running these institutions are concerned,
+would you say you have a great deal of confidence, only some
+confidence, or hardly any confidence at all in them? d.
+Education.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">A GREAT DEAL</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ONLY SOME</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">HARDLY ANY</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/126</p>
+
+<p><a href="#coneduc_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="confed"><strong>CONFED</strong></a></p>
+
+<p>CONFID. IN EXEC BRANCH OF FED GOVT</p>
+
+<p>I am going to name some institutions in this country. As
+far as the people running these institutions are concerned,
+would you say you have a great deal of confidence, only some
+confidence, or hardly any confidence at all in them? e.
+Executive branch of the federal government.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">A GREAT DEAL</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ONLY SOME</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">HARDLY ANY</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/128</p>
+
+<p><a href="#confed_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="conlabor"><strong>CONLABOR</strong></a></p>
+
+<p>CONFIDENCE IN ORGANIZED LABOR</p>
+
+<p>I am going to name some institutions in this country. As
+far as the people running these institutions are concerned,
+would you say you have a great deal of confidence, only some
+confidence, or hardly any confidence at all in them? f.
+Organized labor.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">A GREAT DEAL</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ONLY SOME</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">HARDLY ANY</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/130</p>
+
+<p><a href="#conlabor_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="conpress"><strong>CONPRESS</strong></a></p>
+
+<p>CONFIDENCE IN PRESS</p>
+
+<p>I am going to name some institutions in this country. As
+far as the people running these institutions are concerned,
+would you say you have a great deal of confidence, only some
+confidence, or hardly any confidence at all in them? g. Press.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">A GREAT DEAL</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ONLY SOME</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">HARDLY ANY</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/132</p>
+
+<p><a href="#conpress_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="conmedic"><strong>CONMEDIC</strong></a></p>
+
+<p>CONFIDENCE IN MEDICINE</p>
+
+<p>I am going to name some institutions in this country. As
+far as the people running these institutions are concerned,
+would you say you have a great deal of confidence, only some
+confidence, or hardly any confidence at all in them? h.
+Medicine.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">A GREAT DEAL</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ONLY SOME</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">HARDLY ANY</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/134</p>
+
+<p><a href="#conmedic_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="contv"><strong>CONTV</strong></a></p>
+
+<p>CONFIDENCE IN TELEVISION</p>
+
+<p>I am going to name some institutions in this country. As
+far as the people running these institutions are concerned,
+would you say you have a great deal of confidence, only some
+confidence, or hardly any confidence at all in them? i.
+Television.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">A GREAT DEAL</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ONLY SOME</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">HARDLY ANY</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/136</p>
+
+<p><a href="#contv_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="conjudge"><strong>CONJUDGE</strong></a></p>
+
+<p>CONFID. IN UNITED STATES SUPREME COURT</p>
+
+<p>I am going to name some institutions in this country. As
+far as the people running these institutions are concerned,
+would you say you have a great deal of confidence, only some
+confidence, or hardly any confidence at all in them? j. U.S.
+Supreme Court.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">A GREAT DEAL</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ONLY SOME</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">HARDLY ANY</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/138</p>
+
+<p><a href="#conjudge_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="consci"><strong>CONSCI</strong></a></p>
+
+<p>CONFIDENCE IN SCIENTIFIC COMMUNITY</p>
+
+<p>I am going to name some institutions in this country. As
+far as the people running these institutions are concerned,
+would you say you have a great deal of confidence, only some
+confidence, or hardly any confidence at all in them? k.
+Scientific community.</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">A GREAT DEAL</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ONLY SOME</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">HARDLY ANY</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/140</p>
+
+<p><a href="#consci_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="conlegis"><strong>CONLEGIS</strong></a></p>
+
+<p>CONFIDENCE IN CONGRESS</p>
+
+<p>I am going to name some institutions in this country. As
+far as the people running these institutions are concerned,
+would you say you have a great deal of confidence, only some
+confidence, or hardly any confidence at all in them? l. Congress</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">A GREAT DEAL</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ONLY SOME</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">HARDLY ANY</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/142</p>
+
+<p><a href="#conlegis_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="conarmy"><strong>CONARMY</strong></a></p>
+
+<p>CONFIDENCE IN MILITARY</p>
+
+<p>I am going to name some institutions in this country. As
+far as the people running these institutions are concerned,
+would you say you have a great deal of confidence, only some
+confidence, or hardly any confidence at all in them? m. Military</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">A GREAT DEAL</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ONLY SOME</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">HARDLY ANY</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/144</p>
+
+<p><a href="#conarmy_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="joblose"><strong>JOBLOSE</strong></a></p>
+
+<p>IS R LIKELY TO LOSE JOB</p>
+
+<p>Thinking about the next 12 months, how likely do you think
+it is that you will lose your job or be laid off?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">VERY LIKELY</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">FAIRLY LIKELY</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">NOT TOO LIKELY</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">NOT LIKELY</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">LEAVING LABOR FORCE</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/146</p>
+
+<p><a href="#joblose_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="jobfind"><strong>JOBFIND</strong></a></p>
+
+<p>COULD R FIND EQUALLY GOOD JOB</p>
+
+<p>About how easy would it be for you to find a job with
+another employer with approximately the same income and fringe
+benefits you now have?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">VERY EASY</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">SOMEWHAT EASY</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">NOT EASY</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/148</p>
+
+<p><a href="#jobfind_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="satjob"><strong>SATJOB</strong></a></p>
+
+<p>JOB OR HOUSEWORK</p>
+
+<p>On the whole, how satisfied are you with the work you do?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">VERY SATISFIED</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">MOD. SATISFIED</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">A LITTLE DISSAT</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">VERY DISSATISFIED</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/150</p>
+
+<p><a href="#satjob_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="richwork"><strong>RICHWORK</strong></a></p>
+
+<p>IF RICH, CONTINUE OR STOP WORKING</p>
+
+<p>If you were to get enough money to live as comfortably as
+you would like for the rest of your life, would you continue to
+work or would you stop working?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">CONTINUE WORKING</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">STOP WORKING</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/152</p>
+
+<p><a href="#richwork_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="jobinc"><strong>JOBINC</strong></a></p>
+
+<p>HIGH INCOME</p>
+
+<p>Would you please look at this card and tell me which one
+thing on this list you would most prefer in a job? b. Which
+comes next? c. Which is third most important? d. Which is fourth
+most important? HIGH INCOME</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">MOST IMPT</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">SECOND</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">THIRD</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">FOURTH</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">FIFTH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/154</p>
+
+<p><a href="#jobinc_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="jobsec"><strong>JOBSEC</strong></a></p>
+
+<p>NO DANGER OF BEING FIRED</p>
+
+<p>Would you please look at this card and tell me which one
+thing on this list you would most prefer in a job? b. Which
+comes next? c. Which is third most important? d. Which is fourth
+most important? NO DANGER OF BEING FIRED</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">MOST IMPT</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">SECOND</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">THIRD</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">FOURTH</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">FIFTH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/156</p>
+
+<p><a href="#jobsec_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="jobhour"><strong>JOBHOUR</strong></a></p>
+
+<p>SHORT WORKING HOURS</p>
+
+<p>Would you please look at this card and tell me which one
+thing on this list you would most prefer in a job? b. Which
+comes next? c. Which is third most important? d. Which is fourth
+most important? WORKING HOURS ARE SHORT, LOTS OF FREE TIME</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">MOST IMPT</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">SECOND</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">THIRD</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">FOURTH</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">FIFTH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/158</p>
+
+<p><a href="#jobhour_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="jobpromo"><strong>JOBPROMO</strong></a></p>
+
+<p>CHANCES FOR ADVANCEMENT</p>
+
+<p>Would you please look at this card and tell me which one
+thing on this list you would most prefer in a job? b. Which
+comes next? c. Which is third most important? d. Which is fourth
+most important? CHANCES FOR ADVANCEMENT</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">MOST IMPT</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">SECOND</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">THIRD</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">FOURTH</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">FIFTH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/160</p>
+
+<p><a href="#jobpromo_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="jobmeans"><strong>JOBMEANS</strong></a></p>
+
+<p>WORK IMPORTANT AND FEEL ACCOMPLISHMENT</p>
+
+<p>Would you please look at this card and tell me which one
+thing on this list you would most prefer in a job? b. Which
+comes next? c. Which is third most important? d. Which is fourth
+most important? WORK IMPORTANT AND GIVES A FEELING OF
+ACCOMPLISHMENT</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">MOST IMPT</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">SECOND</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">THIRD</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">FOURTH</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">FIFTH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/162</p>
+
+<p><a href="#jobmeans_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="class"><strong>CLASS</strong></a></p>
+
+<p>SUBJECTIVE CLASS IDENTIFICATION</p>
+
+<p>If you were asked to use one of four names for your social
+class, which would you say you belong in: the lower class, the
+working class, the middle class, or the upper class?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">LOWER CLASS</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">WORKING CLASS</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">MIDDLE CLASS</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">UPPER CLASS</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">NO CLASS</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/164</p>
+
+<p><a href="#class_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="rank"><strong>RANK</strong></a></p>
+
+<p>RS SELF RANKING OF SOCIAL POSITION</p>
+
+<p>In our society there are groups which tend to be towards
+the top and those that are towards the bottom. Here we have
+ascale that runs from top (1) to bottom (10). a. Where would you
+put yourself on this scale?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">TOP</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="left">BOTTOM</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,98,99
+Record/columns: 1/166-167</p>
+
+<p><a href="#rank_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="satfin"><strong>SATFIN</strong></a></p>
+
+<p>SATISFACTION WITH FINANCIAL SITUATION</p>
+
+<p>We are interested in how people are getting along
+financially these days. So far as you and your family are
+concerned, would you say that you are pretty well satisfied with
+your present financial situation, more or less satisfied, or not
+satisfied at all?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">SATISFIED</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">MORE OR LESS</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">NOT AT ALL SAT</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/169</p>
+
+<p><a href="#satfin_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="finalter"><strong>FINALTER</strong></a></p>
+
+<p>CHANGE IN FINANCIAL SITUATION</p>
+
+<p>During the last few years, has your financial situation
+been getting better, worse, or has it stayed the same?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">BETTER</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">WORSE</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">STAYED SAME</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/171</p>
+
+<p><a href="#finalter_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="finrela"><strong>FINRELA</strong></a></p>
+
+<p>OPINION OF FAMILY INCOME</p>
+
+<p>Compared with American families in general, would you say
+your family income is far below average, below average, average,
+above average, or far above average?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">FAR BELOW AVERAGE</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">BELOW AVERAGE</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">AVERAGE</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">ABOVE AVERAGE</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">FAR ABOVE AVERAGE</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/173</p>
+
+<p><a href="#finrela_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="unemp"><strong>UNEMP</strong></a></p>
+
+<p>EVER UNEMPLOYED IN LAST TEN YRS</p>
+
+<p>At any time during the last ten years, have you been
+unemployed and looking for work for as long as a month?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/175</p>
+
+<p><a href="#unemp_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="govaid"><strong>GOVAID</strong></a></p>
+
+<p>EVER RECEIVE WELFARE, UNEMP INSUR, ETC.</p>
+
+<p>Did you ever - because of sickness, unemployment, or any
+other reason - receive anything like welfare, unemployment
+insurance, or other aid from government agencies?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/177</p>
+
+<p><a href="#govaid_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="getaid"><strong>GETAID</strong></a></p>
+
+<p>EVER RECEIVED WELFARE?</p>
+
+<p>Have you personally ever received income from Aid to
+Families with Dependent Children (AFDC), General Assistance,
+Supplemental Security Income, or Food Stamps?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/179</p>
+
+<p><a href="#getaid_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="union"><strong>UNION</strong></a></p>
+
+<p>DOES R OR SPOUSE BELONG TO UNION</p>
+
+<p>Do you (or your [SPOUSE]) belong to a lobor union? Who?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">R BELONGS</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">SPOUSE BELONGS</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">R AND SPOUSE BELONG</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">NEITHER BELONGS</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/181</p>
+
+<p><a href="#union_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="getahead"><strong>GETAHEAD</strong></a></p>
+
+<p>OPINION OF HOW PEOPLE GET AHEAD</p>
+
+<p>Some people say that people get ahead by their own hard
+work; others say that lucky breaks or help from other people are
+more important. Which do you think is most important?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">HARD WORK</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">BOTH EQUALLY</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">LUCK OR HELP</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">OTHER</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/183</p>
+
+<p><a href="#getahead_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="parsol"><strong>PARSOL</strong></a></p>
+
+<p>RS LIVING STANDARD COMPARED TO PARENTS</p>
+
+<p>Compared to your parents when they were the age you are
+now, do you think your own standard of living now is much
+better, somewhat better, about the same, somewhat worse, or much
+worse than theirs was?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">MUCH BETTER</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">SOMEWHAT BETTER</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">ABOUT THE SAME</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">SOMEWHAT WORSE</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">MUCH WORSE</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/185</p>
+
+<p><a href="#parsol_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="kidssol"><strong>KIDSSOL</strong></a></p>
+
+<p>RS KIDS LIVING STANDARD COMPARED TO R</p>
+
+<p>When your children are at the age you are now, do you
+think their standard of living will be much better, somewhat
+better, about the same, somewhat worse, or much worse that your
+is now?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">MUCH BETTER</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">SOMEWHAT BETTER</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">ABOUT THE SAME</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">SOMEWHAT WORSE</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">MUCH WORSE</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="left">NO CHILDREN -VOLUNTEERED-</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/187</p>
+
+<p><a href="#kidssol_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="abdefect"><strong>ABDEFECT</strong></a></p>
+
+<p>STRONG CHANCE OF SERIOUS DEFECT</p>
+
+<p>Please tell me whether or not you think it should be
+possible for a pregnant woman to obtaina legal abortion if: a.
+There is a strong chance of serious defect in the baby?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/189</p>
+
+<p><a href="#abdefect_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="abnomore"><strong>ABNOMORE</strong></a></p>
+
+<p>MARRIED&ndash;WANTS NO MORE CHILDREN</p>
+
+<p>Please tell me whether or not you think it should be
+possible for a pregnant woman to obtaina legal abortion if: b.
+She is married and does not want any more children?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/191</p>
+
+<p><a href="#abnomore_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="abhlth"><strong>ABHLTH</strong></a></p>
+
+<p>WOMANS HEALTH SERIOUSLY ENDANGERED</p>
+
+<p>Please tell me whether or not you think it should be
+possible for a pregnant woman to obtaina legal abortion if: c.
+The woman&#39;s own health is seriously endangered by the pregnancy?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/193</p>
+
+<p><a href="#abhlth_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="abpoor"><strong>ABPOOR</strong></a></p>
+
+<p>LOW INCOME&ndash;CANT AFFORD MORE CHILDREN</p>
+
+<p>Please tell me whether or not you think it should be
+possible for a pregnant woman to obtaina legal abortion if: d.
+The family has a very low income and cannot afford any more
+children?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/195</p>
+
+<p><a href="#abpoor_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="abrape"><strong>ABRAPE</strong></a></p>
+
+<p>PREGNANT AS RESULT OF RAPE</p>
+
+<p>Please tell me whether or not you think it should be
+possible for a pregnant woman to obtaina legal abortion if: e.
+She became pregnant as a result of rape?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/197</p>
+
+<p><a href="#abrape_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="absingle"><strong>ABSINGLE</strong></a></p>
+
+<p>NOT MARRIED</p>
+
+<p>Please tell me whether or not you think it should be
+possible for a pregnant woman to obtaina legal abortion if: f.
+She is not married and does not want to marry the man?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/199</p>
+
+<p><a href="#absingle_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="abany"><strong>ABANY</strong></a></p>
+
+<p>ABORTION IF WOMAN WANTS FOR ANY REASON</p>
+
+<p>Please tell me whether or not you think it should be
+possible for a pregnant woman to obtaina legal abortion if: g.
+The woman wants it for any reason?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/201</p>
+
+<p><a href="#abany_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="pillok"><strong>PILLOK</strong></a></p>
+
+<p>BIRTH CONTROL TO TEENAGERS 14-16</p>
+
+<p>Do you strongly agree, agree, or strongly disagree that
+methods of birth control should be available to teenagers
+between the ages of 14 and 16 if their parents do not approve?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">STRONGLY AGREE</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">AGREE</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">DISAGREE</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">STRONGLY DISAGREE</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/203</p>
+
+<p><a href="#pillok_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="sexeduc"><strong>SEXEDUC</strong></a></p>
+
+<p>SEX EDUCATION IN PUBLIC SCHOOLS</p>
+
+<p>Would you be for or against sex education in the public
+schools?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">FAVOR</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">OPPOSE</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">DEPENDS</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/205</p>
+
+<p><a href="#sexeduc_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="divlaw"><strong>DIVLAW</strong></a></p>
+
+<p>DIVORCE LAWS</p>
+
+<p>Should divorce in this country be easier or more difficult
+to obtain than it is now?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">EASIER</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">MORE DIFFICULT</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">STAY SAME</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/207</p>
+
+<p><a href="#divlaw_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="premarsx"><strong>PREMARSX</strong></a></p>
+
+<p>SEX BEFORE MARRIAGE</p>
+
+<p>There&#39;s been a lot of discussion about the way morals and
+attitudes about sex are changing in this country. If a man and
+woman have sex relations before marriage, do you think it is
+always wrong, almost always wrong, wrong only sometimes, or not
+wrong at all?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">ALWAYS WRONG</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ALMST ALWAYS WRG</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">SOMETIMES WRONG</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">NOT WRONG AT ALL</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">OTHER</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/209</p>
+
+<p><a href="#premarsx_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="teensex"><strong>TEENSEX</strong></a></p>
+
+<p>SEX BEFORE MARRIAGE &ndash; TEENS 14-16</p>
+
+<p>What if they are in their early teens, say 14 to 16 years
+old? In that case, do you think sex relations before marriage
+are always wrong, almost always wrong, wrong only sometimes, or
+not wrong at all?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">ALWAYS WRONG</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ALMST ALWAYS WRG</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">SOMETIMES WRONG</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">NOT WRONG AT ALL</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">OTHER</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/211</p>
+
+<p><a href="#teensex_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="xmarsex"><strong>XMARSEX</strong></a></p>
+
+<p>SEX WITH PERSON OTHER THAN SPOUSE</p>
+
+<p>What is yoru opinion about a married person having sexual
+relations with someone other than the marriage partner?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">ALWAYS WRONG</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ALMST ALWAYS WRG</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">SOMETIMES WRONG</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">NOT WRONG AT ALL</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">OTHER</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/213</p>
+
+<p><a href="#xmarsex_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="homosex"><strong>HOMOSEX</strong></a>
+HOMOSEXUAL SEX RELATIONS</p>
+
+<p>What about sexual relations between two adults of the same
+sex?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">ALWAYS WRONG</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">ALMST ALWAYS WRG</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">SOMETIMES WRONG</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">NOT WRONG AT ALL</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">OTHER</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/215</p>
+
+<p><a href="#homosex_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="suicide1"><strong>SUICIDE1</strong></a></p>
+
+<p>SUICIDE IF INCURABLE DISEASE</p>
+
+<p>Do you think a person has the right to end his or her own
+life if this person: a. Has an incurable disease?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/217</p>
+
+<p><a href="#suicide1_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="suicide2"><strong>SUICIDE2</strong></a></p>
+
+<p>SUICIDE IF BANKRUPT</p>
+
+<p>Do you think a person has the right to end his or her own
+life if this person: b. Has gone bankrupt?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/219</p>
+
+<p><a href="#suicide2_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="suicide3"><strong>SUICIDE3</strong></a></p>
+
+<p>SUICIDE IF DISHONORED FAMILY</p>
+
+<p>Do you think a person has the right to end his or her own
+life if this person: c. Has dishonored his or her family?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/221</p>
+
+<p><a href="#suicide3_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="suicide4"><strong>SUICIDE4</strong></a></p>
+
+<p>SUICIDE IF TIRED OF LIVING</p>
+
+<p>Do you think a person has the right to end his or her own
+life if this person: d. Is tired of living and ready to die?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/223</p>
+
+<p><a href="#suicide4_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="fear"><strong>FEAR</strong></a></p>
+
+<p>AFRAID TO WALK AT NIGHT IN NEIGHBORHOOD</p>
+
+<p>Is there any area right around here - that is, within a
+mile - where you would be afraid to walk alone at night?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/225</p>
+
+<p><a href="#fear_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="owngun"><strong>OWNGUN</strong></a></p>
+
+<p>HAVE GUN IN HOME</p>
+
+<p>Do you happen to have in your home (or garage) any guns or
+revolvers?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">REFUSED</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/227</p>
+
+<p><a href="#owngun_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="pistol"><strong>PISTOL</strong></a></p>
+
+<p>PISTOL OR REVOLVER IN HOME</p>
+
+<p>If yes: Is it a pistol, shotgun, rigfle, or what? PISTOL
+OR REVOLVER</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">REFUSED</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/229</p>
+
+<p><a href="#pistol_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="shotgun"><strong>SHOTGUN</strong></a></p>
+
+<p>SHOTGUN IN HOME</p>
+
+<p>If yes: Is it a pistol, shotgun, rigfle, or what? SHOTGUN</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">REFUSED</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/231</p>
+
+<p><a href="#shotgun_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="rifle"><strong>RIFLE</strong></a></p>
+
+<p>RIFLE IN HOME</p>
+
+<p>If yes: Is it a pistol, shotgun, rigfle, or what? RIFLE</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">REFUSED</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/233</p>
+
+<p><a href="#rifle_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="news"><strong>NEWS</strong></a></p>
+
+<p>HOW OFTEN DOES R READ NEWSPAPER</p>
+
+<p>How often do you read the newspaper - every day, a few
+times a week, once a week, less than once a week, or never?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">EVERYDAY</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">FEW TIMES A WEEK</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">ONCE A WEEK</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">LESS THAN ONCE WK</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">NEVER</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/235</p>
+
+<p><a href="#news_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="tvhours"><strong>TVHOURS</strong></a></p>
+
+<p>HOURS PER DAY WATCHING TV</p>
+
+<p>On the average day, about how many hours do you personally
+watch television?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: -1,98,99
+Record/columns: 1/237-238</p>
+
+<p><a href="#tvhours_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="racdif1"><strong>RACDIF1</strong></a></p>
+
+<p>DIFFERENCES DUE TO DISCRIMINATION</p>
+
+<p>On the average (negroes/blacks/African-Americans) have
+worse jobs, income, and housing than white people. Do you think
+these differences are: a. Mainly due to discrimination?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/240</p>
+
+<p><a href="#racdif1_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="racdif2"><strong>RACDIF2</strong></a></p>
+
+<p>DIFFERENCES DUE TO INBORN DISABILITY</p>
+
+<p>On the average (negroes/blacks/African-Americans) have
+worse jobs, income, and housing than white people. Do you think
+these differences are: b. Because most
+(negroes/blacks/African-Americans) have less in-born ability to
+learn?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/242</p>
+
+<p><a href="#racdif2_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="racdif3"><strong>RACDIF3</strong></a></p>
+
+<p>DIFFERENCES DUE TO LACK OF EDUCATION</p>
+
+<p>On the average (negroes/blacks/African-Americans) have
+worse jobs, income, and housing than white people. Do you think
+these differences are: c. Because most
+(negroes/blacks/African-Americans) don&#39;t have the chance for
+education that it takes to rise out of poverty?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/244</p>
+
+<p><a href="#racdif3_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="racdif4"><strong>RACDIF4</strong></a></p>
+
+<p>DIFFERENCES DUE TO LACK OF WILL</p>
+
+<p>On the average (negroes/blacks/African-Americans) have
+worse jobs, income, and housing than white people. Do you think
+these differences are: d. Because most
+(negroes/blacks/African-Americans) just don&#39;t have the
+motivation or willpower to pull themselves up out of poverty?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/246</p>
+
+<p><a href="#racdif4_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="helppoor"><strong>HELPPOOR</strong></a></p>
+
+<p>SHOULD GOVT IMPROVE STANDARD OF LIVING?</p>
+
+<p>I&#39;d like to talk with you about issues some people tell us
+are important. Please look at card BC. Some people think that
+the government in Washington should do everything possible to
+improve the standard of living of all poor Americans; they are
+at point 1 on this card. Other people think itis not the
+government&#39;s responsibility, and that each person should take
+care of himself; they are at point 5. a. Where would you place
+yourself on this scale, or haven&#39;t you made up your mind on
+this?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">GOVT ACTION</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">AGREE WITH BOTH</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">PEOPLE HELP SELVES</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/248</p>
+
+<p><a href="#helppoor_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="helpnot"><strong>HELPNOT</strong></a></p>
+
+<p>SHOULD GOVT DO MORE OR LESS?</p>
+
+<p>Please look at card BD. Some people think that the
+government in Washington is trying to do too many things that
+should be left to individuals and private busienss; they are at
+point 5 on this card. Others disagree and think that the
+government should do even more to solve our country&#39;s problems;
+they are at point 1. a. Where would you place yourself on this
+scale, or haven&#39;t you made up your mind on this?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">GOVT DO MORE</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">AGREE WITH BOTH</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">GOVT DOES TOO MUCH</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/250</p>
+
+<p><a href="#helpnot_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="helpsick"><strong>HELPSICK</strong></a></p>
+
+<p>SHOULD GOVT HELP PAY FOR MEDICAL CARE?</p>
+
+<p>Look at card BE. In general, some people think that it is
+the responsibility of the government in Washington to see to it
+that people have help in paying for doctors and hospital bills;
+they are at point 1. Others think that these matters are not the
+responsibility of the federal government and that people should
+take care of these things themselves; they are at point 5. a.
+Where would you place yourself on this scale, or haven&#39;t you
+made up your mind on this?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">GOVT SHOULD HELP</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">AGREE WITH BOTH</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">PEOPLE HELP SELVES</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/252</p>
+
+<p><a href="#helpsick_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<p><a id="helpblk"><strong>HELPBLK</strong></a></p>
+
+<p>SHOULD GOVT AID BLACKS?</p>
+
+<p>Now look at card BF. Some people think that
+(blacks/negroes/African-Americans) have been discriminated
+against for so long that the government has a special obligation
+to help improve their living standards; they are at point 1.
+Others believe that the government should not be giving special
+treatment to (blacks/negroes/African-Americans); they are at
+point 5. a. Where would you place yourself on this scale, or
+haven&#39;t you made up your mind on this?</p>
+
+<table><thead>
+<tr>
+<th align="center">VALUE</th>
+<th align="left">LABEL</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center">NA</td>
+<td align="left">IAP</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="left">GOVT HELP BLKS</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">AGREE WITH BOTH</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">NO SPECIAL TREATMENT</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">DK</td>
+</tr>
+<tr>
+<td align="center">NA</td>
+<td align="left">NA</td>
+</tr>
+</tbody></table>
+
+<p>Data type: numeric
+Missing-data codes: 0,8,9
+Record/column: 1/254</p>
+
+<p><a href="#helpblk_toc">Back to top</a><hr width="70%" align="left"></p>
+
+<hr width="80%">
+
+</body>
+
+</html>
+
