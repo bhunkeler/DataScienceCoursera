@@ -58,7 +58,7 @@
   - Content Cost Function
   - Style Cost Function
   - 1D and 3D Generalizations
-  - Programming Assignment: [Art generation with Neural Style Transfer]()
+  - Programming Assignment: [Art generation with Neural Style Transfer](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Deep%20Learning%20-%20Deeplearnin.ai/004_Convolutional%20Neural%20Networks/week%204/Programming%20Assignment/Art_Generation_with_Neural_Style_Transfer_-_v2.ipynb)
   - Programming Assignment: [Face Recognition for the Happy House](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Deep%20Learning%20-%20Deeplearnin.ai/004_Convolutional%20Neural%20Networks/week%204/Programming%20Assignment/Face_Recognition_for_the_Happy_House_-_v3.ipynb)
   
   
