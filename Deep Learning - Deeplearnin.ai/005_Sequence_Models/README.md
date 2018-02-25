@@ -47,5 +47,5 @@
   - Trigger Word Detection
   - Conclusion and thank you
   - Programming Assignment: [Neural Machine Translation with Attention](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Deep%20Learning%20-%20Deeplearnin.ai/005_Sequence_Models/Week%203/Programming%20Assignment/Machine%20Translation/Neural%2Bmachine%2Btranslation%2Bwith%2Battention%2B-%2Bv3.ipynb)
-  - Programming Assignment: [Trigger word detection]()
+  - Programming Assignment: [Trigger word detection](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Deep%20Learning%20-%20Deeplearnin.ai/005_Sequence_Models/Week%203/Programming%20Assignment/Trigger%20Word%20Detection/Trigger%2Bword%2Bdetection%2B-%2Bv1.ipynb)
 

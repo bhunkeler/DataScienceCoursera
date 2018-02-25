@@ -69,4 +69,4 @@ Includes 5 courses
 - [Improving Deep Neural Networks Hyperparameter tuning, Regularization and Optimization](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Deep%20Learning%20-%20Deeplearnin.ai/002_Improving%20Deep%20Neural%20Networks%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization)
 - [Structuring Machine Learning Projects]() `no programming assignments`
 - [Convolutional Neural Networks](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Deep%20Learning%20-%20Deeplearnin.ai/004_Convolutional%20Neural%20Networks) 
-- [Sequence Models]() `pending`
+- [Sequence Models](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Deep%20Learning%20-%20Deeplearnin.ai/005_Sequence_Models)
