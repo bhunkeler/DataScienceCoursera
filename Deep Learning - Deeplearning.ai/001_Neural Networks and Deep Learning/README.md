@@ -40,7 +40,7 @@
   - Gradient descent for Neural Networks
   - Backpropagation intuition (optional)
   - Random Initialization   
-  - Programming assignment: [Planar data classification with one hidden layer]((https://github.com/bhunkeler/DataScienceCoursera/blob/master/Deep%20Learning%20-%20Deeplearning.ai/001_Neural%20Networks%20and%20Deep%20Learning/week3/Programming%20Assignment/Planar_data_classification_with_one_hidden_layer_v4.ipynb)
+  - Programming assignment: [Planar data classification with one hidden layer](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Deep%20Learning%20-%20Deeplearning.ai/001_Neural%20Networks%20and%20Deep%20Learning/week3/Programming%20Assignment/Planar_data_classification_with_one_hidden_layer_v4.ipynb)
 
 
 - Week 4 - Deep Neural Networks
