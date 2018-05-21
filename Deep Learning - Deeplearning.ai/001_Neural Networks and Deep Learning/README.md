@@ -39,9 +39,9 @@
   - Derivatives of activation functions
   - Gradient descent for Neural Networks
   - Backpropagation intuition (optional)
-  - Random Initialization
-  - Programming assignment: [Logistic Regression with a Neural Network mindset](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Deep%20Learning%20-%20Deeplearnin.ai/001_Neural%20Networks%20and%20Deep%20Learning/week3/Programming%20Assignment/Planar_data_classification_with_one_hidden_layer_v4.ipynb)
-  - Programming assignment: [Building your Deep Neural Network - Step by Step](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Deep%20Learning%20-%20Deeplearnin.ai/001_Neural%20Networks%20and%20Deep%20Learning/week4/Programming%20Assignment/Building_your_Deep_Neural_Network_-_Step_by_Step_v5.ipynb)
+  - Random Initialization   
+  - Programming assignment: [Planar data classification with one hidden layer]((https://github.com/bhunkeler/DataScienceCoursera/blob/master/Deep%20Learning%20-%20Deeplearning.ai/001_Neural%20Networks%20and%20Deep%20Learning/week3/Programming%20Assignment/Planar_data_classification_with_one_hidden_layer_v4.ipynb)
+
 
 - Week 4 - Deep Neural Networks
   - Deep L-layer neural network
@@ -52,5 +52,6 @@
   - Forward and Backward Propagation
   - Parameters vs Hyperparameters
   - What does this have to do with the brain?
-  - Programming assignment: [Deep Neural Network - Application](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Deep%20Learning%20-%20Deeplearnin.ai/001_Neural%20Networks%20and%20Deep%20Learning/week4/Programming%20Assignment/Deep_Neural_Network_-_Application_v3.ipynb)
+  - Programming assignment: [Building your Deep Neural Network: Step by Step](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Deep%20Learning%20-%20Deeplearning.ai/001_Neural%20Networks%20and%20Deep%20Learning/week4/Programming%20Assignment/Building_your_Deep_Neural_Network_-_Step_by_Step_v5.ipynb)
+  - Programming assignment: [Deep Neural Network for Image Classification: Application](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Deep%20Learning%20-%20Deeplearning.ai/001_Neural%20Networks%20and%20Deep%20Learning/week4/Programming%20Assignment/Deep_Neural_Network_-_Application_v3.ipynb)
 
