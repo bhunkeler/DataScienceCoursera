@@ -42,7 +42,7 @@
   - What we've learned
   - Hierarchical clustering and clustering for time series segmentation
   - Summary and what's ahead in the specialization  
-  - Programming assignment 1: [Modeling text data with a hierarchy of clusters](xxx)
+  - Programming assignment 1: [Modeling text data with a hierarchy of clusters](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Machine%20Learning%20-%20Washington%20University/004_Machine_Learning_Clustering_Retrieval/week6/Programming%20Assignment/6_hierarchical_clustering_blank.ipynb)
 
   
   
