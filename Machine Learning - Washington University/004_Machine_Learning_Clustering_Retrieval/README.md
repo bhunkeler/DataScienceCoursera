@@ -28,14 +28,15 @@
   - Expectation Maximization (EM) building blocks
   - The EM algorithm
   - Summarizing mixture models
-  - Programming assignment 1: [Implementing EM for Gaussian mixtures](xxx)
+  - Programming assignment 1: [Implementing EM for Gaussian mixtures](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Machine%20Learning%20-%20Washington%20University/004_Machine_Learning_Clustering_Retrieval/week4/Programming%20Assignment/3_em-for-gmm_blank.ipynb)
+  - Programming assignment 2: [Clustering text data with Gaussian mixtures](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Machine%20Learning%20-%20Washington%20University/004_Machine_Learning_Clustering_Retrieval/week4/Programming%20Assignment/4_em-with-text-data_blank.ipynb)
   
 - Week 5 - Mixed Membership Modeling via Latent Dirichlet Allocation
   - Introduction to latent Dirichlet allocation 
   - Bayesian inference via Gibbs sampling
   - Collapsed Gibbs sampling for LDA
   - Summarizing latent Dirichlet allocation
-  - Programming assignment 1: [Modeling text topics with Latent Dirichlet Allocation](xxx)
+  - Programming assignment 1: [Modeling text topics with Latent Dirichlet Allocation](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Machine%20Learning%20-%20Washington%20University/004_Machine_Learning_Clustering_Retrieval/week5/Programming%20Assignment/5_lda_blank.ipynb)
 
 - Week 6 - Hierarchical Clustering & Closing Remarks
   - What we've learned
