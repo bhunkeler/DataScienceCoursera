@@ -55,10 +55,10 @@ Includes 4 courses and the capstone project
 
 Includes 4 courses  
 
-- [Machine Learning Foundations](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine%20Learning%20-%20Washingtion%20University/001_Machine_Learning_Foundations)
-- [Machine Learning Regression](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine%20Learning%20-%20Washingtion%20University/002_Machine_Learning_Regression)
-- [Machine Learning Classification](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine%20Learning%20-%20Washingtion%20University/003_Machine_Learning_Classification)
-- [Machine Learning Clustering & Retrieval](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine%20Learning%20-%20Washingtion%20University/004_Machine_Learning_Clustering_Retrieval)
+- [Machine Learning Foundations](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine%20Learning%20-%20Washington%20University/001_Machine_Learning_Foundations)
+- [Machine Learning Regression](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine%20Learning%20-%20Washington%20University/002_Machine_Learning_Regression)
+- [Machine Learning Classification](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine%20Learning%20-%20Washington%20University/003_Machine_Learning_Classification)
+- [Machine Learning Clustering & Retrieval](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Machine%20Learning%20-%20Washington%20University/004_Machine_Learning_Clustering_Retrieval)
 
 ## Deep Learning - Coursera
 **Specialization** provided by DeepLearning.ai

@@ -12,15 +12,15 @@
   - Scaling up k-NN search using KD-trees
   - Locality sensitive hashing for approximate NN search
   - Summarizing nearest neighbor search
-  - Programming assignment 1: [Choosing features and metrics for nearest neighbor search](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Machine%20Learning%20-%20Washingtion%20University/004_Machine_Learning_Clustering_Retrieval/week2/Programming%20Assignment/0_nearest-neighbors-features-and-metrics_blank.ipynb)
-  - Programming assignment 2: [Implementing Locality Sensitive Hashing from scratch](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Machine%20Learning%20-%20Washingtion%20University/004_Machine_Learning_Clustering_Retrieval/week2/Programming%20Assignment/1_nearest-neighbors-lsh-implementation_blank.ipynb)
+  - Programming assignment 1: [Choosing features and metrics for nearest neighbor search](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Machine%20Learning%20-%20Washington%20University/004_Machine_Learning_Clustering_Retrieval/week2/Programming%20Assignment/0_nearest-neighbors-features-and-metrics_blank.ipynb)
+  - Programming assignment 2: [Implementing Locality Sensitive Hashing from scratch](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Machine%20Learning%20-%20Washington%20University/004_Machine_Learning_Clustering_Retrieval/week2/Programming%20Assignment/1_nearest-neighbors-lsh-implementation_blank.ipynb)
 
 - Week 3 - Clustering with k-means
   - Introduction to clustering
   - Clustering via k-means
   - MapReduce for scaling k-means
   - Summarizing clustering with k-means
-  - Programming assignment 1: [Clustering text data with k-means](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Machine%20Learning%20-%20Washingtion%20University/004_Machine_Learning_Clustering_Retrieval/week3/Programming%20Assignment/2_kmeans-with-text-data_blank.ipynb)
+  - Programming assignment 1: [Clustering text data with k-means](https://github.com/bhunkeler/DataScienceCoursera/blob/master/Machine%20Learning%20-%20Washington%20University/004_Machine_Learning_Clustering_Retrieval/week3/Programming%20Assignment/2_kmeans-with-text-data_blank.ipynb)
 
 - Week 4 - Mixture Models
   - Motivating and setting the foundation for mixture models 
