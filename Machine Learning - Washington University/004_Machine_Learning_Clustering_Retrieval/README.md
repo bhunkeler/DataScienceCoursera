@@ -1,7 +1,7 @@
 ## Machine Learning - Coursera
 **Specialization** provided by Washington University
 
-### Course 3 - Machine Learning: Classification
+### Course 4 - Machine Learning: Clustering & Retrieval
 
 - Week 1: What is this course about
   - Course overview
