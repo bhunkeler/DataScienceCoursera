@@ -70,3 +70,13 @@ Includes 5 courses
 - [Structuring Machine Learning Projects]() `no programming assignments`
 - [Convolutional Neural Networks](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Deep%20Learning%20-%20Deeplearning.ai/004_Convolutional%20Neural%20Networks) 
 - [Sequence Models](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Deep%20Learning%20-%20Deeplearning.ai/005_Sequence_Models)
+
+## Reinforcement Learning - Coursera
+**Specialization** provided by University of Alberta
+
+Includes 4 Courses
+
+- [Fundamentals of Reinforcement Learning]() `done`
+- [Sample-based Learning Methods]() `done`
+- [Prediction and Control with Function Approximation]() `pending`
+- [A Complete Reinforcement Learning System (Capstone)]() `pending`
