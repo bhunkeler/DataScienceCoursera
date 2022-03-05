@@ -76,7 +76,7 @@ Includes 5 courses
 
 Includes 4 Courses
 
-- [Fundamentals of Reinforcement Learning]() `done`
-- [Sample-based Learning Methods]() `done`
-- [Prediction and Control with Function Approximation]() `pending`
+- [Fundamentals of Reinforcement Learning](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Reinforcement_Learning%20-%20University%20of%20Alberta/001_fundamentals_of_reinforcement_learning) 
+- [Sample-based Learning Methods](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Reinforcement_Learning%20-%20University%20of%20Alberta/002_Sample_based_Learning_Methods) 
+- [Prediction and Control with Function Approximation](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Reinforcement_Learning%20-%20University%20of%20Alberta/003_Prediction_and_Control_with_Function_Approximation)
 - [A Complete Reinforcement Learning System (Capstone)]() `pending`
