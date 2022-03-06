@@ -34,4 +34,4 @@
 - Describe a theoretical guarantee on the mean squared value error at the TD fixed point
 
 **Programming Assignment:**  
-[Assignment]()
+[Semi-gradient TD(0) with State Aggregation](Semi-gradient TD(0) with State Aggregation)
