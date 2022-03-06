@@ -11,4 +11,4 @@
 - Explain when average reward optimal policies are different from discounted solutions
 - Understand how differential value functions are different from discounted value functions
 
-Assignment [Function Aproximation and Control](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Reinforcement_Learning%20-%20University%20of%20Alberta/003_Prediction_and_Control_with_Function_Approximation/week_3/assignment)
+**Assignment** [Function Aproximation and Control](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Reinforcement_Learning%20-%20University%20of%20Alberta/003_Prediction_and_Control_with_Function_Approximation/week_3/assignment)
