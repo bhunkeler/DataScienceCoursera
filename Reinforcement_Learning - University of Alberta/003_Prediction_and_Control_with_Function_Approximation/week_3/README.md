@@ -14,4 +14,4 @@
 - Understand how differential value functions are different from discounted value functions
 
 **Programming Assignment:**     
-[Function Aproximation and Control](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Reinforcement_Learning%20-%20University%20of%20Alberta/003_Prediction_and_Control_with_Function_Approximation/week_3/assignment)
+[Function Approximation and Control](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Reinforcement_Learning%20-%20University%20of%20Alberta/003_Prediction_and_Control_with_Function_Approximation/week_3/assignment)
