@@ -1,6 +1,6 @@
 **Module 1 - Learning Parameterized Policies**  
 **Module 2 - Policy Gradient for continuing Tasks**  
-**Module 3 - Actor-Critic for continuing Tasks**
+**Module 3 - Actor-Critic for continuing Tasks**  
 **Module 4 - Policy Parameterization**  
   
 - Understand how to define policies as parameterized functions
