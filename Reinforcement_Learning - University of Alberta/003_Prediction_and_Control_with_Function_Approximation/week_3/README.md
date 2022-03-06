@@ -4,7 +4,7 @@
 - Introduce the feature choices, including passing actions to features or stacking state features
 - Visualize value function and learning curves
 - Discuss how this extends to Q-learning easily, since its a subset of Expected Sarsa
-- 
+
 **Lesson 2: Exploration under Function Approximation**   
 - Understanding optimistically initializing your value function as a form of exploration
 
