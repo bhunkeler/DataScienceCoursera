@@ -1,5 +1,6 @@
-**Lesson 1: Feature Construction for Linear Methods** 
+**Module 02: Constructing Features for Prediction**  
 
+**Lesson 1: Feature Construction for Linear Methods** 
 - Describe the difference between coarse coding and tabular representations 
 - Explain the trade-off when designing representations between discrimination and generalization 
 - Understand how different coarse coding schemes affect the functions that can be represented 
