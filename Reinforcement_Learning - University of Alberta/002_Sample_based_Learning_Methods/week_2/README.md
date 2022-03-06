@@ -23,4 +23,4 @@
 - Describe strategies for initializing neural networks
 - Describe optimization techniques for training neural networks
 
-**Programming Assignment:** [Assignment](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Reinforcement_Learning%20-%20University%20of%20Alberta/003_Prediction_and_Control_with_Function_Approximation/week_2/assignment)
+**Programming Assignment:** [Semi-gradient TD with a Neural Network](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Reinforcement_Learning%20-%20University%20of%20Alberta/003_Prediction_and_Control_with_Function_Approximation/week_2/assignment)
