@@ -7,8 +7,6 @@
 - Describe how designing the tilings affects the resultant representation
 - Understand that tile coding is a computationally efficient implementation of coarse coding
 
-**Programming Assignment:** [Assignment](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Reinforcement_Learning%20-%20University%20of%20Alberta/003_Prediction_and_Control_with_Function_Approximation/week_1/assignment) 
-
 **Lesson 2: Neural Networks**  
 - Define a neural network.
 - Define activation functions.
@@ -18,8 +16,6 @@
 - Understand how deep networks are a composition of layers.
 - Understand the tradeoff between learning capacity and challenges presented by deeper networks
 
-**Programming Assignment:** [Assignment]()
-
 **Lesson 3: Training Neural Networks**  
 - Compute the gradient of a single hidden layer neural network
 - Understand how to compute the gradient for arbitrarily deep networks
@@ -27,4 +23,4 @@
 - Describe strategies for initializing neural networks
 - Describe optimization techniques for training neural networks
 
-**Programming Assignment:** [Assignment]
+**Programming Assignment:** [Assignment](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Reinforcement_Learning%20-%20University%20of%20Alberta/003_Prediction_and_Control_with_Function_Approximation/week_2/assignment)
