@@ -21,3 +21,6 @@
 - Analyze the performance of an average reward agent
 - Derive the actor-critic update for a gaussian policy
 - Apply average reward actor-critic with a gaussian policy to a particular task with continuous actions
+
+**Programming Assignment:**  
+[Average Reward Softmax Actor-Critic using Tile-coding](https://github.com/bhunkeler/DataScienceCoursera/tree/master/Reinforcement_Learning%20-%20University%20of%20Alberta/003_Prediction_and_Control_with_Function_Approximation/week_4/assignment)
