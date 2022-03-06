@@ -1,6 +1,6 @@
-**Module 1 - Episodic Sarsa with Function Approximation**
-**Module 2 - Exploration under Function Approximation**
-**Module 3 - Average Reward**
+**Module 1 - Episodic Sarsa with Function Approximation**  
+**Module 2 - Exploration under Function Approximation**  
+**Module 3 - Average Reward**  
 
 - Explain the update for Episodic Sarsa with function approximation
 - Introduce the feature choices, including passing actions to features or stacking state features
